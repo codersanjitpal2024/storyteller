@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — WeTheMums | Editorial Desk & Inquiries</title>
+  <meta name="description" content="Get in touch with the WeTheMums editorial team for questions, story guidance, press, or feedback.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              DEFAULT: '#75454B',
+              hover: '#64393F',
+              dark: '#522E33',
+            },
+            ivory: {
+              light: '#FCFAF7',
+              DEFAULT: '#F7F2EC',
+              dark: '#EBE2D5',
+            },
+            dustyRose: {
+              light: '#F4DDD7',
+              DEFAULT: '#D9A99C',
+              dark: '#C38B7C',
+            },
+            charcoal: {
+              DEFAULT: '#292725',
+              light: '#423F3C',
+            },
+            mutedText: {
+              DEFAULT: '#716A65',
+            },
+            subtleBorder: {
+              DEFAULT: '#E7DDD2',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40">
+
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-subtleBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="group flex items-center gap-2">
+        <span class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-charcoal group-hover:text-berry transition-colors">
+          WeTheMums<span class="text-berry font-sans font-bold">.</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-charcoal/90">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About Us</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Journal</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Brand Partnerships</a>
+        <a href="contact.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white hover:bg-berry-hover transition-all">
+          Share Your Story
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-subtleBorder px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-base font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories Archive</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About Us</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Journal & Resources</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Brand Partnerships</a>
+        <a href="contact.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Contact</a>
+        <a href="editorial-dashboard.html" class="text-mutedText hover:text-berry text-xs py-1.5 px-2">🔒 Editorial Review (Internal)</a>
+      </nav>
+      <div class="pt-3 border-t border-subtleBorder">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 md:py-20">
+    <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left: Contact Information & Guidance -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Get in Touch</span>
+            <h1 class="reveal-lines font-serif text-4xl sm:text-5xl text-charcoal font-normal mt-1 leading-tight">
+              We're here to listen.
+            </h1>
+            <p class="reveal-fade text-sm text-mutedText mt-3 leading-relaxed">
+              Have questions regarding our storytelling platform, guidelines, editorial review process, or general feedback? Send us a message and our team will get back to you.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            
+            <div class="p-6 rounded-2xl bg-white border border-subtleBorder flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-berry/10 text-berry flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-charcoal block">Editorial Desk Email</span>
+                <span class="text-xs text-berry font-medium">editorial@wethemums.com</span>
+                <p class="text-[11px] text-mutedText mt-1">For contributor questions, revisions, and editorial correspondence.</p>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white border border-subtleBorder flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-berry/10 text-berry flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-charcoal block">Instagram Direct Message</span>
+                <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="text-xs text-berry font-medium hover:underline">
+                  @wethemums
+                </a>
+                <p class="text-[11px] text-mutedText mt-1">Follow along for daily reflections and community discussions.</p>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white border border-subtleBorder flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-berry/10 text-berry flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-charcoal block">Response Time</span>
+                <span class="text-xs text-charcoal font-medium">Within 2 to 3 Business Days</span>
+                <p class="text-[11px] text-mutedText mt-1">Every note is read with care by our human editorial team.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Categorized Form -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="bg-white p-8 sm:p-10 rounded-2xl border border-subtleBorder shadow-md space-y-5">
+            <h2 class="reveal-lines font-serif text-2xl text-charcoal font-medium">Send a Message</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-name" class="block text-xs font-semibold text-charcoal mb-1">
+                  Your Name <span class="text-berry">*</span>
+                </label>
+                <input type="text" id="contact-name" required placeholder="e.g. Rohini Sen" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+              </div>
+
+              <div>
+                <label for="contact-email" class="block text-xs font-semibold text-charcoal mb-1">
+                  Your Email <span class="text-berry">*</span>
+                </label>
+                <input type="email" id="contact-email" required placeholder="e.g. rohini@example.com" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-category" class="block text-xs font-semibold text-charcoal mb-1">
+                Enquiry Category <span class="text-berry">*</span>
+              </label>
+              <select id="contact-category" required class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+                <option value="" disabled selected>Select reason for contacting...</option>
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Story Submission Query">Question About Story Submission</option>
+                <option value="Brand Collaboration">Brand Collaboration / Partnership</option>
+                <option value="Media & Press">Media & Press Enquiries</option>
+                <option value="Editorial Feedback">Editorial Feedback & Corrections</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-xs font-semibold text-charcoal mb-1">
+                Your Message <span class="text-berry">*</span>
+              </label>
+              <textarea id="contact-message" required rows="5" placeholder="How can our editorial team help you?" class="w-full p-4 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30 leading-relaxed"></textarea>
+            </div>
+
+            <div class="flex items-start gap-2">
+              <input type="checkbox" id="contact-consent" required class="mt-1 rounded text-berry focus:ring-berry">
+              <label for="contact-consent" class="text-[11px] text-mutedText leading-relaxed">
+                I agree to WeTheMums collecting this message and my email address solely to reply to this inquiry.
+              </label>
+            </div>
+
+            <div>
+              <button type="submit" class="w-full py-3.5 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover transition-all shadow-md">
+                Send Message &rarr;
+              </button>
+            </div>
+
+            <div id="contact-success" class="hidden p-4 rounded-xl bg-emerald-50 text-emerald-800 text-xs font-medium border border-emerald-200">
+              ✓ Thank you! Your message has been sent to our editorial desk.
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
+        <div class="lg:col-span-2 space-y-4">
+          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
+          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
+            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Legal</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
+            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('contact-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const messageRecord = {
+        id: `MSG-${Date.now().toString().slice(-6)}`,
+        name: document.getElementById('contact-name').value.trim(),
+        email: document.getElementById('contact-email').value.trim(),
+        category: document.getElementById('contact-category').value,
+        message: document.getElementById('contact-message').value.trim(),
+        timestamp: new Date().toISOString()
+      };
+
+      const existing = JSON.parse(localStorage.getItem('wethemums_contact_messages') || '[]');
+      existing.unshift(messageRecord);
+      localStorage.setItem('wethemums_contact_messages', JSON.stringify(existing));
+
+      successMsg.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => successMsg.classList.add('hidden'), 5000);
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>

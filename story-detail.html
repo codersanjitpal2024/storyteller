@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Story Reader — WeTheMums</title>
+  <meta name="description" content="Read real, authentic parenting stories on WeTheMums.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              50: '#FAF4F5',
+              100: '#F5E8EB',
+              200: '#ECCFD4',
+              300: '#DFAAB3',
+              400: '#BA6B7A',
+              DEFAULT: '#632837',
+              hover: '#501E2B',
+              dark: '#3D1520',
+              footer: '#270F16',
+            },
+            cream: {
+              DEFAULT: '#FAF6F2',
+              card: '#FFFFFF',
+              border: '#EFE7E1',
+            },
+            dustyPeach: '#E6B8AF',
+            iconBg: '#FCECEF',
+            charcoal: '#2D2926',
+            muted: '#7A736E',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background-color: #ECCFD4; color: #3D1520; }
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, #541E2A 0%, #BA6B7A 50%, #ECCFD4 100%);
+      z-index: 100000; transition: width 0.08s ease-out;
+    }
+    .custom-cursor-dot {
+      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+      background-color: #BA6B7A; border-radius: 50%; pointer-events: none;
+      z-index: 99999; transform: translate(-50%, -50%);
+    }
+    .custom-cursor-ring {
+      position: fixed; top: 0; left: 0; width: 38px; height: 38px;
+      border: 1.5px solid rgba(186, 107, 122, 0.45); border-radius: 50%;
+      pointer-events: none; z-index: 99998; transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cursor-hover .custom-cursor-ring {
+      width: 60px; height: 60px; border-color: rgba(99, 34, 50, 0.3);
+      background-color: rgba(236, 207, 212, 0.15); backdrop-filter: blur(2px);
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry-200">
+
+  <!-- TOP READING PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- LUXURY CUSTOM MAGNETIC CURSOR -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- TOP BAR -->
+  <div class="bg-berry text-white text-[11px] sm:text-xs py-2 px-4 border-b border-berry-dark/30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 font-normal">
+        <svg class="w-3.5 h-3.5 text-dustyPeach fill-current" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+        </svg>
+        <span>A supportive community for every stage of motherhood</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-3 text-[11px] text-white/90">
+        <span>Follow Us:</span>
+        <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="hover:text-dustyPeach transition-colors">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="bg-white border-b border-cream-border sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex flex-col group">
+        <span class="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-tight group-hover:text-berry transition-colors">
+          WithTheMums<span class="text-berry font-bold">.</span>
+        </span>
+        <span class="text-[10px] sm:text-[11px] text-muted -mt-1 tracking-wide">
+          Real Stories. Stronger Together.
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal/80">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Stories</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Resources</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Events</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-all shadow-sm">
+          Join Our Community
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-cream-border/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-cream-border px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-sm font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Stories</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Resources</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Events & Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+      </nav>
+      <div class="pt-3 border-t border-cream-border">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-10 md:py-16">
+    <article class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- BREADCRUMBS -->
+      <nav class="flex items-center gap-2 text-xs text-mutedText mb-8">
+        <a href="index.html" class="hover:text-berry">Home</a>
+        <span>/</span>
+        <a href="stories.html" class="hover:text-berry">Stories</a>
+        <span>/</span>
+        <span id="breadcrumb-category" class="hover:text-berry">Category</span>
+      </nav>
+
+      <!-- ARTICLE HEADER -->
+      <header class="space-y-4 text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2">
+          <span id="story-category" class="bg-berry/10 text-berry px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+            Category
+          </span>
+          <span class="text-xs text-mutedText">•</span>
+          <span id="story-readtime" class="text-xs text-mutedText font-medium">6 min read</span>
+        </div>
+
+        <h1 id="story-title" class="reveal-lines font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-normal leading-[1.2] tracking-tight">
+          Loading Story...
+        </h1>
+
+        <p id="story-excerpt" class="reveal-fade text-base sm:text-lg text-mutedText leading-relaxed italic max-w-2xl mx-auto">
+          ...
+        </p>
+
+        <!-- ATTRIBUTION META -->
+        <div class="pt-4 flex items-center justify-center gap-3 text-xs text-mutedText border-t border-subtleBorder max-w-md mx-auto">
+          <span id="story-author" class="font-semibold text-charcoal">Contributor</span>
+          <span>•</span>
+          <span id="story-date">Date</span>
+          <span>•</span>
+          <span class="text-emerald-700 font-medium">✓ Verified Submission</span>
+        </div>
+      </header>
+
+      <!-- COVER IMAGE -->
+      <div class="rounded-2xl overflow-hidden border border-subtleBorder shadow-md mb-12">
+        <img id="story-cover" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80" alt="Cover" class="w-full h-80 sm:h-[450px] object-cover">
+        <div class="p-3 bg-white text-[11px] text-mutedText text-center italic border-t border-subtleBorder">
+          Photograph representative of lived family experiences. Contributor details preserved with care.
+        </div>
+      </div>
+
+      <!-- MAIN EDITORIAL CONTENT (Comfortable 65ch reading column) -->
+      <div id="story-body" class="max-w-[65ch] mx-auto text-base sm:text-lg text-charcoal/90 leading-[1.85] space-y-6">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- ETHICAL / ATTRIBUTION NOTE -->
+      <div class="max-w-[65ch] mx-auto mt-12 p-5 rounded-xl bg-white border border-subtleBorder text-xs text-mutedText leading-relaxed flex items-start gap-3">
+        <svg class="w-5 h-5 text-berry flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div>
+          <strong class="text-charcoal block font-semibold mb-0.5">Editorial Consent & Contributor Integrity</strong>
+          This account was submitted by a community parent and reviewed in accordance with WeTheMums editorial guidelines. Personal identifying information is handled strictly according to the contributor's attribution preferences.
+        </div>
+      </div>
+
+      <!-- SOCIAL SHARE BAR -->
+      <div class="max-w-[65ch] mx-auto mt-10 pt-8 border-t border-subtleBorder flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs uppercase tracking-wider text-mutedText font-semibold">Share this story:</span>
+        <div class="flex items-center gap-2">
+          <!-- WhatsApp -->
+          <a id="share-wa" href="#" target="_blank" class="px-3.5 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 flex items-center gap-1.5 transition-colors">
+            WhatsApp
+          </a>
+          <!-- Twitter / X -->
+          <a id="share-tw" href="#" target="_blank" class="px-3.5 py-1.5 rounded-full bg-charcoal text-white text-xs font-semibold hover:bg-black flex items-center gap-1.5 transition-colors">
+            Share on X
+          </a>
+          <!-- Copy Link -->
+          <button id="copy-link-btn" class="px-3.5 py-1.5 rounded-full border border-subtleBorder text-charcoal text-xs font-semibold hover:border-berry hover:text-berry bg-white transition-colors">
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- SENSITIVE SUBMISSION BANNER -->
+      <div class="mt-16 p-8 sm:p-10 rounded-2xl bg-berry text-ivory text-center space-y-4">
+        <span class="reveal-fade text-xs uppercase tracking-widest text-dustyRose font-semibold">Your Story Matters</span>
+        <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Every parent's voice holds power.</h3>
+        <p class="reveal-fade text-xs sm:text-sm text-ivory/80 max-w-lg mx-auto leading-relaxed">
+          If you have experienced something you would like to share with fellow parents, we would be honored to hold space for your story.
+        </p>
+        <div class="reveal-fade pt-2">
+          <a href="share-your-story.html" class="inline-flex px-7 py-3 rounded-full bg-dustyRose text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-dustyRose-light transition-all shadow-md">
+            Share Your Experience &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- RELATED STORIES -->
+      <div class="mt-20 pt-12 border-t border-subtleBorder">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-serif text-2xl text-charcoal font-normal">More Stories from WeTheMums</h3>
+          <a href="stories.html" class="text-xs text-berry font-semibold hover:underline">View All &rarr;</a>
+        </div>
+        <div id="related-stories-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="fixed bottom-6 right-6 hidden bg-charcoal text-white px-5 py-3 rounded-xl shadow-xl text-xs font-medium z-50 flex items-center gap-2">
+    <span>✓ Link copied to clipboard</span>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
+        <div class="lg:col-span-2 space-y-4">
+          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
+          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
+            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Trust & Legal</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
+            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    async function loadStory() {
+      let stories = [];
+      try {
+        const res = await fetch('public/data/stories.json');
+        stories = await res.json();
+      } catch (e) {
+        // Fallback
+        stories = [
+          {
+            id: "story-1",
+            slug: "quiet-hours-early-motherhood",
+            title: "The Quiet Hours of Early Motherhood: Learning to Trust My Own Instincts",
+            excerpt: "In the silent 3:00 AM hours, amid conflicting advice from relatives and apps, I finally stopped second-guessing myself.",
+            category: "Motherhood",
+            categorySlug: "motherhood",
+            author: "Priya Sharma (Contributor)",
+            readTime: "6 min read",
+            publishedAt: "October 14, 2026",
+            coverImage: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80",
+            content: [
+              { type: "paragraph", text: "Nobody truly warns you about the silence. During the daytime, your home is filled with congratulatory phone calls, well-meaning aunties carrying containers of methi laddoos, and the rhythmic beeping of your phone notifications. But at 3:17 AM, when the rest of the city is asleep and your infant is crying with a fierce, inconsolable hunger, the world narrows down to just the two of you." },
+              { type: "paragraph", text: "In those first three weeks, every cry felt like an exam I hadn't prepared for. Was he gassy? Was my milk supply inadequate? Did I hold him at the wrong angle? I had four different parenting apps installed, each offering contradictory wisdom, and three different books with bookmark tabs dog-eared to exhaustion." },
+              { type: "pullquote", quote: "In those 3:00 AM silences, I stopped looking for manual instructions and started listening to my child." },
+              { type: "paragraph", text: "One rainy Tuesday night, exhausted to the point of tears, I put the phone facedown on the nightstand. I sat in our wooden rocking chair, pulled my son against my chest, and just breathed. I stopped measuring the minutes between feeds or checking forum threads. I looked at the tiny curl of his fingers and the steady rise and fall of his chest. For the first time, I felt something quiet settle inside me: not certainty, but trust." },
+              { type: "paragraph", text: "Motherhood hasn't become easier since that night, but the noise has subsided. We don't need to be flawless to be present. And sometimes, the most profound parenting manual is simply having the patience to be still with your child." }
+            ]
+          },
+          {
+            id: "story-3",
+            slug: "adoption-road-to-miracles",
+            title: "The Paperwork of Love: Navigating Infertility and Our Adoption Journey",
+            excerpt: "Four years of IVF treatments brought heartbreak. When we finally turned towards adoption, we discovered the true meaning of family.",
+            category: "Fertility and Family Journeys",
+            categorySlug: "fertility-and-family-journeys",
+            author: "Kavita & Rohith S.",
+            readTime: "7 min read",
+            publishedAt: "October 07, 2026",
+            coverImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+            content: [
+              { type: "paragraph", text: "Infertility is a quiet grief that few people know how to talk about. In social gatherings, innocent questions like 'So when are you giving your parents good news?' felt like needles. After our third failed IVF cycle, Rohith and I sat on our balcony in Bengaluru and asked ourselves what we truly wanted: did we want a pregnancy, or did we want to raise and love a child?" },
+              { type: "pullquote", quote: "She didn't grow under my heart; she grew into it from the moment our eyes met." },
+              { type: "paragraph", text: "The day we met Ananya at the agency in Pune, she looked up, gripped my little finger, and let out a soft sigh. All the clinical waiting rooms and years of sorrow vanished in an instant. She is our daughter, completely and irrevocably." }
+            ]
+          }
+        ];
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug') || 'quiet-hours-early-motherhood';
+      const story = stories.find(s => s.slug === slug) || stories[0];
+
+      // Populate UI
+      document.getElementById('page-title').textContent = `${story.title} — WeTheMums`;
+      document.getElementById('breadcrumb-category').textContent = story.category;
+      document.getElementById('story-category').textContent = story.category;
+      document.getElementById('story-readtime').textContent = story.readTime;
+      document.getElementById('story-title').textContent = story.title;
+      document.getElementById('story-excerpt').textContent = story.excerpt;
+      document.getElementById('story-author').textContent = `By ${story.author}`;
+      document.getElementById('story-date').textContent = story.publishedAt;
+      document.getElementById('story-cover').src = story.coverImage;
+
+      // Populate Story Content
+      const bodyEl = document.getElementById('story-body');
+      if (story.content && story.content.length > 0) {
+        bodyEl.innerHTML = story.content.map(block => {
+          if (block.type === 'pullquote') {
+            return `
+              <figure class="my-8 py-4 px-6 border-l-4 border-berry bg-white rounded-r-xl">
+                <blockquote class="font-serif text-xl sm:text-2xl text-berry italic leading-relaxed">
+                  "${block.quote}"
+                </blockquote>
+              </figure>
+            `;
+          }
+          return `<p class="mb-5">${block.text}</p>`;
+        }).join('');
+      } else {
+        bodyEl.innerHTML = `<p>${story.excerpt}</p>`;
+      }
+
+      // Configure Share Links
+      const currentUrl = encodeURIComponent(window.location.href);
+      const shareTitle = encodeURIComponent(story.title);
+      document.getElementById('share-wa').href = `https://api.whatsapp.com/send?text=${shareTitle}%20${currentUrl}`;
+      document.getElementById('share-tw').href = `https://twitter.com/intent/tweet?text=${shareTitle}&url=${currentUrl}`;
+
+      // Copy Link toast
+      const copyBtn = document.getElementById('copy-link-btn');
+      const toast = document.getElementById('toast');
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href);
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 3000);
+      });
+
+      // Related Stories
+      const related = stories.filter(s => s.slug !== story.slug).slice(0, 2);
+      const relatedGrid = document.getElementById('related-stories-grid');
+      relatedGrid.innerHTML = related.map(rel => `
+        <a href="story-detail.html?slug=${rel.slug}" class="group bg-white p-4 rounded-xl border border-subtleBorder flex gap-4 hover:shadow-md transition-shadow">
+          <img src="${rel.coverImage}" alt="${rel.title}" class="w-24 h-24 rounded-lg object-cover flex-shrink-0">
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-[11px] text-berry font-semibold uppercase tracking-wider">${rel.category}</span>
+              <h4 class="font-serif text-sm font-medium text-charcoal group-hover:text-berry transition-colors line-clamp-2 mt-1">
+                ${rel.title}
+              </h4>
+            </div>
+            <span class="text-[11px] text-mutedText">${rel.readTime} • Read story &rarr;</span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    loadStory();
+
+    // Reading progress bar
+    const pBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (pBar) pBar.style.width = scrolled + '%';
+    }, { passive: true });
+
+    // Luxury Cursor Engine
+    const cDot = document.getElementById('cursor-dot');
+    const cRing = document.getElementById('cursor-ring');
+    let mX = window.innerWidth / 2, mY = window.innerHeight / 2, rX = mX, rY = mY;
+    window.addEventListener('mousemove', (e) => {
+      mX = e.clientX; mY = e.clientY;
+      if (cDot) { cDot.style.left = mX + 'px'; cDot.style.top = mY + 'px'; }
+    }, { passive: true });
+    function loopCursor() {
+      rX += (mX - rX) * 0.16; rY += (mY - rY) * 0.16;
+      if (cRing) { cRing.style.left = rX + 'px'; cRing.style.top = rY + 'px'; }
+      requestAnimationFrame(loopCursor);
+    }
+    loopCursor();
+    document.querySelectorAll('a, button, input').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>

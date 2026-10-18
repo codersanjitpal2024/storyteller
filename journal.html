@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal & Perspectives — WeTheMums | Thoughtful Family Resources</title>
+  <meta name="description" content="Parenting reflections, curated perspectives, and mindful family guides on WeTheMums.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              DEFAULT: '#75454B',
+              hover: '#64393F',
+              dark: '#522E33',
+            },
+            ivory: {
+              light: '#FCFAF7',
+              DEFAULT: '#F7F2EC',
+              dark: '#EBE2D5',
+            },
+            dustyRose: {
+              light: '#F4DDD7',
+              DEFAULT: '#D9A99C',
+              dark: '#C38B7C',
+            },
+            charcoal: {
+              DEFAULT: '#292725',
+              light: '#423F3C',
+            },
+            mutedText: {
+              DEFAULT: '#716A65',
+            },
+            subtleBorder: {
+              DEFAULT: '#E7DDD2',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40">
+
+  <!-- TOP BAR -->
+  <div class="bg-berry-dark text-ivory-light text-xs px-4 py-1.5 text-center font-medium tracking-wide">
+    WeTheMums Journal — Mindful perspectives, expert reflections, and family wellbeing.
+  </div>
+
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-subtleBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="group flex items-center gap-2">
+        <span class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-charcoal group-hover:text-berry transition-colors">
+          WeTheMums<span class="text-berry font-sans font-bold">.</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-charcoal/90">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About Us</a>
+        <a href="journal.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Journal</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Brand Partnerships</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white hover:bg-berry-hover transition-all">
+          Share Your Story
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-subtleBorder px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-base font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories Archive</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About Us</a>
+        <a href="journal.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Journal & Resources</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Brand Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+        <a href="editorial-dashboard.html" class="text-mutedText hover:text-berry text-xs py-1.5 px-2">🔒 Editorial Review (Internal)</a>
+      </nav>
+      <div class="pt-3 border-t border-subtleBorder">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 md:py-20">
+    <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- HEADER -->
+      <div class="max-w-3xl mb-12">
+        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Editorial Journal</span>
+        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl text-charcoal font-normal mt-1 leading-tight">
+          Reflections & Family Wellbeing
+        </h1>
+        <p class="reveal-fade text-base text-mutedText mt-3 leading-relaxed">
+          Curated essays, expert dialogues, and grounded philosophies designed to support parents navigating modern family life.
+        </p>
+      </div>
+
+      <!-- EDITORIAL / MEDICAL DISTINCTION NOTICE -->
+      <div class="p-4 rounded-xl bg-white border border-subtleBorder mb-12 flex items-start gap-3 text-xs text-mutedText leading-relaxed">
+        <svg class="w-5 h-5 text-berry flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div>
+          <strong class="text-charcoal font-semibold">Editorial Distinction Note:</strong> The Journal features conceptual essays, parental reflections, and conversational articles. It is deliberately separated from first-person lived accounts and does not constitute formal medical, clinical, or psychological diagnosis. Always consult certified healthcare professionals for clinical guidance.
+        </div>
+      </div>
+
+      <!-- ARTICLES GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Article 1 -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-subtleBorder flex flex-col hover:shadow-md transition-shadow">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=700&q=80" alt="Parent reflection" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-[11px] text-berry font-semibold uppercase tracking-wider">Mindful Parenting</span>
+              <h3 class="font-serif text-xl font-medium text-charcoal leading-snug">
+                Reframing Parent Guilt: Why 'Good Enough' is Healthier Than Perfect
+              </h3>
+              <p class="text-xs text-mutedText leading-relaxed">
+                Exploring Donald Winnicott's landmark concept of the 'good-enough mother' and why children thrive on resilient repair rather than impossible perfection.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-subtleBorder mt-4 flex items-center justify-between text-xs text-mutedText">
+              <span>5 min read</span>
+              <span class="text-berry font-semibold">Editorial Essay</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-subtleBorder flex flex-col hover:shadow-md transition-shadow">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=700&q=80" alt="Family conversation" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-[11px] text-berry font-semibold uppercase tracking-wider">Communication</span>
+              <h3 class="font-serif text-xl font-medium text-charcoal leading-snug">
+                Talking to Young Children About Big Emotions: Words That Build Connection
+              </h3>
+              <p class="text-xs text-mutedText leading-relaxed">
+                How compassionate labeling, co-regulation, and quiet pauses help children navigate overwhelm without shame or emotional suppression.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-subtleBorder mt-4 flex items-center justify-between text-xs text-mutedText">
+              <span>6 min read</span>
+              <span class="text-berry font-semibold">Practical Guide</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-subtleBorder flex flex-col hover:shadow-md transition-shadow">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=80" alt="Fatherhood and rest" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="text-[11px] text-berry font-semibold uppercase tracking-wider">Self-Care & Balance</span>
+              <h3 class="font-serif text-xl font-medium text-charcoal leading-snug">
+                The Anatomy of Parental Burnout: Recognizing the Warning Signs
+              </h3>
+              <p class="text-xs text-mutedText leading-relaxed">
+                Examining the physical and emotional exhaustion of prolonged caregiving, and how small boundaries create space for sustained empathy.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-subtleBorder mt-4 flex items-center justify-between text-xs text-mutedText">
+              <span>7 min read</span>
+              <span class="text-berry font-semibold">Wellbeing Analysis</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
+        <div class="lg:col-span-2 space-y-4">
+          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
+          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
+            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Legal</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
+            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>

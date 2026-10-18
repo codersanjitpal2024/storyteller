@@ -1,0 +1,50 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Motherhood",
+    "slug": "motherhood",
+    "description": "Honest reflections on identity, vulnerability, matrescence, and the transformative power of mothering.",
+    "count": "18 Stories",
+    "image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "cat-2",
+    "name": "Fatherhood",
+    "slug": "fatherhood",
+    "description": "Modern fathers redefining presence, vulnerability, emotional availability, and conscious parenting.",
+    "count": "12 Stories",
+    "image": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "cat-3",
+    "name": "Pregnancy and Birth",
+    "slug": "pregnancy-and-birth",
+    "description": "Real birth narratives, prenatal milestones, bodily changes, and the unpredictable transition into parenthood.",
+    "count": "15 Stories",
+    "image": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "cat-4",
+    "name": "Fertility and Family Journeys",
+    "slug": "fertility-and-family-journeys",
+    "description": "Stories of IVF, adoption, surrogate journeys, enduring loss, and building families through perseverance.",
+    "count": "9 Stories",
+    "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "cat-5",
+    "name": "Everyday Parenting",
+    "slug": "everyday-parenting",
+    "description": "The joyful chaos, bedtime negotiations, sibling dynamics, and small miracles that make up daily life.",
+    "count": "24 Stories",
+    "image": "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "cat-6",
+    "name": "Challenges and Personal Growth",
+    "slug": "challenges-and-personal-growth",
+    "description": "Navigating neurodiversity, special-needs parenting, mental health, and the unexpected challenges that shape us.",
+    "count": "11 Stories",
+    "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+  }
+]

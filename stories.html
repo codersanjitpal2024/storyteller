@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stories Archive — WeTheMums | Real Parenting Journeys</title>
+  <meta name="description" content="Explore real stories from mothers, fathers, and families across every chapter of parenting. Search and filter by category.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              50: '#FAF4F5',
+              100: '#F5E8EB',
+              200: '#ECCFD4',
+              300: '#DFAAB3',
+              400: '#BA6B7A',
+              DEFAULT: '#632837',
+              hover: '#501E2B',
+              dark: '#3D1520',
+              footer: '#270F16',
+            },
+            cream: {
+              DEFAULT: '#FAF6F2',
+              card: '#FFFFFF',
+              border: '#EFE7E1',
+            },
+            dustyPeach: '#E6B8AF',
+            iconBg: '#FCECEF',
+            charcoal: '#2D2926',
+            muted: '#7A736E',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background-color: #ECCFD4; color: #3D1520; }
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, #541E2A 0%, #BA6B7A 50%, #ECCFD4 100%);
+      z-index: 100000; transition: width 0.08s ease-out;
+    }
+    .custom-cursor-dot {
+      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+      background-color: #BA6B7A; border-radius: 50%; pointer-events: none;
+      z-index: 99999; transform: translate(-50%, -50%);
+    }
+    .custom-cursor-ring {
+      position: fixed; top: 0; left: 0; width: 38px; height: 38px;
+      border: 1.5px solid rgba(186, 107, 122, 0.45); border-radius: 50%;
+      pointer-events: none; z-index: 99998; transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cursor-hover .custom-cursor-ring {
+      width: 60px; height: 60px; border-color: rgba(99, 34, 50, 0.3);
+      background-color: rgba(236, 207, 212, 0.15); backdrop-filter: blur(2px);
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry-200">
+
+  <!-- TOP READING PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- LUXURY CUSTOM MAGNETIC CURSOR -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- TOP BAR -->
+  <div class="bg-berry text-white text-[11px] sm:text-xs py-2 px-4 border-b border-berry-dark/30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 font-normal">
+        <svg class="w-3.5 h-3.5 text-dustyPeach fill-current" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+        </svg>
+        <span>A supportive community for every stage of motherhood</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-3 text-[11px] text-white/90">
+        <span>Follow Us:</span>
+        <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="hover:text-dustyPeach transition-colors">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="bg-white border-b border-cream-border sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex flex-col group">
+        <span class="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-tight group-hover:text-berry transition-colors">
+          WithTheMums<span class="text-berry font-bold">.</span>
+        </span>
+        <span class="text-[10px] sm:text-[11px] text-muted -mt-1 tracking-wide">
+          Real Stories. Stronger Together.
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal/80">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Stories</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Resources</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Events</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-all shadow-sm">
+          Join Our Community
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-cream-border/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-cream-border px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-sm font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Stories</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Resources</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Events & Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+      </nav>
+      <div class="pt-3 border-t border-cream-border">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12 md:py-16">
+    <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- ARCHIVE HEADER -->
+      <div class="max-w-3xl mb-12">
+        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Editorial Archive</span>
+        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl text-charcoal font-normal mt-1 leading-tight">
+          Lived Parenting Stories
+        </h1>
+        <p class="reveal-fade text-base text-mutedText mt-3 leading-relaxed">
+          Real narratives contributed by mothers, fathers, and caregivers. Filter by journey, or search keywords to find the stories that speak to where you are today.
+        </p>
+      </div>
+
+      <!-- FILTER CONTROLS & SEARCH BAR -->
+      <div class="bg-white p-6 rounded-2xl border border-subtleBorder mb-12 shadow-sm space-y-6">
+        
+        <!-- Search Input -->
+        <div class="relative">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search stories by topic, keyword, or contributor..." 
+            class="w-full pl-11 pr-10 py-3 rounded-full border border-subtleBorder focus:outline-none focus:ring-2 focus:ring-berry text-sm bg-ivory/40"
+          />
+          <svg class="w-5 h-5 text-mutedText absolute left-4 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <button id="clear-search-btn" class="hidden absolute right-4 top-3.5 text-xs text-mutedText hover:text-charcoal font-semibold">✕ Clear</button>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div>
+          <span class="text-xs uppercase tracking-wider font-semibold text-mutedText block mb-3">Filter by Category:</span>
+          <div class="flex flex-wrap gap-2" id="category-pills">
+            <button class="cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-berry text-white" data-category="all">
+              All Stories
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="motherhood">
+              Motherhood
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="fatherhood">
+              Fatherhood
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="pregnancy-and-birth">
+              Pregnancy & Birth
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="fertility-and-family-journeys">
+              Fertility & Family
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="everyday-parenting">
+              Everyday Parenting
+            </button>
+            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="challenges-and-personal-growth">
+              Challenges & Growth
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RESULTS COUNT -->
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-subtleBorder text-xs text-mutedText">
+        <span id="results-count" class="font-medium text-charcoal">Loading stories...</span>
+        <span>Showing real lived accounts</span>
+      </div>
+
+      <!-- STORIES GRID CONTAINER -->
+      <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-subtleBorder px-4">
+        <div class="w-12 h-12 mx-auto rounded-full bg-dustyRose/20 flex items-center justify-center text-berry mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-charcoal">No stories found</h3>
+        <p class="text-xs text-mutedText mt-1 max-w-sm mx-auto">We couldn't find any stories matching your search or filter. Try choosing another category or clearing your search.</p>
+        <button id="reset-filters-btn" class="mt-4 px-5 py-2 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover">
+          Reset Filters
+        </button>
+      </div>
+
+      <!-- BOTTOM INVITATION BANNER -->
+      <div class="mt-20 p-8 sm:p-12 rounded-2xl bg-berry text-ivory flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="reveal-fade text-xs uppercase tracking-widest text-dustyRose font-semibold">Your Voice Counts</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Have an experience you want to share?</h3>
+          <p class="reveal-fade text-xs text-ivory/80 max-w-xl">Every story submitted is treated with dignity, editorial sensitivity, and strict adherence to your attribution preferences.</p>
+        </div>
+        <a href="share-your-story.html" class="whitespace-nowrap px-6 py-3 rounded-full bg-dustyRose text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-dustyRose-light transition-all shadow-md">
+          Submit Your Story &rarr;
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="bg-berry-footer text-white/80 pt-16 pb-10 border-t border-berry-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand & Tagline -->
+        <div class="space-y-4">
+          <div>
+            <span class="font-serif text-2xl font-normal text-white tracking-tight">
+              WithTheMums<span class="text-dustyPeach">.</span>
+            </span>
+            <p class="text-[11px] text-white/60 -mt-0.5">Real Stories. Stronger Together.</p>
+          </div>
+          <p class="text-xs text-white/70 leading-relaxed max-w-xs">
+            A supportive community for every stage of motherhood. Because you're not alone.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Quick Links</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="stories.html" class="hover:text-white transition-colors">Stories</a></li>
+            <li><a href="journal.html" class="hover:text-white transition-colors">Resources</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white transition-colors">Events</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Categories -->
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Categories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white transition-colors">Motherhood</a></li>
+            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Parenting</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white transition-colors">Pregnancy & Birth</a></li>
+            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Feeding & Lifestyle</a></li>
+            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Everyday Parenting</a></li>
+            <li><a href="stories.html?category=challenges-and-personal-growth" class="hover:text-white transition-colors">Challenges & Growth</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stay Connected -->
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Stay Connected</span>
+          <p class="text-xs text-white/70 leading-relaxed">
+            Subscribe to our newsletter for the latest stories and updates.
+          </p>
+          <div class="flex items-center bg-white/10 p-1 rounded-full border border-white/20">
+            <input 
+              type="email" 
+              placeholder="Your email address" 
+              class="w-full px-3 py-1.5 bg-transparent text-xs text-white placeholder:text-white/50 focus:outline-none"
+            />
+            <button class="w-7 h-7 rounded-full bg-white text-berry flex items-center justify-center flex-shrink-0 hover:bg-dustyPeach transition-colors">
+              &rarr;
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/50 gap-4">
+        <p>&copy; 2025 WithTheMums. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="contact.html#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+          <span>•</span>
+          <a href="contact.html#terms" class="hover:text-white transition-colors">Terms of Service</a>
+          <span>•</span>
+          <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR DYNAMIC FILTERING & SEARCH -->
+  <script>
+    let allStories = [];
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    const storiesGrid = document.getElementById('stories-grid');
+    const emptyState = document.getElementById('empty-state');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const resultsCount = document.getElementById('results-count');
+    const resetFiltersBtn = document.getElementById('reset-filters-btn');
+    const categoryPills = document.querySelectorAll('.cat-pill');
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Fetch stories from local data file
+    async function initStories() {
+      try {
+        const res = await fetch('data/stories.json');
+        allStories = await res.json();
+      } catch (err) {
+        // Fallback embedded data if fetch is restricted by local file protocol
+        allStories = [
+          {
+            id: "story-1",
+            slug: "quiet-hours-early-motherhood",
+            title: "The Quiet Hours of Early Motherhood: Learning to Trust My Own Instincts",
+            excerpt: "In the silent 3:00 AM hours, amid conflicting advice from relatives and apps, I finally stopped second-guessing myself.",
+            category: "Motherhood",
+            categorySlug: "motherhood",
+            author: "Priya Sharma (Contributor)",
+            readTime: "6 min read",
+            publishedAt: "Oct 14, 2026",
+            coverImage: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "story-2",
+            slug: "learning-to-be-present-fatherhood",
+            title: "Unlearning Old Blueprints: A Father's Journey into Gentle Presence",
+            excerpt: "Growing up with an emotionally distant father, I wondered what kind of dad I would become. Presence is a muscle built daily.",
+            category: "Fatherhood",
+            categorySlug: "fatherhood",
+            author: "Arjun Menon",
+            readTime: "5 min read",
+            publishedAt: "Oct 11, 2026",
+            coverImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "story-3",
+            slug: "adoption-road-to-miracles",
+            title: "The Paperwork of Love: Navigating Infertility and Our Adoption Journey",
+            excerpt: "Four years of IVF treatments brought heartbreak. When we finally turned towards adoption, we discovered the true meaning of family.",
+            category: "Fertility and Family Journeys",
+            categorySlug: "fertility-and-family-journeys",
+            author: "Kavita & Rohith S.",
+            readTime: "7 min read",
+            publishedAt: "Oct 07, 2026",
+            coverImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "story-4",
+            slug: "navigating-special-needs-parenting",
+            title: "Finding Our Own Milestones: Raising an Autistic Child with Joy",
+            excerpt: "When the standard growth charts failed to describe our son's world, we stopped measuring him against other people's expectations.",
+            category: "Challenges and Personal Growth",
+            categorySlug: "challenges-and-personal-growth",
+            author: "Meera Narayanan",
+            readTime: "6 min read",
+            publishedAt: "Sep 29, 2026",
+            coverImage: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "story-5",
+            slug: "everyday-chaos-sibling-love",
+            title: "The Art of the Bedtime Truce: Finding Peace in Everyday Family Chaos",
+            excerpt: "Between spilled milk and homework resistance, ordinary parenting is an exercise in loving endurance and finding laughter in the mess.",
+            category: "Everyday Parenting",
+            categorySlug: "everyday-parenting",
+            author: "Sneha & Dev",
+            readTime: "4 min read",
+            publishedAt: "Sep 22, 2026",
+            coverImage: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "story-6",
+            slug: "unexpected-birth-story",
+            title: "When the Birth Plan Vanished: Finding Strength in the Unexpected",
+            excerpt: "I wrote a three-page birth plan with gentle music. What actually happened was an emergency C-section that taught me what true courage is.",
+            category: "Pregnancy and Birth",
+            categorySlug: "pregnancy-and-birth",
+            author: "Ananya Joshi",
+            readTime: "5 min read",
+            publishedAt: "Sep 15, 2026",
+            coverImage: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80"
+          }
+        ];
+      }
+
+      // Read URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('category');
+      const searchParam = urlParams.get('search');
+
+      if (catParam) {
+        currentCategory = catParam;
+        updatePillsUI(currentCategory);
+      }
+      if (searchParam) {
+        currentSearch = searchParam;
+        searchInput.value = searchParam;
+        clearSearchBtn.classList.remove('hidden');
+      }
+
+      renderStories();
+    }
+
+    function renderStories() {
+      const filtered = allStories.filter(story => {
+        const matchesCategory = currentCategory === 'all' || story.categorySlug === currentCategory;
+        const query = currentSearch.toLowerCase().trim();
+        const matchesSearch = !query || 
+          story.title.toLowerCase().includes(query) ||
+          story.excerpt.toLowerCase().includes(query) ||
+          story.category.toLowerCase().includes(query) ||
+          story.author.toLowerCase().includes(query);
+
+        return matchesCategory && matchesSearch;
+      });
+
+      resultsCount.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? 'story' : 'stories'}`;
+
+      if (filtered.length === 0) {
+        storiesGrid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      storiesGrid.innerHTML = filtered.map(story => `
+        <article class="bg-white rounded-xl overflow-hidden border border-subtleBorder hover:shadow-lg transition-all duration-300 flex flex-col">
+          <div class="h-56 overflow-hidden relative">
+            <img src="${story.coverImage}" alt="${story.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-berry px-3 py-1 rounded-full text-xs font-semibold">
+              ${story.category}
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs text-mutedText mb-2">
+                <span>${story.readTime}</span>
+                <span>•</span>
+                <span>${story.publishedAt}</span>
+              </div>
+              <h3 class="font-serif text-xl font-medium text-charcoal hover:text-berry transition-colors leading-snug">
+                <a href="story-detail.html?slug=${story.slug}">${story.title}</a>
+              </h3>
+              <p class="text-xs text-mutedText mt-2.5 line-clamp-3 leading-relaxed">
+                ${story.excerpt}
+              </p>
+            </div>
+            <div class="pt-4 border-t border-subtleBorder/60 mt-5 flex items-center justify-between text-xs">
+              <span class="text-mutedText font-medium">By ${story.author}</span>
+              <a href="story-detail.html?slug=${story.slug}" class="font-semibold text-berry hover:text-berry-hover flex items-center gap-1">
+                Read <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function updatePillsUI(cat) {
+      categoryPills.forEach(pill => {
+        if (pill.dataset.category === cat) {
+          pill.className = "cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-berry text-white";
+        } else {
+          pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry";
+        }
+      });
+    }
+
+    // Event listeners
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        currentCategory = pill.dataset.category;
+        updatePillsUI(currentCategory);
+        renderStories();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value;
+      if (currentSearch.trim()) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+      renderStories();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearch = '';
+      clearSearchBtn.classList.add('hidden');
+      renderStories();
+    });
+
+    resetFiltersBtn.addEventListener('click', () => {
+      currentCategory = 'all';
+      currentSearch = '';
+      searchInput.value = '';
+      clearSearchBtn.classList.add('hidden');
+      updatePillsUI('all');
+      renderStories();
+    });
+
+    // Start
+    initStories();
+
+    // Progress bar
+    const pBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (pBar) pBar.style.width = scrolled + '%';
+    }, { passive: true });
+
+    // Luxury Cursor Engine
+    const cDot = document.getElementById('cursor-dot');
+    const cRing = document.getElementById('cursor-ring');
+    let mX = window.innerWidth / 2, mY = window.innerHeight / 2, rX = mX, rY = mY;
+    window.addEventListener('mousemove', (e) => {
+      mX = e.clientX; mY = e.clientY;
+      if (cDot) { cDot.style.left = mX + 'px'; cDot.style.top = mY + 'px'; }
+    }, { passive: true });
+    function loopCursor() {
+      rX += (mX - rX) * 0.16; rY += (mY - rY) * 0.16;
+      if (cRing) { cRing.style.left = rX + 'px'; cRing.style.top = rY + 'px'; }
+      requestAnimationFrame(loopCursor);
+    }
+    loopCursor();
+    document.querySelectorAll('a, button, input').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>

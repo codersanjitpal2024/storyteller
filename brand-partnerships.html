@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Partnerships — WeTheMums | Authentic Family Storytelling Collaborations</title>
+  <meta name="description" content="Partner with WeTheMums. Connect with engaged modern parents through thoughtful storytelling, native content, and high-trust editorial campaigns.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              DEFAULT: '#75454B',
+              hover: '#64393F',
+              dark: '#522E33',
+            },
+            ivory: {
+              light: '#FCFAF7',
+              DEFAULT: '#F7F2EC',
+              dark: '#EBE2D5',
+            },
+            dustyRose: {
+              light: '#F4DDD7',
+              DEFAULT: '#D9A99C',
+              dark: '#C38B7C',
+            },
+            charcoal: {
+              DEFAULT: '#292725',
+              light: '#423F3C',
+            },
+            mutedText: {
+              DEFAULT: '#716A65',
+            },
+            subtleBorder: {
+              DEFAULT: '#E7DDD2',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40">
+
+  <!-- TOP BAR -->
+  <div class="bg-berry-dark text-ivory-light text-xs px-4 py-1.5 text-center font-medium tracking-wide">
+    WeTheMums Brand Partnerships — Purpose-driven collaborations that respect family audiences.
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-subtleBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="group flex items-center gap-2">
+        <span class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-charcoal group-hover:text-berry transition-colors">
+          WeTheMums<span class="text-berry font-sans font-bold">.</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-charcoal/90">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About Us</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Journal</a>
+        <a href="brand-partnerships.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Brand Partnerships</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white hover:bg-berry-hover transition-all">
+          Share Your Story
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-subtleBorder px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-base font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories Archive</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About Us</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Journal & Resources</a>
+        <a href="brand-partnerships.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Brand Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+        <a href="editorial-dashboard.html" class="text-mutedText hover:text-berry text-xs py-1.5 px-2">🔒 Editorial Review (Internal)</a>
+      </nav>
+      <div class="pt-3 border-t border-subtleBorder">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- B2B HERO SECTION -->
+    <section class="py-16 md:py-24 bg-white border-b border-subtleBorder">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
+        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">B2B & Creative Partnerships</span>
+        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal font-normal leading-tight">
+          Let's create stories that matter.
+        </h1>
+        <p class="reveal-fade text-base sm:text-lg text-mutedText max-w-2xl mx-auto leading-relaxed">
+          Modern parents seek authenticity over polished advertising. We collaborate with family, wellness, maternal care, and lifestyle brands to create thoughtful narratives that build enduring trust.
+        </p>
+        <div class="reveal-fade pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#enquiry-form" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover transition-all shadow-md">
+            Submit a Campaign Enquiry &rarr;
+          </a>
+          <a href="#formats" class="inline-flex items-center justify-center px-6 py-3.5 rounded-full border border-subtleBorder text-charcoal text-xs font-semibold uppercase tracking-wider hover:border-berry hover:text-berry transition-all">
+            Explore Campaign Formats
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLABORATION FORMATS -->
+    <section id="formats" class="py-20 bg-ivory">
+      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Tailored Solutions</span>
+          <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1">Proposed Campaign Formats</h2>
+          <p class="reveal-fade text-sm text-mutedText mt-2">Every campaign is crafted in close collaboration with brand partners to ensure authentic editorial alignment.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="bg-white p-8 rounded-2xl border border-subtleBorder space-y-4 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-berry/10 text-berry flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-charcoal">Sponsored Editorial Stories</h3>
+            <p class="text-xs text-mutedText leading-relaxed">
+              Deep, sensitively produced long-form articles exploring real parenting dilemmas where your brand or product offers genuine assistance. Fully indexed on WeTheMums.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl border border-subtleBorder space-y-4 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-berry/10 text-berry flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-charcoal">Social & Video Storytelling</h3>
+            <p class="text-xs text-mutedText leading-relaxed">
+              Native Instagram Reels, carousel reflections, and relatable video narratives distributed to our community on @wethemums.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-2xl border border-subtleBorder space-y-4 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-berry/10 text-berry flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-charcoal">Community & Creator Roundtables</h3>
+            <p class="text-xs text-mutedText leading-relaxed">
+              Curated panel discussions, expert interviews, and thematic initiatives highlighting important conversations in modern Indian parenting.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ETHICAL PRINCIPLES -->
+    <section class="py-16 bg-white border-y border-subtleBorder">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-4">
+          <div class="flex items-center gap-2 text-berry font-serif text-lg font-medium">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            Our Commercial Disclosure Policy
+          </div>
+          <p class="text-xs text-mutedText leading-relaxed">
+            We hold editorial integrity as our highest priority. All commercial collaborations, sponsored stories, or gifting arrangements are clearly labeled with transparent editorial disclosures. We only partner with brands that uphold product safety, respectful representation of families, and verifiable claims.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND ENQUIRY FORM -->
+    <section id="enquiry-form" class="py-20 bg-ivory">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Work With Us</span>
+          <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal">
+            Submit a Brand Partnership Enquiry
+          </h2>
+          <p class="reveal-fade text-xs sm:text-sm text-mutedText max-w-lg mx-auto">
+            Tell us about your brand, campaign goals, and timeline. Our partnerships team will review your brief and schedule an exploratory discussion.
+          </p>
+        </div>
+
+        <form id="brand-lead-form" class="bg-white p-8 sm:p-10 rounded-2xl border border-subtleBorder shadow-md space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="brand-name" class="block text-xs font-semibold text-charcoal mb-1">
+                Your Name <span class="text-berry">*</span>
+              </label>
+              <input type="text" id="brand-name" required placeholder="e.g. Shalini Roy" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+            </div>
+
+            <div>
+              <label for="brand-email" class="block text-xs font-semibold text-charcoal mb-1">
+                Work Email <span class="text-berry">*</span>
+              </label>
+              <input type="email" id="brand-email" required placeholder="e.g. shalini@brand.com" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="brand-company" class="block text-xs font-semibold text-charcoal mb-1">
+                Company / Brand Name <span class="text-berry">*</span>
+              </label>
+              <input type="text" id="brand-company" required placeholder="e.g. NatureBaby Organic" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+            </div>
+
+            <div>
+              <label for="brand-website" class="block text-xs font-semibold text-charcoal mb-1">
+                Brand Website / Social URL
+              </label>
+              <input type="url" id="brand-website" placeholder="https://..." class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="brand-objective" class="block text-xs font-semibold text-charcoal mb-1">
+                Primary Campaign Objective <span class="text-berry">*</span>
+              </label>
+              <select id="brand-objective" required class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+                <option value="" disabled selected>Select objective...</option>
+                <option value="Brand Awareness">Brand Awareness & Trust</option>
+                <option value="Product Launch">New Product / Service Launch</option>
+                <option value="Editorial Storytelling">Deep Thought Leadership & Storytelling</option>
+                <option value="Long-term Partnership">Annual / Multi-campaign Partnership</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="brand-budget" class="block text-xs font-semibold text-charcoal mb-1">
+                Indicative Budget Range <span class="text-mutedText font-normal">(Optional)</span>
+              </label>
+              <select id="brand-budget" class="w-full px-4 py-2.5 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30">
+                <option value="Exploring Tiers">Exploring Options / Not Fixed</option>
+                <option value="Tier 1 (₹50k - ₹1.5L)">Tier 1 (₹50,000 – ₹1,50,000)</option>
+                <option value="Tier 2 (₹1.5L - ₹3.5L)">Tier 2 (₹1,50,000 – ₹3,50,000)</option>
+                <option value="Tier 3 (₹3.5L+)">Tier 3 (₹3,50,000+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="brand-message" class="block text-xs font-semibold text-charcoal mb-1">
+              Campaign Brief & Specific Requirements <span class="text-berry">*</span>
+            </label>
+            <textarea id="brand-message" required rows="4" placeholder="Tell us about your brand's mission, target launch timing, and what type of story you hope to tell together..." class="w-full p-4 rounded-lg border border-subtleBorder text-sm focus:outline-none focus:ring-2 focus:ring-berry bg-ivory/30"></textarea>
+          </div>
+
+          <div class="flex items-start gap-2">
+            <input type="checkbox" id="brand-consent" required class="mt-1 rounded text-berry focus:ring-berry">
+            <label for="brand-consent" class="text-[11px] text-mutedText leading-relaxed">
+              I agree to WeTheMums holding these details for the purpose of responding to this enquiry. No confidential brand information is ever shared publicly.
+            </label>
+          </div>
+
+          <div>
+            <button type="submit" class="w-full py-3.5 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover transition-all shadow-md">
+              Submit Brand Enquiry &rarr;
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+    <!-- BRAND FAQ -->
+    <section class="py-16 bg-white border-t border-subtleBorder">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <h2 class="reveal-lines font-serif text-2xl sm:text-3xl text-charcoal font-normal text-center mb-10">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-5 rounded-xl bg-ivory border border-subtleBorder">
+            <h3 class="font-serif text-base font-medium text-charcoal mb-1">How does WeTheMums ensure campaign authenticity?</h3>
+            <p class="text-xs text-mutedText leading-relaxed">We co-create stories with real parents or vetted editorial writers. We never post generic scripts or forced testimonials; every narrative centers on relatable family experiences.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-ivory border border-subtleBorder">
+            <h3 class="font-serif text-base font-medium text-charcoal mb-1">What is the standard turnaround time?</h3>
+            <p class="text-xs text-mutedText leading-relaxed">Editorial features typically require 2 to 3 weeks from brief alignment to final publishing, allowing time for editorial writing, review, and client feedback.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-ivory border border-subtleBorder">
+            <h3 class="font-serif text-base font-medium text-charcoal mb-1">Can we request a media kit?</h3>
+            <p class="text-xs text-mutedText leading-relaxed">Yes! Simply indicate in the enquiry form above or email us at editorial@wethemums.com, and our partnerships team will share our current campaign options.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div id="brand-modal" class="fixed inset-0 bg-charcoal/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-8 border border-subtleBorder shadow-2xl text-center space-y-4">
+      <div class="w-16 h-16 mx-auto rounded-full bg-berry/10 text-berry flex items-center justify-center">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+
+      <h3 class="font-serif text-2xl font-medium text-charcoal">
+        Enquiry Received
+      </h3>
+
+      <p class="text-xs text-mutedText leading-relaxed">
+        Thank you for considering WeTheMums. Your enquiry has been routed to our Brand Partnerships desk. A member of our team will follow up within 2 business days.
+      </p>
+
+      <div class="pt-2">
+        <button id="close-brand-modal" class="py-2.5 px-6 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover">
+          Return to Page
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
+        <div class="lg:col-span-2 space-y-4">
+          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
+          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
+            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Legal</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
+            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    const form = document.getElementById('brand-lead-form');
+    const modal = document.getElementById('brand-modal');
+    const closeBtn = document.getElementById('close-brand-modal');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const lead = {
+        id: `LEAD-${Date.now().toString().slice(-6)}`,
+        name: document.getElementById('brand-name').value.trim(),
+        email: document.getElementById('brand-email').value.trim(),
+        company: document.getElementById('brand-company').value.trim(),
+        website: document.getElementById('brand-website').value.trim(),
+        objective: document.getElementById('brand-objective').value,
+        budget: document.getElementById('brand-budget').value,
+        message: document.getElementById('brand-message').value.trim(),
+        submittedAt: new Date().toISOString(),
+        status: 'New Lead'
+      };
+
+      // Save to localStorage for demo persistence
+      const leads = JSON.parse(localStorage.getItem('wethemums_brand_leads') || '[]');
+      leads.unshift(lead);
+      localStorage.setItem('wethemums_brand_leads', JSON.stringify(leads));
+
+      modal.classList.remove('hidden');
+      form.reset();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — WeTheMums | Our Mission & Editorial Standards</title>
+  <meta name="description" content="Discover the mission of WeTheMums. We hold space for honest, vulnerable, and inspiring parenting stories across modern families.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              DEFAULT: '#75454B',
+              hover: '#64393F',
+              dark: '#522E33',
+            },
+            ivory: {
+              light: '#FCFAF7',
+              DEFAULT: '#F7F2EC',
+              dark: '#EBE2D5',
+            },
+            dustyRose: {
+              light: '#F4DDD7',
+              DEFAULT: '#D9A99C',
+              dark: '#C38B7C',
+            },
+            charcoal: {
+              DEFAULT: '#292725',
+              light: '#423F3C',
+            },
+            mutedText: {
+              DEFAULT: '#716A65',
+            },
+            subtleBorder: {
+              DEFAULT: '#E7DDD2',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40">
+
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-subtleBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="group flex items-center gap-2">
+        <span class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-charcoal group-hover:text-berry transition-colors">
+          WeTheMums<span class="text-berry font-sans font-bold">.</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-charcoal/90">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
+        <a href="about.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">About Us</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Journal</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Brand Partnerships</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="share-your-story.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white hover:bg-berry-hover transition-all">
+          Share Your Story
+        </a>
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-subtleBorder px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-base font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories Archive</a>
+        <a href="about.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">About Us</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Journal & Resources</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Brand Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+        <a href="editorial-dashboard.html" class="text-mutedText hover:text-berry text-xs py-1.5 px-2">🔒 Editorial Review (Internal)</a>
+      </nav>
+      <div class="pt-3 border-t border-subtleBorder">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- HERO -->
+    <section class="py-16 md:py-24 bg-white border-b border-subtleBorder">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Our Story & Purpose</span>
+        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal font-normal leading-tight">
+          Every parenting journey deserves to be heard.
+        </h1>
+        <p class="reveal-fade text-base sm:text-lg text-mutedText leading-relaxed">
+          We founded WeTheMums on a simple, enduring conviction: parenthood is too raw, complex, and profound to be reduced to filtered highlight reels.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION STATEMENT & IMAGE -->
+    <section class="py-20 bg-ivory">
+      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-5">
+            <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Why We Exist</span>
+            <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal">
+              A haven for honest parenting realities.
+            </h2>
+            <p class="reveal-fade text-sm text-mutedText leading-relaxed">
+              When you become a parent, the world showers you with unsolicited advice, rigid milestones, and picture-perfect imagery. Yet in the quiet hours of the night—when facing post-partum anxiety, an unexpected diagnosis, adoption paperwork, or simply wondering if you did enough today—what parents crave most is not perfection, but camaraderie.
+            </p>
+            <p class="reveal-fade text-sm text-mutedText leading-relaxed">
+              WeTheMums is an editorial media platform devoted to the whole spectrum of family life: maternal transitions, modern fatherhood, fertility journeys, grief, neurodiversity, and the tender humor of everyday routine.
+            </p>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="rounded-2xl overflow-hidden border border-subtleBorder shadow-md">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80" alt="Indian family embracing outdoors" class="w-full h-96 object-cover">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL VALUES -->
+    <section id="values" class="py-20 bg-white border-y border-subtleBorder">
+      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Guiding Compass</span>
+          <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1">Our Core Editorial Values</h2>
+          <p class="reveal-fade text-sm text-mutedText mt-2">These non-negotiable principles guide every article we publish and every story we receive.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">1. Radical Empathy</h3>
+            <p class="text-xs text-mutedText leading-relaxed">We provide a zero-judgment environment. No shaming, no moral superiority, and no reductive comparisons.</p>
+          </div>
+
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">2. Contributor Dignity</h3>
+            <p class="text-xs text-mutedText leading-relaxed">Stories are vulnerable gifts. Contributors retain complete say over attribution, pen names, and preview approval.</p>
+          </div>
+
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">3. Inclusive Family Models</h3>
+            <p class="text-xs text-mutedText leading-relaxed">We honor biological, adoptive, blended, single, and foster families across the multifaceted Indian and global experience.</p>
+          </div>
+
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">4. Clear Medical Separation</h3>
+            <p class="text-xs text-mutedText leading-relaxed">First-person lived stories are never confused with clinical medical advice. We urge readers to consult certified healthcare specialists.</p>
+          </div>
+
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">5. Honest Commercial Integrity</h3>
+            <p class="text-xs text-mutedText leading-relaxed">Any brand collaboration or sponsored series is disclosed openly. We never allow commercial interests to compromise editorial truth.</p>
+          </div>
+
+          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
+            <h3 class="font-serif text-xl font-medium text-charcoal">6. Privacy by Design</h3>
+            <p class="text-xs text-mutedText leading-relaxed">Personal emails, contact details, and internal editorial deliberations are protected with strict access controls.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INVITATION CTA -->
+    <section class="py-20 bg-ivory">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+        <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal">
+          Be part of the storytelling community.
+        </h2>
+        <p class="reveal-fade text-sm text-mutedText max-w-xl mx-auto leading-relaxed">
+          Whether you want to submit a memory, explore a brand campaign, or join the conversation on Instagram, we welcome your presence.
+        </p>
+        <div class="reveal-fade pt-2 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="share-your-story.html" class="inline-flex items-center justify-center px-7 py-3 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover shadow-md">
+            Share Your Story &rarr;
+          </a>
+          <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-7 py-3 rounded-full border border-charcoal text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-charcoal hover:text-white">
+            Follow @wethemums
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
+        <div class="lg:col-span-2 space-y-4">
+          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
+          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
+            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
+            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
+            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Legal</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
+            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      function splitIntoWords(el) {
+        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
+        el.dataset.split = 'done';
+        if (el.querySelector('em, br, span')) {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach(node => {
+            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
+            if (words.length === 0) return;
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+              const span = document.createElement('span');
+              span.className = 'word';
+              span.style.display = 'inline-block';
+              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+              frag.appendChild(span);
+            });
+            node.parentNode.replaceChild(frag, node);
+          });
+          return Array.from(el.querySelectorAll('.word'));
+        }
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
+        return Array.from(el.querySelectorAll('.word'));
+      }
+
+      document.querySelectorAll('.reveal-lines').forEach(el => {
+        const words = splitIntoWords(el);
+        gsap.set(words, { yPercent: 120, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => gsap.to(words, {
+            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
+            stagger: words.length > 1 ? 0.04 : 0,
+          }),
+        });
+      });
+
+      document.querySelectorAll('.reveal-fade').forEach(el => {
+        gsap.set(el, { y: 30, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
+        });
+      });
+    });
+  </script>
+</body>
+</html>
