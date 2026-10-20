@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Story Reader — WeTheMums</title>
+  <title id="page-title">Story Reader â€” WeTheMums</title>
   <meta name="description" content="Read real, authentic parenting stories on WeTheMums.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -404,7 +404,7 @@
           </span>
           <h3 class="font-serif text-2xl font-normal leading-tight text-white sm:text-3xl">Your voice could help another parent feel less alone.</h3>
           <p class="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/80">
-            Share a moment, a lesson, or the part of parenthood you wish someone had talked about. We’ll read your story with care.
+            Share a moment, a lesson, or the part of parenthood you wish someone had talked about. Weâ€™ll read your story with care.
           </p>
           <div class="pt-6">
             <a href="contact.html" class="group inline-flex items-center gap-2.5 rounded-full bg-[#fff8f4] px-6 py-3.5 text-xs font-bold text-[#632837] shadow-[0_8px_22px_rgba(25,8,13,0.2)] transition hover:-translate-y-0.5 hover:bg-white">
@@ -430,7 +430,7 @@
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast" class="fixed bottom-6 right-6 hidden bg-charcoal text-white px-5 py-3 rounded-xl shadow-xl text-xs font-medium z-50 flex items-center gap-2">
-    <span>✓ Link copied to clipboard</span>
+    <span>âœ“ Link copied to clipboard</span>
   </div>
 
   <!-- ========================================== -->
@@ -718,7 +718,7 @@
                 <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
               </div>
             </div>
-            <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4">Questions, ideas, or just want to say hello? We�d love to hear from you.</p>
+            <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4">Questions, ideas, or just want to say hello? We’d love to hear from you.</p>
             <div class="space-y-2.5">
               <a href="mailto:editorial@wethemums.com" class="group flex items-center gap-3 rounded-2xl border border-[#E5DAD4] bg-white px-3.5 py-3 shadow-sm transition hover:border-[#C9828F] hover:shadow-md">
                 <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FAF0ED] text-[#862D42]" aria-hidden="true">
@@ -896,7 +896,7 @@
       const story = stories.find(s => s.slug === slug) || stories[0];
 
       // Populate UI
-      document.getElementById('page-title').textContent = `${story.title} — WeTheMums`;
+      document.getElementById('page-title').textContent = `${story.title} â€” WeTheMums`;
       document.getElementById('breadcrumb-category').textContent = story.category;
       document.getElementById('story-category').textContent = story.category;
       document.getElementById('story-readtime').textContent = story.readTime;
@@ -954,7 +954,7 @@
                 ${rel.title}
               </h4>
             </div>
-            <span class="text-[11px] text-mutedText">${rel.readTime} • Read story &rarr;</span>
+            <span class="text-[11px] text-mutedText">${rel.readTime} â€¢ Read story &rarr;</span>
           </div>
         </a>
       `).join('');
