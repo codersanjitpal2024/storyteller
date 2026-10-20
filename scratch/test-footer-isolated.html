@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Footer Test Separated Position</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FDFCFB] m-0 p-0 font-sans antialiased text-[#221C1D]">
+
+    <!-- ========================================== -->
+    <!-- SITE FOOTER (100% MATCH TO REFERENCE)       -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none">
+      <!-- Left Botanical Leaf Doodle -->
+      <img
+        src="../images/footer-left-leaves.png"
+        alt=""
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-12 sm:w-14 pointer-events-none select-none z-0"
+      />
+
+      <!-- Right Top Script Text: Real mums. Real stories. Real support. ♡ -->
+      <div class="absolute top-4 sm:top-6 right-5 sm:right-8 z-0 hidden lg:block text-right select-none transform -rotate-3">
+        <p class="font-['Caveat'] text-[#9C4B5E] text-[18px] lg:text-[21px] leading-[1.12] font-semibold tracking-wide">
+          Real mums.<br />
+          Real stories.<br />
+          Real support.
+        </p>
+        <div class="flex items-center justify-end gap-1.5 mt-0.5 pr-1">
+          <span class="w-8 h-[1.5px] bg-[#9C4B5E]/50 rounded-full"></span>
+          <svg class="w-3.5 h-3.5 text-[#9C4B5E] stroke-current fill-none inline-block transform rotate-12" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right Mother & Baby Line Art (Directly Touching Bottom Wave) -->
+      <div class="absolute right-0 sm:right-2 lg:right-4 bottom-0 w-44 sm:w-50 lg:w-56 z-0 hidden md:block pointer-events-none select-none">
+        <svg class="w-full h-auto block" viewBox="0 0 250 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Soft Organic Blush Blob Background -->
+          <path d="M125 30 C190 20, 245 55, 248 120 C252 185, 225 245, 185 270 C145 285, 90 275, 65 220 C42 165, 60 50, 125 30 Z" fill="#FBF3EE" opacity="0.95" />
+
+          <!-- Left Floating Doodle Heart -->
+          <g transform="translate(42, 126) rotate(-12) scale(0.72)">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#BA727E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          </g>
+
+          <!-- Right Floating Doodle Heart -->
+          <g transform="translate(216, 108) rotate(15) scale(0.72)">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#BA727E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          </g>
+
+          <!-- Pure Elegant Minimalist Contour Art: Mother Embracing Child -->
+          <g stroke="#93384D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- Mother: Head Top & Outer Cascading Hair -->
+            <path d="M162 62 C178 52, 196 58, 206 74 C216 90, 216 112, 208 132 C200 148, 192 160, 194 178 C196 198, 208 225, 214 252 C217 262, 219 272, 220 280" />
+            <path d="M172 60 C188 70, 198 88, 196 110 C194 130, 184 146, 182 166" stroke-width="1.8" opacity="0.85" />
+
+            <!-- Mother: Hair Parting / Soft Brow Sweep -->
+            <path d="M162 62 C152 70, 146 80, 150 94" stroke-width="1.8" />
+
+            <!-- Mother: Graceful Downward Profile (Forehead, Nose, Lips, Chin) -->
+            <path d="M152 74 C144 82, 140 92, 142 102 C143 105, 147 106, 146 109 C144 111, 140 112, 141 115 C142 118, 145 119, 144 122 C142 125, 138 126, 142 131 C146 136, 154 138, 158 144" />
+
+            <!-- Mother: Neck & Collar Contour -->
+            <path d="M166 142 C174 150, 184 162, 192 176" stroke-width="1.8" />
+
+            <!-- Mother: Shoulder & Arm Wrapping Baby -->
+            <path d="M206 172 C218 190, 222 216, 212 238 C202 260, 182 272, 162 278" />
+            <path d="M192 176 C198 192, 192 210, 178 224 C162 238, 142 242, 126 236 C116 232, 108 222, 102 212" />
+
+            <!-- Mother's Hand Supporting Baby's Back -->
+            <path d="M102 212 C96 206, 94 196, 96 186 C98 178, 105 174, 112 172" stroke-width="1.8" />
+            <path d="M96 190 C92 186, 91 180, 93 174 C96 168, 103 166, 110 166" stroke-width="1.6" />
+
+            <!-- Mother's Body Back Contour to bottom wave -->
+            <path d="M220 236 C226 250, 230 265, 232 280" />
+
+            <!-- Baby: Round Head Nestled against Mother's Chest -->
+            <path d="M118 116 C106 118, 96 128, 96 142 C96 156, 106 168, 118 172 C132 176, 146 168, 150 156 C154 144, 148 130, 140 124 C134 118, 126 115, 118 116 Z" />
+
+            <!-- Baby: Sweet Ear Contour -->
+            <path d="M116 146 C112 146, 110 142, 112 138 C114 134, 118 134, 120 136" stroke-width="1.6" />
+
+            <!-- Baby's Little Arm around Mother's Neck -->
+            <path d="M136 158 C134 168, 128 178, 132 186 C136 192, 144 194, 150 192" stroke-width="1.8" />
+
+            <!-- Baby: Back & Body extending seamlessly to bottom wave -->
+            <path d="M98 162 C88 180, 80 206, 76 232 C73 248, 71 264, 70 280" />
+            <path d="M108 172 C105 198, 103 234, 102 280" stroke-width="1.8" opacity="0.85" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- 4 Columns Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14">
+          <!-- Col 1: Brand Logo, Description & Socials -->
+          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+            <div>
+              <a href="index.html" class="inline-block mb-3.5">
+                <img
+                  src="../images/footer-logo-full.png"
+                  alt="WithTheMums. Real Stories. Stronger Together."
+                  class="h-10 sm:h-11 w-auto object-contain"
+                />
+              </a>
+              <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1">
+                A supportive community for every stage of motherhood. Because you're not alone.
+              </p>
+            </div>
+
+            <!-- Social Pill Buttons -->
+            <div class="flex items-center gap-2.5 pt-6">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Instagram"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Facebook"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <!-- Pinterest -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Pinterest"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="YouTube"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">QUICK LINKS</h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a href="index.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Home
+                </a>
+              </li>
+              <li>
+                <a href="stories.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Stories
+                </a>
+              </li>
+              <li>
+                <a href="journal.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Resources
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> About
+                </a>
+              </li>
+              <li>
+                <a href="brand-partnerships.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Events
+                </a>
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Categories -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">CATEGORIES</h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a href="stories.html?category=motherhood" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Motherhood
+                </a>
+              </li>
+              <li>
+                <a href="stories.html?category=everyday-parenting" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Parenting
+                </a>
+              </li>
+              <li>
+                <a href="stories.html?category=pregnancy-and-birth" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Pregnancy &amp; Birth
+                </a>
+              </li>
+              <li>
+                <a href="stories.html?category=feeding-and-lifestyle" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Feeding &amp; Lifestyle
+                </a>
+              </li>
+              <li>
+                <a href="stories.html?category=everyday-parenting" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Everyday Parenting
+                </a>
+              </li>
+              <li>
+                <a href="stories.html?category=challenges-and-growth" class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link">
+                  <span class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5">&rsaquo;</span> Challenges &amp; Growth
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Stay Connected -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0">
+                <svg class="w-3.5 h-3.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">STAY CONNECTED</h4>
+                <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4">
+              Subscribe to our newsletter for the latest stories and updates.
+            </p>
+
+            <form id="footer-newsletter" class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors">
+              <svg class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input
+                type="email"
+                required
+                placeholder="Your email address"
+                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
+              >
+                <span class="text-xs font-bold">&rarr;</span>
+              </button>
+            </form>
+
+            <div class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none">
+              <span>Join our community</span>
+              <svg class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Dark Wave & Copyright Bar -->
+      <div class="relative w-full bg-[#531D2C] text-white/80 pt-6">
+        <!-- Top Wave SVG -->
+        <div class="w-full overflow-hidden leading-none -translate-y-[99%] absolute top-0 left-0 right-0 pointer-events-none">
+          <svg class="w-full h-4 sm:h-6 text-[#531D2C] fill-current block" viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,15 C250,28 500,8 750,22 C1000,32 1150,12 1200,18 L1200,30 L0,30 Z"></path>
+          </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 pb-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 relative z-10">
+          <!-- Left: Heart + Copyright -->
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-white/80 stroke-current fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="w-[1px] h-3.5 bg-white/30"></span>
+            <span>&copy; 2025 <strong class="font-semibold text-white">WithTheMums.</strong> All rights reserved.</span>
+          </div>
+
+          <!-- Right: Policy Links + Scroll to Top Button -->
+          <div class="flex items-center gap-4 sm:gap-6">
+            <a href="contact.html#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a href="contact.html#terms" class="hover:text-white transition-colors">Terms of Service</a>
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+
+            <!-- Back to Top Button -->
+            <button
+              onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+              class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all ml-2"
+              title="Back to top"
+              aria-label="Back to top"
+            >
+              <svg class="w-3.5 h-3.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

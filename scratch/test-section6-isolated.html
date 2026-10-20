@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Section 6 Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white m-0 p-0 font-sans antialiased">
+      <!-- SECTION 6: YOU ARE NOT ALONE BANNER -->
+      <section
+        class="w-full bg-white relative overflow-hidden py-14 sm:py-16 lg:py-20 border-b border-[#F0EAE6]"
+        id="you-are-not-alone-section"
+      >
+        <div
+          class="w-full max-w-7xl xl:max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center"
+        >
+          <!-- Left Column: Content, Buttons & Trust Badges -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <!-- Label Badge: ♥ YOU ARE NOT ALONE + Horizontal Rule -->
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF0ED] text-[#862D42] text-[11px] font-bold tracking-[0.12em] uppercase"
+              >
+                <svg
+                  class="w-2.5 h-2.5 fill-[#862D42] shrink-0"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+                <span>YOU ARE NOT ALONE</span>
+              </span>
+              <span class="w-10 sm:w-14 h-[1px] bg-[#E2D5CF]"></span>
+            </div>
+
+            <!-- Main Headline (Exact Line-by-Line Match to Reference Image) -->
+            <h2
+              class="font-serif text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] text-[#221C1D] font-normal leading-[1.18] tracking-[-0.01em]"
+            >
+              Your story might be
+              <span
+                class="relative inline-block italic font-serif text-[#9C384E] px-1 mr-1.5"
+              >
+                exactly
+                <!-- Gentle Underline Brush Stroke matching reference -->
+                <svg
+                  class="absolute -bottom-1 left-0 w-full h-2.5 text-[#C95E74] pointer-events-none fill-none stroke-current"
+                  viewBox="0 0 100 12"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                >
+                  <path d="M2,8 Q50,12 98,4" />
+                </svg>
+              </span>
+              what<br class="hidden sm:inline" />
+              someone needs to hear.
+              <span class="inline-block transform rotate-[12deg] ml-1.5 align-baseline -translate-y-0.5">
+                <svg
+                  class="w-6 h-6 sm:w-7 sm:h-7 text-[#9C384E] stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </span>
+            </h2>
+
+            <!-- Paragraph Subtitle -->
+            <p
+              class="font-sans text-xs sm:text-[13.5px] text-[#655B56] leading-[1.65] mt-4 max-w-xl"
+            >
+              Every family's journey is different. If you have an experience or
+              journey you would like to share &mdash; whether it's a challenge,
+              a triumph, or simply a moment of joy &mdash; we'd love to hear
+              from you.
+            </p>
+
+            <!-- Two Action Buttons (Exact Match to Reference Image) -->
+            <div
+              class="flex flex-wrap items-center gap-3.5 sm:gap-4 mt-6 sm:mt-7"
+            >
+              <!-- Button 1: Share Your Story (Solid Maroon Pill) -->
+              <a
+                href="share-your-story.html"
+                class="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white text-xs sm:text-[13px] font-semibold shadow-[0_4px_16px_rgba(134,45,66,0.25)] hover:scale-[1.02] active:scale-95 transition-all group/btn"
+                aria-label="Share Your Story"
+              >
+                <!-- Pencil / Pen Icon -->
+                <svg
+                  class="w-4 h-4 text-white stroke-current fill-none shrink-0"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                  />
+                </svg>
+                <span>Share Your Story</span>
+                <span class="transition-transform group-hover/btn:translate-x-1">&rarr;</span>
+              </a>
+
+              <!-- Button 2: Join Our Community (White Pill with Maroon Border) -->
+              <a
+                href="contact.html"
+                class="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-white hover:bg-[#FAF0ED] border border-[#862D42] text-[#862D42] text-xs sm:text-[13px] font-semibold hover:scale-[1.02] active:scale-95 transition-all group/btn"
+                aria-label="Join Our Community"
+              >
+                <!-- Community People Icon -->
+                <svg
+                  class="w-4 h-4 text-[#862D42] stroke-current fill-none shrink-0"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                <span>Join Our Community</span>
+                <span class="transition-transform group-hover/btn:translate-x-1">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- 3-Pillar Trust Row (Bottom Row with Vertical Dividers) -->
+            <div
+              class="flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 lg:gap-7 mt-9 sm:mt-11"
+            >
+              <!-- Pillar 1: Real Stories -->
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-9 h-9 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 stroke-current fill-none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                  </svg>
+                </div>
+                <div class="text-left">
+                  <span
+                    class="font-bold text-[#201B1C] text-xs sm:text-[13px] block leading-tight"
+                    >Real Stories</span
+                  >
+                  <span class="text-[#786E69] text-[11px] block mt-0.5"
+                    >Inspire &amp; be inspired</span
+                  >
+                </div>
+              </div>
+
+              <!-- Divider 1 -->
+              <div class="hidden sm:block w-[1px] h-8 bg-[#EFE5DC]"></div>
+
+              <!-- Pillar 2: Supportive Community -->
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-9 h-9 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 stroke-current fill-none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div class="text-left">
+                  <span
+                    class="font-bold text-[#201B1C] text-xs sm:text-[13px] block leading-tight"
+                    >Supportive Community</span
+                  >
+                  <span class="text-[#786E69] text-[11px] block mt-0.5"
+                    >You're never alone</span
+                  >
+                </div>
+              </div>
+
+              <!-- Divider 2 -->
+              <div class="hidden sm:block w-[1px] h-8 bg-[#EFE5DC]"></div>
+
+              <!-- Pillar 3: Safe & Respectful -->
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-9 h-9 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 stroke-current fill-none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="text-left">
+                  <span
+                    class="font-bold text-[#201B1C] text-xs sm:text-[13px] block leading-tight"
+                    >Safe &amp; Respectful</span
+                  >
+                  <span class="text-[#786E69] text-[11px] block mt-0.5"
+                    >Your story matters</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Exact Tilted Card Artwork (100% Match to User Reference) -->
+          <div
+            class="lg:col-span-5 relative flex items-center justify-center lg:justify-end select-none"
+          >
+            <div class="relative w-full max-w-[460px] lg:max-w-[500px]">
+              <img
+                src="../images/you-are-not-alone-right-graphic.png"
+                alt="Together we grow — Future Leader"
+                class="w-full h-auto block select-none pointer-events-none transform hover:scale-[1.02] transition-transform duration-500 ease-out"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

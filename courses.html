@@ -1,0 +1,2842 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Courses & Masterclasses — WithTheMums | Expert Parenting Academy
+    </title>
+    <meta
+      name="description"
+      content="Doctor-approved, practical parenting masterclasses. Toddler discipline, baby sleep, infant weaning, postpartum recovery, and mompreneurship."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              berry: {
+                DEFAULT: "#862D42",
+                hover: "#6F2335",
+                dark: "#521927",
+                light: "#FAF0ED",
+              },
+              ivory: {
+                light: "#FCFAF7",
+                DEFAULT: "#F7F2EC",
+                dark: "#EBE2D5",
+              },
+              dustyRose: {
+                light: "#F4DDD7",
+                DEFAULT: "#D9A99C",
+                dark: "#C38B7C",
+              },
+              charcoal: {
+                DEFAULT: "#221C1D",
+                light: "#423F3C",
+              },
+              mutedText: {
+                DEFAULT: "#716A65",
+              },
+              subtleBorder: {
+                DEFAULT: "#E7DDD2",
+              },
+            },
+            fontFamily: {
+              serif: ["Newsreader", "Georgia", "serif"],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* ======================================================== */
+      /* SCROLL TEXT ANIMATION ENGINE (SteadyShield-inspired)     */
+      /* ======================================================== */
+
+      /* Word-level reveal: each word clips up from below */
+      .reveal-lines .word {
+        display: inline-block;
+        will-change: transform, opacity;
+      }
+
+      /* Fade-up reveal for paragraphs, subtext, buttons */
+      .reveal-fade {
+        will-change: transform, opacity;
+      }
+
+      /* Cards remain steady and fully visible (animations are text-only) */
+      .reveal-block {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .course-card {
+        transition:
+          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .course-card:hover {
+        transform: translateY(-4px);
+        border-color: #d9a99c;
+        box-shadow: 0 18px 44px rgba(83, 37, 44, 0.12);
+      }
+      .course-card img {
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .course-card:hover img {
+        transform: scale(1.045);
+      }
+      .modal-backdrop {
+        background-color: rgba(34, 28, 29, 0.7);
+        backdrop-filter: blur(4px);
+      }
+    </style>
+    <style>
+      .font-hand {
+        font-family: "Caveat", cursive;
+      }
+      .faq-item[aria-expanded="true"] {
+        border-color: #d9a99c;
+        background: #fffdfb;
+        box-shadow: 0 14px 34px rgba(83, 37, 44, 0.09);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#FCFAF7] text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry/20"
+  >
+    <!-- TOP BAR -->
+    <div
+      class="bg-[#541E2A] text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Left: Heart icon + Tagline with small dropdown indicator -->
+        <div class="flex items-center gap-1.5 font-normal tracking-wide">
+          <svg
+            class="w-3.5 h-3.5 text-[#E6B8AF] fill-current flex-shrink-0"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>A supportive community for every stage of motherhood</span>
+          <svg
+            class="w-2.5 h-2.5 ml-0.5 text-[#E6B8AF] opacity-80"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+
+        <!-- Right: Follow Us with social icons -->
+        <div
+          class="hidden sm:flex items-center gap-3 text-[11px] text-white/90"
+        >
+          <span class="text-white/80">Follow Us</span>
+          <div class="flex items-center gap-2">
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/wethemums/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Instagram"
+              aria-label="Instagram"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Facebook"
+              aria-label="Facebook"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="YouTube"
+              aria-label="YouTube"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                />
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Pinterest"
+              aria-label="Pinterest"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SITE NAVBAR -->
+    <header class="bg-white border-b border-[#EFE7E1] sticky top-0 z-40">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Brand Logo: WithTheMums. with subtitle -->
+        <a href="index.html" class="flex flex-col group">
+          <span
+            class="font-serif text-2xl sm:text-3xl text-[#2D2926] font-normal tracking-tight group-hover:text-[#632232] transition-colors"
+          >
+            WithTheMums<span class="text-[#632232] font-bold">.</span>
+          </span>
+          <span class="text-[10px] text-[#635C57] -mt-0.5 tracking-wide">
+            Real Stories. Stronger Together.
+          </span>
+        </a>
+
+        <!-- Center Nav Links -->
+        <nav
+          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-[#2D2926]/80"
+        >
+          <a href="index.html" class="hover:text-[#632232] transition-colors"
+            >Home</a
+          >
+          <a href="stories.html" class="hover:text-[#632232] transition-colors"
+            >Stories</a
+          >
+
+          <a href="about.html" class="hover:text-[#632232] transition-colors"
+            >About</a
+          >
+
+          <a
+            href="courses.html"
+            class="text-[#632232] font-semibold border-b-2 border-[#632232] pb-1 inline-flex items-center gap-1.5 font-medium"
+            ><span>Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a href="contact.html" class="hover:text-[#632232] transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Right: Search Button + Join Our Community pill -->
+        <div class="flex items-center gap-3">
+          <a
+            href="stories.html"
+            class="w-9 h-9 rounded-full hover:bg-[#FAF7F2] flex items-center justify-center text-[#2D2926]/70 hover:text-[#632232] transition-colors"
+            title="Search Stories"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="share-your-story.html"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm"
+          >
+            Join Our Community
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            aria-label="Toggle navigation menu"
+            class="md:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
+      >
+        <nav class="flex flex-col space-y-2 text-sm font-medium">
+          <a
+            href="index.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Home</a
+          >
+          <a
+            href="stories.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Stories</a
+          >
+          <a
+            href="journal.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Resources</a
+          >
+          <a
+            href="about.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >About</a
+          >
+          <a
+            href="brand-partnerships.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Events & Partnerships</a
+          >
+          <a
+            href="courses.html"
+            class="text-[#632232] font-semibold py-1.5 px-2 bg-[#632232]/5 rounded-md flex items-center justify-between"
+            ><span>Parenting Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-2 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a
+            href="contact.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Contact</a
+          >
+        </nav>
+        <div class="pt-3 border-t border-[#EFE7E1]">
+          <a
+            href="share-your-story.html"
+            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all"
+          >
+            Share Your Story
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <!-- ========================================== -->
+      <!-- HERO BANNER SECTION                        -->
+      <!-- ========================================== -->
+      <section
+        class="relative overflow-hidden bg-gradient-to-br from-[#FAF4EE] via-[#FCF8F5] to-[#F5ECE8] border-b border-[#EFE8E2] py-10 sm:py-14 lg:py-16"
+      >
+        <!-- Soft, image-free color accents -->
+        <div
+          class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-[#E8C5C0]/35 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -bottom-40 left-[28%] h-80 w-80 rounded-full bg-white/80 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+          >
+            <!-- Left Column: Editorial Headline & Meta -->
+            <div class="lg:col-span-7 space-y-5 sm:space-y-6 lg:pr-4">
+              <div
+                class="reveal-fade inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E9E6] text-[#6D2534] text-[11px] sm:text-xs font-semibold tracking-wider uppercase"
+              >
+                <svg
+                  class="w-3.5 h-3.5 fill-[#6D2534] shrink-0"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+                <span>With The Mums Academy • Masterclasses</span>
+              </div>
+
+              <h1
+                class="reveal-lines font-serif text-3xl sm:text-4xl lg:text-5xl text-[#221C1D] font-normal leading-[1.18] tracking-tight"
+              >
+                Parenting wisdom, guided <br class="hidden sm:inline" />
+                <span class="italic font-serif text-[#862D42]"
+                  >by trusted specialists.</span
+                >
+              </h1>
+
+              <p
+                class="reveal-fade font-sans text-sm sm:text-base lg:text-lg text-[#5E5553] leading-relaxed max-w-2xl"
+              >
+                Self-paced, judgment-free masterclasses created by certified
+                pediatricians, child psychologists, and lactation consultants.
+                Step-by-step video lessons and lifetime access.
+              </p>
+
+              <!-- Trust Badges -->
+              <div
+                class="reveal-fade pt-1 flex flex-wrap items-center gap-4 sm:gap-6"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[#F5E9E6] text-[#6D2534] flex items-center justify-center font-bold text-xs shrink-0"
+                    >⭐</span
+                  >
+                  <span class="font-medium text-xs sm:text-sm text-[#4A4240]"
+                    >4.9/5 Average Rating</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[#F5E9E6] text-[#6D2534] flex items-center justify-center font-bold text-xs shrink-0"
+                    >✓</span
+                  >
+                  <span class="font-medium text-xs sm:text-sm text-[#4A4240]"
+                    >8,500+ Mums Enrolled</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[#F5E9E6] text-[#6D2534] flex items-center justify-center font-bold text-xs shrink-0"
+                    >✦</span
+                  >
+                  <span class="font-medium text-xs sm:text-sm text-[#4A4240]"
+                    >Lifetime Video Access</span
+                  >
+                </div>
+              </div>
+
+              <div class="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+                <a
+                  href="#courses-grid"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#67212F] hover:bg-[#521925] text-white text-xs sm:text-sm font-medium shadow-sm transition-all hover:scale-[1.02] active:scale-95"
+                >
+                  <span>Explore All Courses</span>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </a>
+
+                <a
+                  href="#instructor-section"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white hover:bg-[#F5ECE8] text-[#67212F] text-xs sm:text-sm font-medium border border-[#E8D5D0] shadow-sm transition-all hover:scale-[1.02]"
+                >
+                  <span>Meet the Instructors</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Bold, image-free academy feature -->
+            <div class="reveal-block lg:col-span-5 relative">
+              <div
+                class="absolute -inset-3 rounded-[2.5rem] bg-[#862D42]/20 blur-2xl"
+              ></div>
+              <div
+                class="relative isolate min-h-[360px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#793044] via-[#632437] to-[#481925] px-7 py-8 text-white shadow-[0_28px_70px_rgba(83,37,44,0.25)] sm:min-h-[400px] sm:px-9 sm:py-10"
+              >
+                <div
+                  class="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full border border-white/10"
+                ></div>
+                <div
+                  class="pointer-events-none absolute -right-2 -top-6 h-44 w-44 rounded-full border border-white/10"
+                ></div>
+                <div
+                  class="pointer-events-none absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-[#D9A99C]/10 blur-2xl"
+                ></div>
+
+                <div
+                  class="relative flex h-full min-h-[300px] flex-col justify-between sm:min-h-[320px]"
+                >
+                  <div class="flex items-center justify-between gap-4">
+                    <span
+                      class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.17em] text-[#F6E4DF]"
+                    >
+                      <svg
+                        class="h-4 w-4 text-[#E8B8AE]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4 17.5A2.5 2.5 0 0 1 6.5 15H20"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      The With The Mums Academy
+                    </span>
+                    <span
+                      class="font-serif text-5xl leading-none text-white/15 sm:text-6xl"
+                      aria-hidden="true"
+                      >01</span
+                    >
+                  </div>
+
+                  <div class="relative py-8">
+                    <p
+                      class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#E8B8AE]"
+                    >
+                      Guidance for every chapter
+                    </p>
+                    <h2
+                      class="mt-3 max-w-sm font-serif text-4xl leading-[1.02] tracking-tight text-white sm:text-5xl"
+                    >
+                      Learn with<br />
+                      <span class="italic text-[#F0C9C1]">confidence.</span>
+                    </h2>
+                    <p class="mt-4 max-w-xs text-sm leading-6 text-white/75">
+                      Expert insight, made practical for the moments that matter
+                      every day.
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex flex-wrap gap-2 border-t border-white/15 pt-5"
+                  >
+                    <span
+                      class="rounded-full bg-white/10 px-3 py-2 text-[10px] font-medium text-white/90 sm:text-xs"
+                      >Self-paced lessons</span
+                    >
+                    <span
+                      class="rounded-full bg-white/10 px-3 py-2 text-[10px] font-medium text-white/90 sm:text-xs"
+                      >Trusted specialists</span
+                    >
+                    <span
+                      class="rounded-full bg-white/10 px-3 py-2 text-[10px] font-medium text-white/90 sm:text-xs"
+                      >Lifetime access</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST STATS RIBBON -->
+      <section class="border-y border-[#EFE8E2] bg-[#FBF6F2] py-5 sm:py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="grid grid-cols-2 gap-3 text-center md:grid-cols-4 md:gap-4"
+          >
+            <div
+              class="rounded-2xl border border-[#EFE4DE] bg-white/85 px-3 py-3 shadow-[0_4px_16px_rgba(83,37,44,0.035)] sm:py-4"
+            >
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">
+                8,500+
+              </div>
+              <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">
+                Mums Enrolled
+              </div>
+            </div>
+            <div
+              class="rounded-2xl border border-[#EFE4DE] bg-white/85 px-3 py-3 shadow-[0_4px_16px_rgba(83,37,44,0.035)] sm:py-4"
+            >
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">
+                4.9 / 5
+              </div>
+              <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">
+                Average Student Rating
+              </div>
+            </div>
+            <div
+              class="rounded-2xl border border-[#EFE4DE] bg-white/85 px-3 py-3 shadow-[0_4px_16px_rgba(83,37,44,0.035)] sm:py-4"
+            >
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">
+                100%
+              </div>
+              <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">
+                Doctor & Specialist Vetted
+              </div>
+            </div>
+            <div
+              class="rounded-2xl border border-[#EFE4DE] bg-white/85 px-3 py-3 shadow-[0_4px_16px_rgba(83,37,44,0.035)] sm:py-4"
+            >
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">
+                Lifetime
+              </div>
+              <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">
+                Access & Free Updates
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALL COURSES SECTION -->
+      <section
+        class="bg-gradient-to-b from-[#FCFAF7] to-[#FAF6F2] py-10 sm:py-14"
+        id="all-courses"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-end sm:justify-between"
+          >
+            <div>
+              <p
+                class="text-[10px] font-bold uppercase tracking-[0.2em] text-berry"
+              >
+                The With The Mums Academy
+              </p>
+              <h2
+                class="mt-1 font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl"
+              >
+                Find the guidance you need
+              </h2>
+              <p
+                class="mt-1.5 max-w-xl text-xs leading-5 text-mutedText sm:text-sm"
+              >
+                Practical, expert-led classes for every chapter of family life.
+              </p>
+            </div>
+            <span class="text-xs font-medium text-[#8A7770]"
+              >6 thoughtfully designed masterclasses</span
+            >
+          </div>
+          <!-- Category Filter Pills & Search -->
+          <div
+            class="mb-8 flex flex-col gap-4 rounded-3xl border border-[#EDE1DB] bg-white/85 p-3 shadow-[0_8px_24px_rgba(83,37,44,0.045)] sm:p-4 lg:flex-row lg:items-center lg:justify-between"
+          >
+            <!-- Filters -->
+            <div
+              class="min-w-0 flex-1 flex flex-wrap items-center gap-2 pb-1 lg:pb-0 xl:flex-nowrap"
+              id="course-filters"
+            >
+              <button
+                class="course-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-berry text-white shadow-xs whitespace-nowrap cursor-pointer transition-all"
+                data-category="all"
+              >
+                All Masterclasses (6)
+              </button>
+              <button
+                class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all"
+                data-category="toddlers"
+              >
+                Toddlers & Tantrums (2)
+              </button>
+              <button
+                class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all"
+                data-category="baby"
+              >
+                Baby Care & Sleep (2)
+              </button>
+              <button
+                class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all"
+                data-category="wellness"
+              >
+                Mum Wellbeing & Postpartum (1)
+              </button>
+              <button
+                class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all"
+                data-category="momboss"
+              >
+                Mompreneur & Career (1)
+              </button>
+            </div>
+
+            <!-- Quick Search -->
+            <div class="relative w-full shrink-0 lg:w-72">
+              <input
+                type="text"
+                id="course-search"
+                placeholder="Search courses or topics..."
+                class="w-full rounded-full border border-[#E8DCD5] bg-[#FCFAF7] py-2.5 pl-10 pr-4 text-xs transition placeholder:text-[#A59791] focus:border-berry focus:bg-white focus:outline-none focus:ring-4 focus:ring-berry/10"
+              />
+              <svg
+                class="absolute left-3.5 top-3 h-4 w-4 text-[#8A7770]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- 6 COURSES GRID -->
+          <div
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7"
+            id="courses-container"
+          >
+            <!-- COURSE 1: Toddler Tantrums -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="toddlers"
+              data-title="The Calm Toddler Blueprint: Taming Tantrums & Big Emotions"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80"
+                  alt="Toddler emotions"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-berry text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >★ BESTSELLER</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    4.9 (1,840)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>18 Video Lessons</span>
+                  <span>Printable Script PDF</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >Ages 1.5 – 5 Years</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    The Calm Toddler Blueprint: Taming Tantrums & Big Emotions
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    Learn exactly what to say during meltdowns, bedtime
+                    resistance, and aggressive hitting without yelling, bribes,
+                    or punishment.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      KI
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Dr. Kavita Iyer, Child Psychologist</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal"
+                        >₹1,499</span
+                      >
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹3,499</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >57% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('toddler')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="openCheckout('The Calm Toddler Blueprint', 1499)"
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COURSE 2: Baby Weaning & First Foods -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="baby"
+              data-title="First Foods & Gentle Weaning: 6 to 12 Months"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80"
+                  alt="Baby eating"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-emerald-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >DOCTOR-APPROVED</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    4.9 (2,120)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>14 Video Modules</span>
+                  <span>45 Recipe Cards PDF</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >Ages 6 – 12 Months</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    First Foods & Gentle Weaning: Purees to Finger Foods
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    Confidently transition your baby to solids with
+                    doctor-approved nutritional guidelines, choking vs gagging
+                    safety, and iron-rich Indian menus.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      SS
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Sneha Singhal, Pediatric Nutritionist</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal"
+                        >₹1,299</span
+                      >
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹2,999</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >56% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('weaning')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="
+                        openCheckout('First Foods & Gentle Weaning', 1299)
+                      "
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COURSE 3: Gentle Sleep Solutions -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="baby"
+              data-title="Gentle Sleep Solutions: Newborn to 3 Years"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80"
+                  alt="Sleeping baby"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-indigo-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >TEAR-FREE METHOD</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    4.8 (1,450)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>16 Video Lessons</span>
+                  <span>Wake Window Calculator</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >Ages 0 – 3 Years</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    Gentle Sleep Solutions: Restful Nights Without Endless
+                    Crying
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    Establish natural circadian rhythms, soothe night wakings,
+                    navigate the 4-month sleep regression, and foster
+                    self-soothing safely.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      MD
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Meera Deshmukh, Infant Sleep Specialist</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal"
+                        >₹1,699</span
+                      >
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹3,999</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >57% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('sleep')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="openCheckout('Gentle Sleep Solutions', 1699)"
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COURSE 4: Postpartum & Fourth Trimester -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="wellness"
+              data-title="The Fourth Trimester: Postpartum Recovery & Maternal Wellbeing"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
+                  alt="Mother holding baby tenderly"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-berry text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >MUM WELLBEING</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    5.0 (980)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>12 Video Modules</span>
+                  <span>PPD Recovery Journal</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >New Mothers</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    The Fourth Trimester: Physical Recovery & Maternal Mental
+                    Health
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    A compassionate roadmap for pelvic floor rehabilitation,
+                    hormone fluctuations, breastfeeding troubleshooting, and
+                    postpartum anxiety.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      AS
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Dr. Ananya Sharma, Obstetrician & Doula</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal">₹999</span>
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹2,499</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >60% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('fourth')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="
+                        openCheckout('The Fourth Trimester Masterclass', 999)
+                      "
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COURSE 5: Potty Training in 5 Days -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="toddlers"
+              data-title="Potty Training in 5 Days: A Tear-Free Step-by-Step System"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80"
+                  alt="Happy child"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >FAST-TRACK</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    4.9 (1,620)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>8 Step-by-Step Lessons</span>
+                  <span>Printable Sticker Chart</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >Ages 2 – 4 Years</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    Potty Training in 5 Days: A Gentle, Tear-Free System
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    Know the exact readiness signs, daytime transitions,
+                    accident management without shaming, and reliable night-time
+                    dryness.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      PK
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Priya Kapoor, Early Childhood Educator</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal">₹899</span>
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹1,999</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >55% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('potty')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="openCheckout('Potty Training in 5 Days', 899)"
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COURSE 6: Mom Boss & Remote Business -->
+            <div
+              class="course-card group flex flex-col overflow-hidden rounded-[28px] border border-[#eadbd4] bg-white shadow-[0_8px_28px_rgba(74,43,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#d7aeb0] hover:shadow-[0_22px_48px_rgba(91,43,51,0.14)]"
+              data-category="momboss"
+              data-title="Mom Boss: Launching a Profitable Business From Home"
+            >
+              <div class="relative h-56 overflow-hidden bg-[#F4EDE7] sm:h-60">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                  alt="Mom working on laptop"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                ></div>
+                <div
+                  class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full bg-purple-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm"
+                    >NEW LAUNCH</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    4.8 (640)
+                  </span>
+                </div>
+                <div
+                  class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs"
+                >
+                  <span>20 Video Lessons</span>
+                  <span>Business Launch Templates</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col justify-between space-y-5 p-6 sm:p-7">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-berry uppercase tracking-wider block"
+                    >Entrepreneurship</span
+                  >
+                  <h3
+                    class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug"
+                  >
+                    Mom Boss: Launching a Profitable Business While Raising Kids
+                  </h3>
+                  <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                    Turn your passion or expertise into recurring income with
+                    realistic time-blocking, social media positioning, and zero
+                    mom-guilt.
+                  </p>
+                  <div
+                    class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center"
+                    >
+                      MV
+                    </div>
+                    <span class="text-xs text-charcoal/90 font-medium"
+                      >Mansi Verma, Founder & Mompreneur Mentor</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span class="text-lg font-bold text-charcoal"
+                        >₹2,499</span
+                      >
+                      <span class="text-xs text-mutedText line-through ml-1.5"
+                        >₹5,999</span
+                      >
+                    </div>
+                    <span
+                      class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"
+                      >58% OFF</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button
+                      onclick="openCurriculum('momboss')"
+                      class="rounded-2xl border border-[#e8d9d2] bg-[#fffdfa] px-3 py-3 text-xs font-semibold text-charcoal transition-all hover:border-[#c79298] hover:bg-[#fbf1ef]"
+                    >
+                      Preview Syllabus
+                    </button>
+                    <button
+                      onclick="openCheckout('Mom Boss Masterclass', 2499)"
+                      class="rounded-2xl bg-berry px-3 py-3 text-xs font-semibold text-white shadow-[0_8px_18px_rgba(112,40,58,0.18)] transition-all hover:-translate-y-0.5 hover:bg-berry-hover hover:shadow-[0_12px_24px_rgba(112,40,58,0.25)]"
+                    >
+                      Enroll Now &rarr;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BUNDLE CALLOUT BANNER -->
+          <div
+            class="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-berry-dark via-berry to-[#9E3952] text-white relative overflow-hidden shadow-xl"
+          >
+            <div class="max-w-2xl relative z-10 space-y-4">
+              <span
+                class="reveal-fade inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-widest uppercase"
+              >
+                👑 ALL-ACCESS MUM ACADEMY PASS
+              </span>
+              <h2
+                class="reveal-lines font-serif text-3xl sm:text-4xl font-normal leading-tight"
+              >
+                Get Unlimited Lifetime Access to All 6 Masterclasses
+              </h2>
+              <p class="reveal-fade text-sm text-white/90 leading-relaxed">
+                Equip your home with doctor-backed guidance for infant feeding,
+                toddler tantrums, tear-free sleep, postpartum healing, and your
+                personal goals. Includes all future courses added to the
+                academy.
+              </p>
+              <div class="reveal-fade pt-2 flex flex-wrap items-baseline gap-4">
+                <span class="text-3xl font-bold">₹4,999</span>
+                <span class="text-sm line-through text-white/60"
+                  >₹20,000 Total Value</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold"
+                  >SAVE 75%</span
+                >
+              </div>
+              <div class="pt-2">
+                <button
+                  onclick="openCheckout('All-Access Mum Academy Pass', 4999)"
+                  class="px-8 py-3.5 rounded-full bg-white text-berry font-bold text-xs uppercase tracking-wider hover:bg-ivory shadow-lg transition-transform hover:scale-105"
+                >
+                  Claim All-Access Pass &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQS SECTION -->
+      <section class="relative overflow-hidden border-t border-[#EFE4DE] bg-gradient-to-br from-[#FAF5F1] via-[#FCFAF7] to-[#F6ECE8] py-16 sm:py-20">
+        <div class="pointer-events-none absolute -left-28 top-10 h-72 w-72 rounded-full bg-[#E8C5C0]/30 blur-3xl"></div>
+        <div class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#E8C5C0]/25 blur-3xl"></div>
+        <div class="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-start lg:gap-14 lg:px-8">
+          <div class="lg:col-span-5 lg:pt-4">
+          <div class="mb-8 text-left lg:mb-9">
+            <span
+              class="reveal-fade inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-berry"
+              >Got Questions?</span
+            >
+            <h2
+              class="reveal-lines mt-2 font-serif text-4xl font-normal leading-[1.05] tracking-tight text-charcoal sm:text-5xl"
+            >
+              A little clarity<br /><span class="italic text-berry">goes a long way.</span>
+            </h2>
+            <p class="reveal-fade mt-4 max-w-md text-sm leading-6 text-mutedText">
+              Everything you need to feel confident before choosing a masterclass.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-[#EAD8D2] bg-white/75 p-5 shadow-[0_12px_32px_rgba(83,37,44,0.06)] backdrop-blur-sm sm:p-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F5E9E6] text-berry">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="mt-4 font-serif text-xl text-charcoal">Still have a question?</h3>
+            <p class="mt-1.5 text-xs leading-5 text-mutedText">Our team is happy to help you find the right course for your family.</p>
+            <a href="mailto:courses@wethemums.com" class="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-berry transition-colors hover:text-berry-hover">
+              Talk to our team <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          </div>
+
+          <div class="space-y-3 lg:col-span-7" id="faq-accordion">
+            <div
+              class="faq-item group cursor-pointer rounded-2xl border border-[#EADDD6] bg-white/90 p-5 shadow-[0_5px_18px_rgba(83,37,44,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D9A99C] hover:shadow-[0_12px_30px_rgba(83,37,44,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berry/30 sm:p-6"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              onclick="toggleFaq(this)"
+              onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleFaq(this); }"
+            >
+              <div
+                class="flex items-center justify-between font-medium text-sm text-charcoal"
+              >
+                <span>How do I access the course after purchasing?</span>
+                <svg
+                  class="h-9 w-9 rounded-full bg-[#F8EFEC] p-2 text-berry transition-transform group-hover:bg-[#F2E2DE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div
+                class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed"
+              >
+                Immediately after successful enrollment, you will receive your
+                personal login credentials via email and WhatsApp. You can watch
+                the video lessons from your phone, tablet, or laptop anytime.
+              </div>
+            </div>
+
+            <div
+              class="faq-item group cursor-pointer rounded-2xl border border-[#EADDD6] bg-white/90 p-5 shadow-[0_5px_18px_rgba(83,37,44,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D9A99C] hover:shadow-[0_12px_30px_rgba(83,37,44,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berry/30 sm:p-6"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              onclick="toggleFaq(this)"
+              onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleFaq(this); }"
+            >
+              <div
+                class="flex items-center justify-between font-medium text-sm text-charcoal"
+              >
+                <span>Are these live sessions or self-paced?</span>
+                <svg
+                  class="h-9 w-9 rounded-full bg-[#F8EFEC] p-2 text-berry transition-transform group-hover:bg-[#F2E2DE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div
+                class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed"
+              >
+                All courses are 100% self-paced high-definition video modules
+                that you can watch whenever you have 10 quiet minutes. You also
+                receive lifetime access and free updates whenever we revise the
+                curriculum.
+              </div>
+            </div>
+
+            <div
+              class="faq-item group cursor-pointer rounded-2xl border border-[#EADDD6] bg-white/90 p-5 shadow-[0_5px_18px_rgba(83,37,44,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D9A99C] hover:shadow-[0_12px_30px_rgba(83,37,44,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berry/30 sm:p-6"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              onclick="toggleFaq(this)"
+              onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleFaq(this); }"
+            >
+              <div
+                class="flex items-center justify-between font-medium text-sm text-charcoal"
+              >
+                <span>What if the course doesn't work for my child?</span>
+                <svg
+                  class="h-9 w-9 rounded-full bg-[#F8EFEC] p-2 text-berry transition-transform group-hover:bg-[#F2E2DE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div
+                class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed"
+              >
+                We stand behind the quality of our expert doctors and educators.
+                If you implement the strategies for 14 days and do not see a
+                positive difference, email us at courses@wethemums.com for a
+                100% no-questions-asked refund.
+              </div>
+            </div>
+
+            <div
+              class="faq-item group cursor-pointer rounded-2xl border border-[#EADDD6] bg-white/90 p-5 shadow-[0_5px_18px_rgba(83,37,44,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D9A99C] hover:shadow-[0_12px_30px_rgba(83,37,44,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berry/30 sm:p-6"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              onclick="toggleFaq(this)"
+              onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleFaq(this); }"
+            >
+              <div
+                class="flex items-center justify-between font-medium text-sm text-charcoal"
+              >
+                <span>Can my spouse or partner watch with me?</span>
+                <svg
+                  class="h-9 w-9 rounded-full bg-[#F8EFEC] p-2 text-berry transition-transform group-hover:bg-[#F2E2DE]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div
+                class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed"
+              >
+                Yes, absolutely! We strongly encourage both parents to watch the
+                modules together so everyone is on the same page with routines,
+                communication, and discipline.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- MODAL 1: CURRICULUM SYLLABUS PREVIEW       -->
+    <!-- ========================================== -->
+    <div
+      id="curriculum-modal"
+      class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-backdrop fixed inset-0"
+        onclick="closeCurriculum()"
+      ></div>
+      <div
+        class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 border border-subtleBorder shadow-2xl z-10"
+      >
+        <div
+          class="flex items-center justify-between pb-4 border-b border-subtleBorder"
+        >
+          <div>
+            <span
+              class="text-xs font-bold text-berry uppercase tracking-wider"
+              id="curr-tag"
+              >CURRICULUM PREVIEW</span
+            >
+            <h3
+              class="font-serif text-2xl font-normal text-charcoal mt-0.5"
+              id="curr-title"
+            >
+              Course Syllabus
+            </h3>
+          </div>
+          <button
+            onclick="closeCurriculum()"
+            class="p-2 rounded-full hover:bg-ivory text-mutedText hover:text-charcoal transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mt-6 space-y-4" id="curr-content">
+          <!-- Injected via JavaScript -->
+        </div>
+
+        <div
+          class="mt-8 pt-4 border-t border-subtleBorder flex items-center justify-between"
+        >
+          <span class="text-xs text-mutedText"
+            >Includes lifetime access & printable workbooks</span
+          >
+          <button
+            id="curr-enroll-btn"
+            class="px-6 py-2.5 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover transition-all"
+          >
+            Enroll Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 2: CHECKOUT & ENROLLMENT FLOW        -->
+    <!-- ========================================== -->
+    <div
+      id="checkout-modal"
+      class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div class="modal-backdrop fixed inset-0" onclick="closeCheckout()"></div>
+      <div
+        class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-subtleBorder shadow-2xl z-10"
+      >
+        <div
+          class="flex items-center justify-between pb-4 border-b border-subtleBorder"
+        >
+          <div>
+            <span
+              class="text-[11px] font-bold text-berry uppercase tracking-wider"
+              >SECURE CHECKOUT</span
+            >
+            <h3
+              class="font-serif text-2xl font-normal text-charcoal"
+              id="checkout-course-name"
+            >
+              Enroll in Course
+            </h3>
+          </div>
+          <button
+            onclick="closeCheckout()"
+            class="p-2 rounded-full hover:bg-ivory text-mutedText hover:text-charcoal transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <form
+          id="checkout-form"
+          onsubmit="handleCheckout(event)"
+          class="mt-5 space-y-4"
+        >
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1"
+              >Your Full Name *</label
+            >
+            <input
+              type="text"
+              id="buyer-name"
+              required
+              placeholder="e.g. Radhika Sharma"
+              class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1"
+              >Email Address (For course access link) *</label
+            >
+            <input
+              type="email"
+              id="buyer-email"
+              required
+              placeholder="e.g. radhika@example.com"
+              class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1"
+              >WhatsApp Number (For community group & login SMS) *</label
+            >
+            <input
+              type="tel"
+              id="buyer-phone"
+              required
+              placeholder="e.g. +91 98765 43210"
+              class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none"
+            />
+          </div>
+
+          <!-- Coupon row -->
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1"
+              >Discount Code</label
+            >
+            <div class="flex gap-2">
+              <input
+                type="text"
+                id="coupon-code"
+                placeholder="Try MUMPOWER"
+                class="flex-1 px-4 py-2 text-xs uppercase rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none"
+              />
+              <button
+                type="button"
+                onclick="applyCoupon()"
+                class="px-4 py-2 rounded-xl bg-charcoal text-white text-xs font-semibold hover:bg-black transition-colors"
+              >
+                Apply
+              </button>
+            </div>
+            <span
+              id="coupon-msg"
+              class="text-[11px] font-medium hidden mt-1 block"
+            ></span>
+          </div>
+
+          <!-- Price breakdown -->
+          <div
+            class="p-3.5 rounded-xl bg-ivory/50 border border-subtleBorder text-xs space-y-1.5"
+          >
+            <div class="flex justify-between text-mutedText">
+              <span>Course Fee:</span>
+              <span id="summary-orig-price">₹1,499</span>
+            </div>
+            <div
+              class="flex justify-between text-emerald-700 font-medium hidden"
+              id="discount-row"
+            >
+              <span>Discount (MUMPOWER):</span>
+              <span id="summary-discount">-₹225</span>
+            </div>
+            <div
+              class="flex justify-between font-bold text-charcoal text-sm pt-2 border-t border-subtleBorder"
+            >
+              <span>Total Payable:</span>
+              <span id="summary-total" class="text-berry">₹1,499</span>
+            </div>
+          </div>
+
+          <!-- Payment methods -->
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1.5"
+              >Select Payment Method</label
+            >
+            <div class="grid grid-cols-3 gap-2">
+              <label
+                class="border border-berry bg-berry/5 rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="upi"
+                  checked
+                  class="text-berry focus:ring-berry text-xs"
+                />
+                <span class="text-xs font-bold text-charcoal mt-1"
+                  >UPI / GPay</span
+                >
+                <span class="text-[9px] text-mutedText">Instant QR</span>
+              </label>
+              <label
+                class="border border-subtleBorder rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer hover:bg-ivory"
+              >
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="card"
+                  class="text-berry focus:ring-berry text-xs"
+                />
+                <span class="text-xs font-bold text-charcoal mt-1">Card</span>
+                <span class="text-[9px] text-mutedText">Debit/Credit</span>
+              </label>
+              <label
+                class="border border-subtleBorder rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer hover:bg-ivory"
+              >
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="netbanking"
+                  class="text-berry focus:ring-berry text-xs"
+                />
+                <span class="text-xs font-bold text-charcoal mt-1"
+                  >NetBanking</span
+                >
+                <span class="text-[9px] text-mutedText">All Banks</span>
+              </label>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 rounded-full bg-berry text-white text-xs font-bold uppercase tracking-wider hover:bg-berry-hover transition-all shadow-md mt-2"
+          >
+            Complete Enrollment &rarr;
+          </button>
+        </form>
+
+        <!-- SUCCESS CONFIRMATION -->
+        <div id="checkout-success" class="hidden mt-6 text-center space-y-4">
+          <div
+            class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h4 class="font-serif text-2xl text-charcoal font-normal">
+            Welcome to the Academy!
+          </h4>
+          <p class="text-xs text-mutedText leading-relaxed">
+            Your payment was simulated successfully! Your course dashboard
+            access credentials and WhatsApp group invite have been sent to your
+            email.
+          </p>
+          <div class="p-3 bg-ivory rounded-xl text-xs font-mono text-charcoal">
+            Enrollment ID: <strong id="order-id">WTM-2026-8941</strong>
+          </div>
+          <button
+            onclick="closeCheckout()"
+            class="w-full py-2.5 rounded-full bg-charcoal text-white text-xs font-semibold hover:bg-black"
+          >
+            Close Window
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SITE FOOTER                                -->
+    <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!-- SITE FOOTER (100% MATCH TO REFERENCE)       -->
+    <!-- ========================================== -->
+    <footer
+      class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none"
+    >
+      <!-- Left Botanical Leaf Doodle -->
+      <img
+        src="images/footer-left-leaves.png"
+        alt=""
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-12 sm:w-14 pointer-events-none select-none z-0"
+        loading="lazy"
+      />
+
+      <!-- Right Mother & Baby Artwork with Script Text -->
+      <img
+        src="images/footer-right-artwork.png"
+        alt="Real mums. Real stories. Real support."
+        class="absolute right-0 top-4 sm:top-6 w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
+        loading="lazy"
+      />
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- 4 Columns Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14"
+        >
+          <!-- Col 1: Brand Logo, Description & Socials -->
+          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+            <div>
+              <a href="index.html" class="inline-block mb-3.5">
+                <img
+                  src="images/footer-logo-full.png"
+                  alt="WithTheMums. Real Stories. Stronger Together."
+                  class="h-10 sm:h-11 w-auto object-contain"
+                />
+              </a>
+              <p
+                class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1"
+              >
+                A supportive community for every stage of motherhood. Because
+                you're not alone.
+              </p>
+            </div>
+
+            <!-- Social Pill Buttons -->
+            <div class="flex items-center gap-2.5 pt-6">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Instagram"
+                aria-label="Instagram"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <!-- Pinterest -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Pinterest"
+                aria-label="Pinterest"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="YouTube"
+                aria-label="YouTube"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                QUICK LINKS
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Stories
+                </a>
+              </li>
+              <li>
+                <a
+                  href="journal.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="brand-partnerships.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Events
+                </a>
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Categories -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                CATEGORIES
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="stories.html?category=motherhood"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Motherhood
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=pregnancy-and-birth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Pregnancy &amp; Birth
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=feeding-and-lifestyle"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Feeding &amp; Lifestyle
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Everyday Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=challenges-and-growth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Challenges &amp; Growth
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Stay Connected -->
+          <div
+            class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <div
+                class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+                >
+                  STAY CONNECTED
+                </h4>
+                <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
+              </div>
+            </div>
+
+            <p
+              class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4"
+            >
+              Subscribe to our newsletter for the latest stories and updates.
+            </p>
+
+            <form
+              id="footer-newsletter"
+              class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors"
+            >
+              <svg
+                class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input
+                type="email"
+                required
+                placeholder="Your email address"
+                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
+              >
+                <span class="text-xs font-bold">&rarr;</span>
+              </button>
+            </form>
+
+            <div
+              class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none"
+            >
+              <span>Join our community</span>
+              <svg
+                class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Dark Wave & Copyright Bar -->
+      <div class="relative w-full bg-[#531D2C] text-white/80 pt-6">
+        <!-- Top Wave SVG -->
+        <div
+          class="w-full overflow-hidden leading-none -translate-y-[99%] absolute top-0 left-0 right-0 pointer-events-none"
+        >
+          <svg
+            class="w-full h-4 sm:h-6 text-[#531D2C] fill-current block"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C250,28 500,8 750,22 C1000,32 1150,12 1200,18 L1200,30 L0,30 Z"
+            ></path>
+          </svg>
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto px-5 sm:px-8 pb-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 relative z-10"
+        >
+          <!-- Left: Heart + Copyright -->
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-4 h-4 text-white/80 stroke-current fill-none shrink-0"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="w-[1px] h-3.5 bg-white/30"></span>
+            <span
+              >&copy; 2025
+              <strong class="font-semibold text-white">WithTheMums.</strong> All
+              rights reserved.</span
+            >
+          </div>
+
+          <!-- Right: Policy Links + Scroll to Top Button -->
+          <div class="flex items-center gap-4 sm:gap-6">
+            <a
+              href="contact.html#privacy"
+              class="hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a
+              href="contact.html#terms"
+              class="hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a href="contact.html" class="hover:text-white transition-colors"
+              >Contact</a
+            >
+
+            <!-- Back to Top Button -->
+            <button
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all ml-2"
+              title="Back to top"
+              aria-label="Back to top"
+            >
+              <svg
+                class="w-3.5 h-3.5 stroke-current fill-none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT FOR COURSES, FILTERS & CHECKOUT -->
+    <script>
+      // Mobile menu toggle
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+
+      // Category Filtering
+      const filterBtns = document.querySelectorAll(".course-filter-btn");
+      const courseCards = document.querySelectorAll(".course-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => {
+            b.classList.remove("bg-berry", "text-white");
+            b.classList.add(
+              "bg-white",
+              "text-charcoal/70",
+              "border",
+              "border-subtleBorder",
+            );
+          });
+          btn.classList.remove(
+            "bg-white",
+            "text-charcoal/70",
+            "border",
+            "border-subtleBorder",
+          );
+          btn.classList.add("bg-berry", "text-white");
+
+          const cat = btn.getAttribute("data-category");
+          courseCards.forEach((card) => {
+            if (cat === "all" || card.getAttribute("data-category") === cat) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Real-time search
+      const searchInput = document.getElementById("course-search");
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          courseCards.forEach((card) => {
+            const title = card.getAttribute("data-title").toLowerCase();
+            const desc = card.innerText.toLowerCase();
+            if (title.includes(query) || desc.includes(query)) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      }
+
+      // Curriculum Preview Data
+      const curriculums = {
+        toddler: {
+          tag: "TODDLER DISCIPLINE",
+          title: "The Calm Toddler Blueprint: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: The Neuroscience of a Toddler Meltdown",
+              desc: "Why logic fails during tantrums, the amygdala hijack, and how to co-regulate calmly.",
+            },
+            {
+              title: "Module 2: 7 Printable Scripts for High-Stress Moments",
+              desc: "Exact phrases for leaving the park, grocery store crying, sharing struggles, and bedtime.",
+            },
+            {
+              title:
+                "Module 3: Preventing Aggression (Hitting, Biting, Throwing)",
+              desc: "Gentle boundaries that teach emotional regulation without physical punishment or fear.",
+            },
+            {
+              title: "Module 4: Repair & Reconnection",
+              desc: "How to rebuild trust after a rough day so parent and child feel deeply secure.",
+            },
+          ],
+        },
+        weaning: {
+          tag: "NUTRITION & SOLIDS",
+          title: "First Foods & Gentle Weaning: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: Readiness Signs & Safety Essentials",
+              desc: "When to start, essential high-chair ergonomics, and mastering the difference between gagging and choking.",
+            },
+            {
+              title: "Module 2: Purees vs. Baby-Led Weaning",
+              desc: "How to combine the best of both approaches for stress-free meal times.",
+            },
+            {
+              title: "Module 3: Top Allergen Introduction Matrix",
+              desc: "Doctor-approved protocol for safely introducing nuts, eggs, dairy, and fish.",
+            },
+            {
+              title: "Module 4: 45 Nutrient-Dense Indian Baby Recipes",
+              desc: "Khichdi variations, iron-packed purees, steamed vegetable finger foods, and tiffin meal planners.",
+            },
+          ],
+        },
+        sleep: {
+          tag: "INFANT & TODDLER SLEEP",
+          title: "Gentle Sleep Solutions: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: Circadian Rhythms & Age-Wise Wake Windows",
+              desc: "Calculating optimal nap times and preventing overtired bedtime battles.",
+            },
+            {
+              title: "Module 2: The 4-Month & 8-Month Sleep Regressions",
+              desc: "Understanding biological brain development and navigating regression without setbacks.",
+            },
+            {
+              title: "Module 3: Gentle Night-Weaning Without Tears",
+              desc: "Gradual reduction methods that preserve emotional security while sleeping 8+ hour stretches.",
+            },
+            {
+              title: "Module 4: Smooth Bedtime Routines & Environment Setup",
+              desc: "Lighting, sound machines, sleep sacks, and positive sleep associations.",
+            },
+          ],
+        },
+        fourth: {
+          tag: "POSTPARTUM HEALTH",
+          title: "The Fourth Trimester: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: Pelvic Floor & Core Rehab",
+              desc: "Safe postnatal recovery movements, diastasis recti assessment, and preventing prolapse.",
+            },
+            {
+              title: "Module 2: Hormones, Baby Blues & PPD Screening",
+              desc: "Distinguishing normal hormonal shifts from postpartum anxiety and where to find clinical help.",
+            },
+            {
+              title: "Module 3: Breastfeeding & Latch Mastery",
+              desc: "Pain-free latch techniques, blocked ducts relief, and maintaining milk supply.",
+            },
+            {
+              title: "Module 4: Partner Dynamics & The Mental Load",
+              desc: "Communicating needs without resentment and sharing nighttime duties fairly.",
+            },
+          ],
+        },
+        potty: {
+          tag: "EARLY CHILDHOOD",
+          title: "Potty Training in 5 Days: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: Assessing Genuine Readiness",
+              desc: "The 5 developmental cues before starting, avoiding premature regression.",
+            },
+            {
+              title: "Module 2: The 5-Day Step-by-Step Schedule",
+              desc: "Detailed hour-by-hour visual routine for day 1 through day 5.",
+            },
+            {
+              title: "Module 3: Responding to Accidents with Zero Shame",
+              desc: "Positive reinforcement scripts and preventing power struggles over bowel movements.",
+            },
+            {
+              title: "Module 4: Public Restrooms & Night-time Dryness",
+              desc: "Mastering car rides, preschool transitions, and overnight independence.",
+            },
+          ],
+        },
+        momboss: {
+          tag: "CAREER & ENTREPRENEURSHIP",
+          title: "Mom Boss Masterclass: Syllabus Preview",
+          modules: [
+            {
+              title: "Module 1: Finding Your High-Profit Niche",
+              desc: "Turning your skills into services, digital products, or consulting from your kitchen table.",
+            },
+            {
+              title: "Module 2: Realistic Time-Blocking for Mums",
+              desc: "How to build a business in 2 hours during naptime without neglecting your children.",
+            },
+            {
+              title: "Module 3: Client Attraction & Social Media Growth",
+              desc: "Authentic storytelling strategies that attract paying clients without dancing on Reels.",
+            },
+            {
+              title: "Module 4: Pricing, Invoicing & Automations",
+              desc: "Setting professional rates and automating admin tasks so the business runs while you play.",
+            },
+          ],
+        },
+      };
+
+      function openCurriculum(key) {
+        const data = curriculums[key];
+        if (!data) return;
+        document.getElementById("curr-tag").innerText = data.tag;
+        document.getElementById("curr-title").innerText = data.title;
+
+        let html = "";
+        data.modules.forEach((m, idx) => {
+          html += `
+          <div class="p-4 rounded-2xl bg-ivory/60 border border-subtleBorder">
+            <h4 class="font-semibold text-sm text-charcoal">${m.title}</h4>
+            <p class="text-xs text-mutedText mt-1">${m.desc}</p>
+          </div>
+        `;
+        });
+        document.getElementById("curr-content").innerHTML = html;
+        document.getElementById("curr-modal").style.display = "flex";
+        document.getElementById("curriculum-modal").classList.remove("hidden");
+      }
+
+      function closeCurriculum() {
+        document.getElementById("curriculum-modal").classList.add("hidden");
+      }
+
+      // Checkout Flow
+      let currentPrice = 1499;
+      let couponApplied = false;
+
+      function openCheckout(courseName, price) {
+        closeCurriculum();
+        currentPrice = price;
+        couponApplied = false;
+        document.getElementById("checkout-course-name").innerText = courseName;
+        document.getElementById("summary-orig-price").innerText = "₹" + price;
+        document.getElementById("summary-total").innerText = "₹" + price;
+        document.getElementById("discount-row").classList.add("hidden");
+        document.getElementById("coupon-msg").classList.add("hidden");
+        document.getElementById("coupon-code").value = "";
+        document.getElementById("checkout-form").classList.remove("hidden");
+        document.getElementById("checkout-success").classList.add("hidden");
+        document.getElementById("checkout-modal").classList.remove("hidden");
+      }
+
+      function closeCheckout() {
+        document.getElementById("checkout-modal").classList.add("hidden");
+      }
+
+      function applyCoupon() {
+        const code = document
+          .getElementById("coupon-code")
+          .value.trim()
+          .toUpperCase();
+        const msg = document.getElementById("coupon-msg");
+        if (code === "MUMPOWER") {
+          couponApplied = true;
+          const discount = Math.round(currentPrice * 0.15);
+          const finalPrice = currentPrice - discount;
+          document.getElementById("discount-row").classList.remove("hidden");
+          document.getElementById("summary-discount").innerText =
+            "-₹" + discount;
+          document.getElementById("summary-total").innerText = "₹" + finalPrice;
+          msg.className = "text-[11px] font-medium text-emerald-600 mt-1 block";
+          msg.innerText = "✓ Coupon MUMPOWER applied! 15% discount deducted.";
+        } else {
+          msg.className = "text-[11px] font-medium text-rose-600 mt-1 block";
+          msg.innerText = "Invalid coupon code. Try MUMPOWER";
+        }
+      }
+
+      function handleCheckout(e) {
+        e.preventDefault();
+        const name = document.getElementById("buyer-name").value;
+        const email = document.getElementById("buyer-email").value;
+        const phone = document.getElementById("buyer-phone").value;
+        const course = document.getElementById(
+          "checkout-course-name",
+        ).innerText;
+
+        // Save order in localStorage so editorial-dashboard can see course sales!
+        try {
+          const orders = JSON.parse(
+            localStorage.getItem("wtm_course_orders") || "[]",
+          );
+          const newOrder = {
+            id: "WTM-" + Math.floor(1000 + Math.random() * 9000),
+            course: course,
+            name: name,
+            email: email,
+            phone: phone,
+            price: document.getElementById("summary-total").innerText,
+            date: new Date().toLocaleDateString("en-GB"),
+          };
+          orders.unshift(newOrder);
+          localStorage.setItem("wtm_course_orders", JSON.stringify(orders));
+          document.getElementById("order-id").innerText = newOrder.id;
+        } catch (err) {
+          console.error(err);
+        }
+
+        document.getElementById("checkout-form").classList.add("hidden");
+        document.getElementById("checkout-success").classList.remove("hidden");
+      }
+
+      // FAQ Toggle
+      function toggleFaq(el) {
+        const p = el.querySelector("div:nth-child(2)");
+        const svg = el.querySelector("svg");
+        if (p.classList.contains("hidden")) {
+          p.classList.remove("hidden");
+          svg.classList.add("rotate-180");
+          el.setAttribute("aria-expanded", "true");
+        } else {
+          p.classList.add("hidden");
+          svg.classList.remove("rotate-180");
+          el.setAttribute("aria-expanded", "false");
+        }
+      }
+    </script>
+    <script>
+      // Footer Newsletter Subscription
+      const footerForm = document.getElementById("footer-newsletter");
+      if (footerForm) {
+        footerForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const input = footerForm.querySelector('input[type="email"]');
+          if (input && input.value) {
+            const subs = JSON.parse(
+              localStorage.getItem("wethemums_newsletter") || "[]",
+            );
+            subs.push({ email: input.value, date: new Date().toISOString() });
+            localStorage.setItem("wethemums_newsletter", JSON.stringify(subs));
+            footerForm.reset();
+            alert("Welcome to WithTheMums! Thank you for subscribing.");
+          }
+        });
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // =============================================
+        // GSAP BIDIRECTIONAL SCROLL ANIMATION ENGINE
+        // (Smooth word reveals & section reveals when scrolling down AND scrolling up)
+        // =============================================
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined")
+          return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        // Split text into individual words for reveal animation
+        function splitIntoWords(el) {
+          if (el.dataset.split === "done")
+            return Array.from(el.querySelectorAll(".word"));
+          el.dataset.split = "done";
+          // Preserve existing markup (em, br, span with classes)
+          if (el.querySelector("em, br, span")) {
+            const walker = document.createTreeWalker(
+              el,
+              NodeFilter.SHOW_TEXT,
+              null,
+            );
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+            textNodes.forEach((node) => {
+              const words = node.textContent
+                .split(/\s+/)
+                .filter((w) => w.length > 0);
+              if (words.length === 0) return;
+              const frag = document.createDocumentFragment();
+              words.forEach((w, i) => {
+                const span = document.createElement("span");
+                span.className = "word";
+                span.style.display = "inline-block";
+                span.textContent = w;
+                frag.appendChild(span);
+                if (i < words.length - 1)
+                  frag.appendChild(document.createTextNode(" "));
+              });
+              node.parentNode.replaceChild(frag, node);
+            });
+            return Array.from(el.querySelectorAll(".word"));
+          }
+          // Simple text — split on spaces
+          const text = el.textContent.trim();
+          const words = text.split(/\s+/);
+          el.innerHTML = words
+            .map(
+              (w) =>
+                `<span class="word" style="display:inline-block">${w}</span>`,
+            )
+            .join(" ");
+          return Array.from(el.querySelectorAll(".word"));
+        }
+
+        window.initScrollTextAnimations = function () {
+          if (prefersReduced) return;
+
+          // 1. HEADINGS & TITLES WORD-BY-WORD REVEAL (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-lines").forEach((el) => {
+            const words = splitIntoWords(el);
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                words,
+                { yPercent: 40, opacity: 0 },
+                {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  stagger: 0.025,
+                },
+              );
+            } else {
+              gsap.set(words, { yPercent: 100, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 88%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.03 : 0,
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.75,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.025 : 0,
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(words, {
+                  yPercent: 50,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(words, {
+                  yPercent: 100,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+
+          // 2. PARAGRAPHS, LABELS, BUTTONS FADE-UP (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-fade").forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                el,
+                { y: 15, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
+              );
+            } else {
+              gsap.set(el, { y: 28, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 90%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.7,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(el, {
+                  y: -15,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(el, {
+                  y: 28,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+        };
+
+        window.initScrollTextAnimations();
+      });
+    </script>
+  </body>
+</html>

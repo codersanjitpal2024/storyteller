@@ -1,484 +1,1641 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stories Archive — WeTheMums | Real Parenting Journeys</title>
-  <meta name="description" content="Explore real stories from mothers, fathers, and families across every chapter of parenting. Search and filter by category.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            berry: {
-              50: '#FAF4F5',
-              100: '#F5E8EB',
-              200: '#ECCFD4',
-              300: '#DFAAB3',
-              400: '#BA6B7A',
-              DEFAULT: '#632837',
-              hover: '#501E2B',
-              dark: '#3D1520',
-              footer: '#270F16',
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stories Archive — WeTheMums | Real Parenting Journeys</title>
+    <meta
+      name="description"
+      content="Explore real stories from mothers, fathers, and families across every chapter of parenting. Search and filter by category."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              berry: {
+                50: "#FAF4F5",
+                100: "#F5E8EB",
+                200: "#ECCFD4",
+                300: "#DFAAB3",
+                400: "#BA6B7A",
+                DEFAULT: "#632837",
+                hover: "#501E2B",
+                dark: "#3D1520",
+                footer: "#270F16",
+              },
+              cream: {
+                DEFAULT: "#FAF6F2",
+                card: "#FFFFFF",
+                border: "#EFE7E1",
+              },
+              dustyPeach: "#E6B8AF",
+              iconBg: "#FCECEF",
+              charcoal: "#2D2926",
+              muted: "#7A736E",
             },
-            cream: {
-              DEFAULT: '#FAF6F2',
-              card: '#FFFFFF',
-              border: '#EFE7E1',
+            fontFamily: {
+              serif: ["Newsreader", "Georgia", "serif"],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
             },
-            dustyPeach: '#E6B8AF',
-            iconBg: '#FCECEF',
-            charcoal: '#2D2926',
-            muted: '#7A736E',
           },
-          fontFamily: {
-            serif: ['Newsreader', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-          }
+        },
+      };
+    </script>
+    <style>
+      /* ======================================================== */
+      /* SCROLL TEXT ANIMATION ENGINE (SteadyShield-inspired)     */
+      /* ======================================================== */
+
+      /* Word-level reveal: each word clips up from below */
+      .reveal-lines .word {
+        display: inline-block;
+        will-change: transform, opacity;
+      }
+
+      /* Fade-up reveal for paragraphs, subtext, buttons */
+      .reveal-fade {
+        will-change: transform, opacity;
+      }
+
+      /* Cards remain steady and fully visible (animations are text-only) */
+      .reveal-block {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      ::selection {
+        background-color: #eccfd4;
+        color: #3d1520;
+      }
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(
+          90deg,
+          #541e2a 0%,
+          #ba6b7a 50%,
+          #eccfd4 100%
+        );
+        z-index: 100000;
+        transition: width 0.08s ease-out;
+      }
+      .custom-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #ba6b7a;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+      }
+      .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid rgba(186, 107, 122, 0.45);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99998;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .cursor-hover .custom-cursor-ring {
+        width: 60px;
+        height: 60px;
+        border-color: rgba(99, 34, 50, 0.3);
+        background-color: rgba(236, 207, 212, 0.15);
+        backdrop-filter: blur(2px);
+      }
+      @media (hover: none) and (pointer: coarse) {
+        .custom-cursor-dot,
+        .custom-cursor-ring {
+          display: none !important;
         }
       }
-    }
-  </script>
-  <style>
-    ::selection { background-color: #ECCFD4; color: #3D1520; }
-    #progress-bar {
-      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-      background: linear-gradient(90deg, #541E2A 0%, #BA6B7A 50%, #ECCFD4 100%);
-      z-index: 100000; transition: width 0.08s ease-out;
-    }
-    .custom-cursor-dot {
-      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
-      background-color: #BA6B7A; border-radius: 50%; pointer-events: none;
-      z-index: 99999; transform: translate(-50%, -50%);
-    }
-    .custom-cursor-ring {
-      position: fixed; top: 0; left: 0; width: 38px; height: 38px;
-      border: 1.5px solid rgba(186, 107, 122, 0.45); border-radius: 50%;
-      pointer-events: none; z-index: 99998; transform: translate(-50%, -50%);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .cursor-hover .custom-cursor-ring {
-      width: 60px; height: 60px; border-color: rgba(99, 34, 50, 0.3);
-      background-color: rgba(236, 207, 212, 0.15); backdrop-filter: blur(2px);
-    }
-    @media (hover: none) and (pointer: coarse) {
-      .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
-    }
-  </style>
-</head>
-<body class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry-200">
+    </style>
+    <style>
+      .font-hand {
+        font-family: "Caveat", cursive;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry-200"
+  >
+    <!-- TOP READING PROGRESS BAR -->
+    <div id="progress-bar"></div>
 
-  <!-- TOP READING PROGRESS BAR -->
-  <div id="progress-bar"></div>
+    <!-- LUXURY CUSTOM MAGNETIC CURSOR -->
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring"></div>
 
-  <!-- LUXURY CUSTOM MAGNETIC CURSOR -->
-  <div class="custom-cursor-dot" id="cursor-dot"></div>
-  <div class="custom-cursor-ring" id="cursor-ring"></div>
-
-  <!-- TOP BAR -->
-  <div class="bg-berry text-white text-[11px] sm:text-xs py-2 px-4 border-b border-berry-dark/30">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2 font-normal">
-        <svg class="w-3.5 h-3.5 text-dustyPeach fill-current" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-        </svg>
-        <span>A supportive community for every stage of motherhood</span>
-      </div>
-      <div class="hidden sm:flex items-center gap-3 text-[11px] text-white/90">
-        <span>Follow Us:</span>
-        <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="hover:text-dustyPeach transition-colors">Instagram</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- SITE HEADER / NAVBAR -->
-  <header class="bg-white border-b border-cream-border sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <a href="index.html" class="flex flex-col group">
-        <span class="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-tight group-hover:text-berry transition-colors">
-          WithTheMums<span class="text-berry font-bold">.</span>
-        </span>
-        <span class="text-[10px] sm:text-[11px] text-muted -mt-1 tracking-wide">
-          Real Stories. Stronger Together.
-        </span>
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal/80">
-        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
-        <a href="stories.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Stories</a>
-        <a href="journal.html" class="hover:text-berry transition-colors">Resources</a>
-        <a href="about.html" class="hover:text-berry transition-colors">About</a>
-        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Events</a>
-        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="share-your-story.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-all shadow-sm">
-          Join Our Community
-        </a>
-
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-cream-border/50">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-cream-border px-4 pt-3 pb-6 space-y-3">
-      <nav class="flex flex-col space-y-2 text-sm font-medium">
-        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
-        <a href="stories.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Stories</a>
-        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Resources</a>
-        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About</a>
-        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Events & Partnerships</a>
-        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
-      </nav>
-      <div class="pt-3 border-t border-cream-border">
-        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-berry text-white">
-          Share Your Story
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main class="flex-grow py-12 md:py-16">
-    <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- ARCHIVE HEADER -->
-      <div class="max-w-3xl mb-12">
-        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Editorial Archive</span>
-        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl text-charcoal font-normal mt-1 leading-tight">
-          Lived Parenting Stories
-        </h1>
-        <p class="reveal-fade text-base text-mutedText mt-3 leading-relaxed">
-          Real narratives contributed by mothers, fathers, and caregivers. Filter by journey, or search keywords to find the stories that speak to where you are today.
-        </p>
-      </div>
-
-      <!-- FILTER CONTROLS & SEARCH BAR -->
-      <div class="bg-white p-6 rounded-2xl border border-subtleBorder mb-12 shadow-sm space-y-6">
-        
-        <!-- Search Input -->
-        <div class="relative">
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Search stories by topic, keyword, or contributor..." 
-            class="w-full pl-11 pr-10 py-3 rounded-full border border-subtleBorder focus:outline-none focus:ring-2 focus:ring-berry text-sm bg-ivory/40"
-          />
-          <svg class="w-5 h-5 text-mutedText absolute left-4 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <button id="clear-search-btn" class="hidden absolute right-4 top-3.5 text-xs text-mutedText hover:text-charcoal font-semibold">✕ Clear</button>
+    <!-- TOP BAR -->
+    <div
+      class="bg-[#541E2A] text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Left: Heart icon + Tagline with small dropdown indicator -->
+        <div class="flex items-center gap-1.5 font-normal tracking-wide">
+          <svg
+            class="w-3.5 h-3.5 text-[#E6B8AF] fill-current flex-shrink-0"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>A supportive community for every stage of motherhood</span>
+          <svg
+            class="w-2.5 h-2.5 ml-0.5 text-[#E6B8AF] opacity-80"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </div>
 
-        <!-- Category Filter Pills -->
-        <div>
-          <span class="text-xs uppercase tracking-wider font-semibold text-mutedText block mb-3">Filter by Category:</span>
-          <div class="flex flex-wrap gap-2" id="category-pills">
-            <button class="cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-berry text-white" data-category="all">
-              All Stories
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="motherhood">
-              Motherhood
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="fatherhood">
-              Fatherhood
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="pregnancy-and-birth">
-              Pregnancy & Birth
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="fertility-and-family-journeys">
-              Fertility & Family
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="everyday-parenting">
-              Everyday Parenting
-            </button>
-            <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry" data-category="challenges-and-personal-growth">
-              Challenges & Growth
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- RESULTS COUNT -->
-      <div class="flex items-center justify-between mb-8 pb-4 border-b border-subtleBorder text-xs text-mutedText">
-        <span id="results-count" class="font-medium text-charcoal">Loading stories...</span>
-        <span>Showing real lived accounts</span>
-      </div>
-
-      <!-- STORIES GRID CONTAINER -->
-      <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically by JavaScript -->
-      </div>
-
-      <!-- EMPTY STATE -->
-      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-subtleBorder px-4">
-        <div class="w-12 h-12 mx-auto rounded-full bg-dustyRose/20 flex items-center justify-center text-berry mb-4">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <h3 class="font-serif text-xl font-medium text-charcoal">No stories found</h3>
-        <p class="text-xs text-mutedText mt-1 max-w-sm mx-auto">We couldn't find any stories matching your search or filter. Try choosing another category or clearing your search.</p>
-        <button id="reset-filters-btn" class="mt-4 px-5 py-2 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover">
-          Reset Filters
-        </button>
-      </div>
-
-      <!-- BOTTOM INVITATION BANNER -->
-      <div class="mt-20 p-8 sm:p-12 rounded-2xl bg-berry text-ivory flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-2 text-center md:text-left">
-          <span class="reveal-fade text-xs uppercase tracking-widest text-dustyRose font-semibold">Your Voice Counts</span>
-          <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Have an experience you want to share?</h3>
-          <p class="reveal-fade text-xs text-ivory/80 max-w-xl">Every story submitted is treated with dignity, editorial sensitivity, and strict adherence to your attribution preferences.</p>
-        </div>
-        <a href="share-your-story.html" class="whitespace-nowrap px-6 py-3 rounded-full bg-dustyRose text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-dustyRose-light transition-all shadow-md">
-          Submit Your Story &rarr;
-        </a>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- SITE FOOTER -->
-  <footer class="bg-berry-footer text-white/80 pt-16 pb-10 border-t border-berry-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-        
-        <!-- Col 1: Brand & Tagline -->
-        <div class="space-y-4">
-          <div>
-            <span class="font-serif text-2xl font-normal text-white tracking-tight">
-              WithTheMums<span class="text-dustyPeach">.</span>
-            </span>
-            <p class="text-[11px] text-white/60 -mt-0.5">Real Stories. Stronger Together.</p>
-          </div>
-          <p class="text-xs text-white/70 leading-relaxed max-w-xs">
-            A supportive community for every stage of motherhood. Because you're not alone.
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <!-- Right: Follow Us with social icons -->
+        <div
+          class="hidden sm:flex items-center gap-3 text-[11px] text-white/90"
+        >
+          <span class="text-white/80">Follow Us</span>
+          <div class="flex items-center gap-2">
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/wethemums/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Instagram"
+              aria-label="Instagram"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Facebook"
+              aria-label="Facebook"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="YouTube"
+              aria-label="YouTube"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                />
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Pinterest"
+              aria-label="Pinterest"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                />
+              </svg>
             </a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Col 2: Quick Links -->
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Quick Links</span>
-          <ul class="space-y-2 text-xs">
-            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-            <li><a href="stories.html" class="hover:text-white transition-colors">Stories</a></li>
-            <li><a href="journal.html" class="hover:text-white transition-colors">Resources</a></li>
-            <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
-            <li><a href="brand-partnerships.html" class="hover:text-white transition-colors">Events</a></li>
-            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
-          </ul>
+    <!-- SITE NAVBAR -->
+    <header class="bg-white border-b border-[#EFE7E1] sticky top-0 z-40">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Brand Logo: WithTheMums. with subtitle -->
+        <a href="index.html" class="flex flex-col group">
+          <span
+            class="font-serif text-2xl sm:text-3xl text-[#2D2926] font-normal tracking-tight group-hover:text-[#632232] transition-colors"
+          >
+            WithTheMums<span class="text-[#632232] font-bold">.</span>
+          </span>
+          <span class="text-[10px] text-[#635C57] -mt-0.5 tracking-wide">
+            Real Stories. Stronger Together.
+          </span>
+        </a>
+
+        <!-- Center Nav Links -->
+        <nav
+          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-[#2D2926]/80"
+        >
+          <a href="index.html" class="hover:text-[#632232] transition-colors"
+            >Home</a
+          >
+          <a
+            href="stories.html"
+            class="text-[#632232] font-semibold border-b-2 border-[#632232] pb-1"
+            >Stories</a
+          >
+
+          <a href="about.html" class="hover:text-[#632232] transition-colors"
+            >About</a
+          >
+
+          <a
+            href="courses.html"
+            class="hover:text-[#632232] transition-colors inline-flex items-center gap-1.5 font-medium"
+            ><span>Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a href="contact.html" class="hover:text-[#632232] transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Right: Search Button + Join Our Community pill -->
+        <div class="flex items-center gap-3">
+          <a
+            href="stories.html"
+            class="w-9 h-9 rounded-full hover:bg-[#FAF7F2] flex items-center justify-center text-[#2D2926]/70 hover:text-[#632232] transition-colors"
+            title="Search Stories"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="share-your-story.html"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm"
+          >
+            Join Our Community
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            aria-label="Toggle navigation menu"
+            class="md:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
+      >
+        <nav class="flex flex-col space-y-2 text-sm font-medium">
+          <a
+            href="index.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Home</a
+          >
+          <a
+            href="stories.html"
+            class="text-[#632232] font-semibold py-1.5 px-2 bg-[#632232]/5 rounded-md"
+            >Stories</a
+          >
+          <a
+            href="journal.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Resources</a
+          >
+          <a
+            href="about.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >About</a
+          >
+          <a
+            href="brand-partnerships.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Events & Partnerships</a
+          >
+          <a
+            href="courses.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2 flex items-center justify-between"
+            ><span>Parenting Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-2 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a
+            href="contact.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Contact</a
+          >
+        </nav>
+        <div class="pt-3 border-t border-[#EFE7E1]">
+          <a
+            href="share-your-story.html"
+            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all"
+          >
+            Share Your Story
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <!-- ========================================== -->
+      <!-- HERO BANNER SECTION                        -->
+      <!-- ========================================== -->
+
+      <section
+        id="stories-hero-section"
+        class="relative w-full overflow-hidden select-none p-0 m-0 bg-[#FAF4EF]"
+      >
+        <!-- Full-Width Banner Graphic Container -->
+        <div class="relative w-full select-none">
+          <!-- Background Image: Golden Garden Embrace -->
+          <img
+            src="images/Golden%20Garden%20Embrace-200kb.jpeg"
+            alt="WithTheMums — Every parenting journey deserves a village."
+            class="w-full h-auto block select-none pointer-events-none"
+          />
+
+          <div class="reveal-block absolute bottom-[7%] right-[5.5%] z-20 hidden items-center gap-3 rounded-2xl border border-white/70 bg-white/85 px-4 py-3 shadow-[0_14px_36px_rgba(62,39,34,0.16)] backdrop-blur-md xl:flex">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8E8E4] text-[#862D42]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+              </svg>
+            </span>
+            <span>
+              <span class="block text-xs font-bold text-[#302322]">A village for every voice</span>
+              <span class="mt-0.5 block text-[10px] text-[#786A65]">Read with care. Share with heart.</span>
+            </span>
+          </div>
+
+          <!-- Soft left gradient overlay to guarantee 100% crisp, readable typography -->
+          <div
+            class="absolute inset-y-0 left-0 w-[56%] bg-gradient-to-r from-[#FAF4EF] via-[#FAF4EF]/90 to-transparent pointer-events-none"
+          ></div>
+
+          <!-- Left Side Content: Live Razor-Sharp Editorial Typography & Actions -->
+          <div
+            class="absolute left-[5.5%] top-[8%] bottom-[8%] w-[48%] flex flex-col justify-between pointer-events-auto z-10"
+          >
+            <!-- 1. Category Pill Badge -->
+            <div class="reveal-fade">
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#F5E9E6] text-[#6D2534] text-[clamp(8px,0.72vw,11.5px)] font-bold tracking-[0.14em] uppercase shadow-sm"
+              >
+                <svg
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#6D2534] shrink-0"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+                REAL VOICES &bull; REAL PARENTING
+              </span>
+            </div>
+
+            <!-- 2. Main Headline & Subtitle -->
+            <div>
+              <h1
+                class="reveal-lines font-serif text-[#221C1D] text-[clamp(32px,3.3vw,62px)] font-normal leading-[1.06] tracking-[-0.025em]"
+              >
+                <span class="block">Parenthood isn't a highlight reel.</span>
+                <span class="inline italic font-serif text-[#862D42]"
+                  >It's a story we share.</span
+                >
+                <svg
+                  class="inline-block w-[0.8em] h-[0.8em] ml-1.5 text-[#862D42] -translate-y-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </h1>
+
+              <p
+                class="reveal-fade mt-[2%] max-w-[95%] font-sans text-[#534B49] text-[clamp(13px,1vw,17px)] leading-[1.55]"
+              >
+                The tender moments, the hard days, the little wins — real
+                parents share it all here. Find a story that feels like yours,
+                or tell one that may help someone else feel less alone.
+              </p>
+            </div>
+
+            <!-- 3. Dual Action CTA Buttons -->
+            <div class="reveal-fade flex items-center gap-2 sm:gap-3">
+              <!-- Button 1: Read Our Story -->
+              <a
+                href="#stories"
+                class="btn-shimmer group inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-[#67212F] hover:bg-[#521925] text-white font-medium text-[clamp(9.5px,0.95vw,14px)] shadow-sm hover:scale-[1.02] active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#67212F]"
+                aria-label="Explore Real Stories"
+              >
+                <svg
+                  class="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                <span>Explore Real Stories</span>
+                <svg
+                  class="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+
+              <!-- Button 2: Join Our Community -->
+              <a
+                href="share-your-story.html"
+                class="btn-shimmer inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full border border-[#CAA0A8] hover:border-[#67212F] hover:bg-[#F8ECE9]/50 text-[#67212F] font-medium text-[clamp(9.5px,0.95vw,14px)] hover:scale-[1.02] active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#67212F]"
+                aria-label="Share Your Story"
+              >
+                <svg
+                  class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#67212F]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+                <span>Share Your Story</span>
+                <svg
+                  class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#67212F]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <!-- 4. Trust Badges Row -->
+            <div
+              class="reveal-fade flex items-center gap-2.5 sm:gap-4 lg:gap-5"
+            >
+              <!-- Badge 1: Founded by Mothers -->
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 rounded-full bg-[#F8ECE9] flex items-center justify-center shrink-0 text-[#7B2E3E]"
+                >
+                  <svg
+                    class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div class="text-[clamp(7.5px,0.72vw,11.5px)] leading-[1.2]">
+                  <span class="font-semibold text-[#272122] block"
+                    >Founded by Mothers</span
+                  >
+                  <span class="text-[#685F5D] block"
+                    >Real care &amp; empathy</span
+                  >
+                </div>
+              </div>
+
+              <!-- Vertical Divider -->
+              <div class="w-[1px] h-5 sm:h-6 bg-[#E8D5D0]"></div>
+
+              <!-- Badge 2: 10,000+ Community -->
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 rounded-full bg-[#F8ECE9] flex items-center justify-center shrink-0 text-[#7B2E3E]"
+                >
+                  <svg
+                    class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                </div>
+                <div class="text-[clamp(7.5px,0.72vw,11.5px)] leading-[1.2]">
+                  <span class="font-semibold text-[#272122] block"
+                    >10,000+ Strong</span
+                  >
+                  <span class="text-[#685F5D] block">Parent community</span>
+                </div>
+              </div>
+
+              <!-- Vertical Divider -->
+              <div class="w-[1px] h-5 sm:h-6 bg-[#E8D5D0]"></div>
+
+              <!-- Badge 3: Zero Highlight Reels -->
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 rounded-full bg-[#F8ECE9] flex items-center justify-center shrink-0 text-[#7B2E3E]"
+                >
+                  <svg
+                    class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                  </svg>
+                </div>
+                <div class="text-[clamp(7.5px,0.72vw,11.5px)] leading-[1.2]">
+                  <span class="font-semibold text-[#272122] block"
+                    >Zero Highlight Reels</span
+                  >
+                  <span class="text-[#685F5D] block">Just real stories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="stories"
+        class="relative overflow-hidden bg-[#FCF7F2] py-12 sm:py-16 lg:py-20"
+      >
+        <!-- Background decorations -->
+        <div
+          class="pointer-events-none absolute -left-32 top-32 h-80 w-80 rounded-full bg-[#F0D6D1]/35 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -right-32 top-[35%] h-96 w-96 rounded-full bg-[#E9C7C3]/25 blur-3xl"
+        ></div>
+
+        <div class="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+          <!-- Section heading -->
+          <div
+            class="mb-10 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end"
+          >
+            <div class="max-w-3xl">
+              <div class="reveal-fade mb-4 inline-flex items-center gap-3">
+                <span class="h-px w-8 bg-[#A65365]"></span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-[0.24em] text-[#934658] sm:text-xs"
+                >
+                  The Stories Journal
+                </span>
+              </div>
+
+              <h2
+                class="reveal-lines font-serif text-4xl font-normal leading-tight tracking-tight text-[#302322] sm:text-5xl lg:text-6xl"
+              >
+                Every family has a story.
+                <span class="block italic text-[#9B4B5D]"
+                  >Find yours here.</span
+                >
+              </h2>
+
+              <p
+                class="reveal-fade mt-4 max-w-2xl text-sm leading-7 text-[#796C68] sm:text-base"
+              >
+                Honest experiences, little victories, difficult days, and the
+                beautiful lessons of parenting — told by the people who live
+                them.
+              </p>
+            </div>
+
+            <a
+              href="share-your-story.html"
+              class="reveal-fade group inline-flex shrink-0 items-center justify-center gap-3 self-start rounded-full border border-[#DCC0BB] bg-white/70 px-6 py-3.5 text-xs font-semibold text-[#70283A] transition-all duration-300 hover:-translate-y-1 hover:border-[#70283A] hover:bg-white md:self-auto"
+            >
+              Share Your Story
+              <span
+                class="transition-transform duration-300 group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+          </div>
+
+          <!-- Search and category filter panel -->
+          <div
+            class="reveal-fade mb-8 rounded-[28px] border border-white bg-white/80 p-4 shadow-[0_12px_40px_rgba(87,47,46,0.05)] backdrop-blur-md sm:p-6 lg:p-7"
+          >
+            <!-- Search -->
+            <div class="relative">
+              <div
+                class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-[#9B4B5D]"
+              >
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="11" cy="11" r="7" stroke-width="1.7" />
+                  <path
+                    d="m16 16 4 4"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Search stories, parenting topics, or contributors..."
+                class="w-full rounded-full border border-[#EBDDD7] bg-[#FCF8F5] py-4 pl-12 pr-20 text-sm text-[#392B29] outline-none transition-all placeholder:text-[#A39893] focus:border-[#A65365] focus:bg-white focus:ring-4 focus:ring-[#F0D6D1]/40"
+              />
+
+              <button
+                id="clear-search-btn"
+                type="button"
+                class="hidden absolute right-4 top-1/2 -translate-y-1/2 rounded-full px-3 py-1.5 text-xs font-semibold text-[#934658] transition hover:bg-[#F8EAE6]"
+              >
+                ✕ Clear
+              </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="mt-6">
+              <div class="mb-3 flex items-center justify-between gap-3">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#857571] sm:text-xs"
+                >
+                  Explore by category
+                </span>
+                <span class="hidden text-[11px] text-[#A39893] sm:inline">
+                  Find stories that speak to you
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2.5" id="category-pills">
+                <button
+                  type="button"
+                  data-category="all"
+                  class="cat-pill active rounded-full border border-[#70283A] bg-[#70283A] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  All Stories
+                </button>
+
+                <button
+                  type="button"
+                  data-category="motherhood"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Motherhood
+                </button>
+
+                <button
+                  type="button"
+                  data-category="fatherhood"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Fatherhood
+                </button>
+
+                <button
+                  type="button"
+                  data-category="pregnancy-and-birth"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Pregnancy &amp; Birth
+                </button>
+
+                <button
+                  type="button"
+                  data-category="fertility-and-family-journeys"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Fertility &amp; Family
+                </button>
+
+                <button
+                  type="button"
+                  data-category="everyday-parenting"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Everyday Parenting
+                </button>
+
+                <button
+                  type="button"
+                  data-category="challenges-and-personal-growth"
+                  class="cat-pill rounded-full border border-[#EAD8D3] bg-white px-4 py-2.5 text-xs font-medium text-[#6F5C57] transition-all duration-200 hover:border-[#A65365] hover:bg-[#FCF1ED] hover:text-[#70283A]"
+                >
+                  Challenges &amp; Growth
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results information -->
+          <div
+            class="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#E8D9D3] pb-4"
+          >
+            <div class="flex items-center gap-3">
+              <span class="h-2 w-2 rounded-full bg-[#A65365]"></span>
+              <span
+                id="results-count"
+                class="text-xs font-semibold text-[#443331] sm:text-sm"
+              >
+                Loading stories...
+              </span>
+            </div>
+
+            <span
+              class="flex items-center gap-2 text-[11px] text-[#8B7A75] sm:text-xs"
+            >
+              <svg
+                class="h-4 w-4 text-[#A65365]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 21s8-4 8-11V5l-8-3-8 3v5c0 7 8 11 8 11Z"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m9 12 2 2 4-4"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Real voices. Real experiences.
+            </span>
+          </div>
+
+          <!-- Dynamic stories grid -->
+          <div
+            id="stories-grid"
+            class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-7"
+          >
+            <!-- Existing JavaScript renders story cards here.
+           Recommended card design:
+           image, category badge, title, excerpt, author, date and Read Story link. -->
+          </div>
+
+          <!-- Empty state -->
+          <div
+            id="empty-state"
+            class="hidden overflow-hidden rounded-[28px] border border-[#EBDDD7] bg-white px-5 py-16 text-center shadow-sm sm:py-20"
+          >
+            <div
+              class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#F8E7E3] text-[#8D3C50]"
+            >
+              <svg
+                class="h-7 w-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="8" stroke-width="1.5" />
+                <path
+                  d="m16.5 16.5 4 4M8.5 11a2.5 2.5 0 0 1 5 0"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <p
+              class="mt-6 text-[10px] font-bold uppercase tracking-[0.22em] text-[#A65365]"
+            >
+              A little change of direction
+            </p>
+
+            <h3 class="mt-3 font-serif text-3xl font-normal text-[#302322]">
+              No stories found just yet.
+            </h3>
+
+            <p class="mx-auto mt-3 max-w-md text-sm leading-7 text-[#857571]">
+              We couldn't find a match this time. Try another topic or clear
+              your filters to discover more parenting experiences.
+            </p>
+
+            <button
+              id="reset-filters-btn"
+              type="button"
+              class="mt-7 inline-flex items-center gap-2 rounded-full bg-[#70283A] px-6 py-3 text-xs font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#57202E]"
+            >
+              Explore All Stories
+              <span>→</span>
+            </button>
+          </div>
+
+          <!-- Premium bottom CTA -->
+          <div
+            class="relative mt-16 overflow-hidden rounded-[28px] bg-[#70283A] px-6 py-10 shadow-[0_20px_55px_rgba(91,36,51,0.16)] sm:mt-20 sm:px-10 sm:py-12 lg:px-14 lg:py-14"
+          >
+            <!-- Decorative shapes -->
+            <div
+              class="pointer-events-none absolute -right-20 -top-28 h-72 w-72 rounded-full border border-white/10"
+            ></div>
+            <div
+              class="pointer-events-none absolute -right-10 -top-16 h-52 w-52 rounded-full border border-white/10"
+            ></div>
+            <div
+              class="pointer-events-none absolute -bottom-20 left-[35%] h-52 w-52 rounded-full bg-[#F0D6D1]/10 blur-3xl"
+            ></div>
+
+            <div
+              class="relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center lg:gap-12"
+            >
+              <div class="max-w-2xl">
+                <div
+                  class="reveal-fade mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2"
+                >
+                  <svg
+                    class="h-4 w-4 text-[#F0D6D1]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                  <span
+                    class="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F0D6D1]"
+                  >
+                    Your Voice Counts
+                  </span>
+                </div>
+
+                <h3
+                  class="reveal-lines max-w-2xl font-serif text-3xl font-normal leading-tight text-white sm:text-4xl lg:text-5xl"
+                >
+                  Your experience could be the story
+                  <span class="italic text-[#F0D6D1]">someone needs.</span>
+                </h3>
+
+                <p class="reveal-fade mt-4 max-w-xl text-sm leading-7 text-white/75">
+                  Every parenting journey is unique. Share a memory, a
+                  challenge, or a little victory. Your words might help another
+                  parent feel understood and less alone.
+                </p>
+
+                <div
+                  class="reveal-fade mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-[11px] text-white/80"
+                >
+                  <span class="inline-flex items-center gap-2">
+                    <span class="text-[#F0D6D1]">✓</span> Your story, your voice
+                  </span>
+                  <span class="inline-flex items-center gap-2">
+                    <span class="text-[#F0D6D1]">✓</span> Respectful editorial
+                    review
+                  </span>
+                </div>
+              </div>
+
+              <div class="reveal-fade shrink-0">
+                <a
+                  href="share-your-story.html"
+                  class="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full bg-[#F0D6D1] px-7 py-4 text-xs font-bold uppercase tracking-[0.08em] text-[#57202E] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl sm:px-8"
+                >
+                  Submit Your Story
+                  <svg
+                    class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M5 12h14m-7-7 7 7-7 7"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="mt-3 text-center text-[10px] text-white/60">
+                  Every voice deserves to be heard.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- SITE FOOTER                                -->
+    <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!-- SITE FOOTER (100% MATCH TO REFERENCE)       -->
+    <!-- ========================================== -->
+    <footer
+      class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none"
+    >
+      <!-- Left Botanical Leaf Doodle -->
+      <img
+        src="images/footer-left-leaves.png"
+        alt=""
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-12 sm:w-14 pointer-events-none select-none z-0"
+        loading="lazy"
+      />
+
+      <!-- Right Mother & Baby Artwork with Script Text -->
+      <img
+        src="images/footer-right-artwork.png"
+        alt="Real mums. Real stories. Real support."
+        class="absolute right-0 top-4 sm:top-6 w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
+        loading="lazy"
+      />
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- 4 Columns Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14"
+        >
+          <!-- Col 1: Brand Logo, Description & Socials -->
+          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+            <div>
+              <a href="index.html" class="inline-block mb-3.5">
+                <img
+                  src="images/footer-logo-full.png"
+                  alt="WithTheMums. Real Stories. Stronger Together."
+                  class="h-10 sm:h-11 w-auto object-contain"
+                />
+              </a>
+              <p
+                class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1"
+              >
+                A supportive community for every stage of motherhood. Because
+                you're not alone.
+              </p>
+            </div>
+
+            <!-- Social Pill Buttons -->
+            <div class="flex items-center gap-2.5 pt-6">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Instagram"
+                aria-label="Instagram"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <!-- Pinterest -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Pinterest"
+                aria-label="Pinterest"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="YouTube"
+                aria-label="YouTube"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                QUICK LINKS
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Stories
+                </a>
+              </li>
+              <li>
+                <a
+                  href="journal.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Categories -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                CATEGORIES
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="stories.html?category=motherhood"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Motherhood
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=pregnancy-and-birth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Pregnancy &amp; Birth
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=feeding-and-lifestyle"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Feeding &amp; Lifestyle
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Everyday Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=challenges-and-growth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Challenges &amp; Growth
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Stay Connected -->
+          <div
+            class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <div
+                class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+                >
+                  STAY CONNECTED
+                </h4>
+                <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
+              </div>
+            </div>
+
+            <p
+              class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4"
+            >
+              Subscribe to our newsletter for the latest stories and updates.
+            </p>
+
+            <form
+              id="footer-newsletter"
+              class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors"
+            >
+              <svg
+                class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input
+                type="email"
+                required
+                placeholder="Your email address"
+                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
+              >
+                <span class="text-xs font-bold">&rarr;</span>
+              </button>
+            </form>
+
+            <div
+              class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none"
+            >
+              <span>Join our community</span>
+              <svg
+                class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Dark Wave & Copyright Bar -->
+      <div class="relative w-full bg-[#531D2C] text-white/80 pt-6">
+        <!-- Top Wave SVG -->
+        <div
+          class="w-full overflow-hidden leading-none -translate-y-[99%] absolute top-0 left-0 right-0 pointer-events-none"
+        >
+          <svg
+            class="w-full h-4 sm:h-6 text-[#531D2C] fill-current block"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C250,28 500,8 750,22 C1000,32 1150,12 1200,18 L1200,30 L0,30 Z"
+            ></path>
+          </svg>
         </div>
 
-        <!-- Col 3: Categories -->
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Categories</span>
-          <ul class="space-y-2 text-xs">
-            <li><a href="stories.html?category=motherhood" class="hover:text-white transition-colors">Motherhood</a></li>
-            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Parenting</a></li>
-            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white transition-colors">Pregnancy & Birth</a></li>
-            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Feeding & Lifestyle</a></li>
-            <li><a href="stories.html?category=everyday-parenting" class="hover:text-white transition-colors">Everyday Parenting</a></li>
-            <li><a href="stories.html?category=challenges-and-personal-growth" class="hover:text-white transition-colors">Challenges & Growth</a></li>
-          </ul>
-        </div>
+        <div
+          class="max-w-7xl mx-auto px-5 sm:px-8 pb-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 relative z-10"
+        >
+          <!-- Left: Heart + Copyright -->
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-4 h-4 text-white/80 stroke-current fill-none shrink-0"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="w-[1px] h-3.5 bg-white/30"></span>
+            <span
+              >&copy; 2025
+              <strong class="font-semibold text-white">WithTheMums.</strong> All
+              rights reserved.</span
+            >
+          </div>
 
-        <!-- Col 4: Stay Connected -->
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block">Stay Connected</span>
-          <p class="text-xs text-white/70 leading-relaxed">
-            Subscribe to our newsletter for the latest stories and updates.
-          </p>
-          <div class="flex items-center bg-white/10 p-1 rounded-full border border-white/20">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              class="w-full px-3 py-1.5 bg-transparent text-xs text-white placeholder:text-white/50 focus:outline-none"
-            />
-            <button class="w-7 h-7 rounded-full bg-white text-berry flex items-center justify-center flex-shrink-0 hover:bg-dustyPeach transition-colors">
-              &rarr;
+          <!-- Right: Policy Links + Scroll to Top Button -->
+          <div class="flex items-center gap-4 sm:gap-6">
+            <a
+              href="contact.html#privacy"
+              class="hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a
+              href="contact.html#terms"
+              class="hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a href="contact.html" class="hover:text-white transition-colors"
+              >Contact</a
+            >
+
+            <!-- Back to Top Button -->
+            <button
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all ml-2"
+              title="Back to top"
+              aria-label="Back to top"
+            >
+              <svg
+                class="w-3.5 h-3.5 stroke-current fill-none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
             </button>
           </div>
         </div>
-
       </div>
+    </footer>
 
-      <!-- Bottom Bar -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/50 gap-4">
-        <p>&copy; 2025 WithTheMums. All rights reserved.</p>
-        <div class="flex items-center gap-4">
-          <a href="contact.html#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-          <span>•</span>
-          <a href="contact.html#terms" class="hover:text-white transition-colors">Terms of Service</a>
-          <span>•</span>
-          <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
-        </div>
-      </div>
+    <!-- SCRIPT FOR DYNAMIC FILTERING & SEARCH -->
+    <script>
+      let allStories = [];
+      let currentCategory = "all";
+      let currentSearch = "";
 
-    </div>
-  </footer>
+      const storiesGrid = document.getElementById("stories-grid");
+      const emptyState = document.getElementById("empty-state");
+      const searchInput = document.getElementById("search-input");
+      const clearSearchBtn = document.getElementById("clear-search-btn");
+      const resultsCount = document.getElementById("results-count");
+      const resetFiltersBtn = document.getElementById("reset-filters-btn");
+      const categoryPills = document.querySelectorAll(".cat-pill");
 
-  <!-- SCRIPT FOR DYNAMIC FILTERING & SEARCH -->
-  <script>
-    let allStories = [];
-    let currentCategory = 'all';
-    let currentSearch = '';
-
-    const storiesGrid = document.getElementById('stories-grid');
-    const emptyState = document.getElementById('empty-state');
-    const searchInput = document.getElementById('search-input');
-    const clearSearchBtn = document.getElementById('clear-search-btn');
-    const resultsCount = document.getElementById('results-count');
-    const resetFiltersBtn = document.getElementById('reset-filters-btn');
-    const categoryPills = document.querySelectorAll('.cat-pill');
-
-    // Mobile nav toggle
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-
-    // Fetch stories from local data file
-    async function initStories() {
-      try {
-        const res = await fetch('data/stories.json');
-        allStories = await res.json();
-      } catch (err) {
-        // Fallback embedded data if fetch is restricted by local file protocol
-        allStories = [
-          {
-            id: "story-1",
-            slug: "quiet-hours-early-motherhood",
-            title: "The Quiet Hours of Early Motherhood: Learning to Trust My Own Instincts",
-            excerpt: "In the silent 3:00 AM hours, amid conflicting advice from relatives and apps, I finally stopped second-guessing myself.",
-            category: "Motherhood",
-            categorySlug: "motherhood",
-            author: "Priya Sharma (Contributor)",
-            readTime: "6 min read",
-            publishedAt: "Oct 14, 2026",
-            coverImage: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
-          },
-          {
-            id: "story-2",
-            slug: "learning-to-be-present-fatherhood",
-            title: "Unlearning Old Blueprints: A Father's Journey into Gentle Presence",
-            excerpt: "Growing up with an emotionally distant father, I wondered what kind of dad I would become. Presence is a muscle built daily.",
-            category: "Fatherhood",
-            categorySlug: "fatherhood",
-            author: "Arjun Menon",
-            readTime: "5 min read",
-            publishedAt: "Oct 11, 2026",
-            coverImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
-          },
-          {
-            id: "story-3",
-            slug: "adoption-road-to-miracles",
-            title: "The Paperwork of Love: Navigating Infertility and Our Adoption Journey",
-            excerpt: "Four years of IVF treatments brought heartbreak. When we finally turned towards adoption, we discovered the true meaning of family.",
-            category: "Fertility and Family Journeys",
-            categorySlug: "fertility-and-family-journeys",
-            author: "Kavita & Rohith S.",
-            readTime: "7 min read",
-            publishedAt: "Oct 07, 2026",
-            coverImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
-          },
-          {
-            id: "story-4",
-            slug: "navigating-special-needs-parenting",
-            title: "Finding Our Own Milestones: Raising an Autistic Child with Joy",
-            excerpt: "When the standard growth charts failed to describe our son's world, we stopped measuring him against other people's expectations.",
-            category: "Challenges and Personal Growth",
-            categorySlug: "challenges-and-personal-growth",
-            author: "Meera Narayanan",
-            readTime: "6 min read",
-            publishedAt: "Sep 29, 2026",
-            coverImage: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
-          },
-          {
-            id: "story-5",
-            slug: "everyday-chaos-sibling-love",
-            title: "The Art of the Bedtime Truce: Finding Peace in Everyday Family Chaos",
-            excerpt: "Between spilled milk and homework resistance, ordinary parenting is an exercise in loving endurance and finding laughter in the mess.",
-            category: "Everyday Parenting",
-            categorySlug: "everyday-parenting",
-            author: "Sneha & Dev",
-            readTime: "4 min read",
-            publishedAt: "Sep 22, 2026",
-            coverImage: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=800&q=80"
-          },
-          {
-            id: "story-6",
-            slug: "unexpected-birth-story",
-            title: "When the Birth Plan Vanished: Finding Strength in the Unexpected",
-            excerpt: "I wrote a three-page birth plan with gentle music. What actually happened was an emergency C-section that taught me what true courage is.",
-            category: "Pregnancy and Birth",
-            categorySlug: "pregnancy-and-birth",
-            author: "Ananya Joshi",
-            readTime: "5 min read",
-            publishedAt: "Sep 15, 2026",
-            coverImage: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80"
-          }
-        ];
+      // Mobile nav toggle
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener("click", () =>
+          mobileMenu.classList.toggle("hidden"),
+        );
       }
 
-      // Read URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('category');
-      const searchParam = urlParams.get('search');
+      // Fetch stories from local data file
+      async function initStories() {
+        try {
+          const res = await fetch("data/stories.json");
+          allStories = await res.json();
+        } catch (err) {
+          // Fallback embedded data if fetch is restricted by local file protocol
+          allStories = [
+            {
+              id: "story-1",
+              slug: "quiet-hours-early-motherhood",
+              title:
+                "The Quiet Hours of Early Motherhood: Learning to Trust My Own Instincts",
+              excerpt:
+                "In the silent 3:00 AM hours, amid conflicting advice from relatives and apps, I finally stopped second-guessing myself.",
+              category: "Motherhood",
+              categorySlug: "motherhood",
+              author: "Priya Sharma (Contributor)",
+              readTime: "6 min read",
+              publishedAt: "Oct 14, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80",
+            },
+            {
+              id: "story-2",
+              slug: "learning-to-be-present-fatherhood",
+              title:
+                "Unlearning Old Blueprints: A Father's Journey into Gentle Presence",
+              excerpt:
+                "Growing up with an emotionally distant father, I wondered what kind of dad I would become. Presence is a muscle built daily.",
+              category: "Fatherhood",
+              categorySlug: "fatherhood",
+              author: "Arjun Menon",
+              readTime: "5 min read",
+              publishedAt: "Oct 11, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+            },
+            {
+              id: "story-3",
+              slug: "adoption-road-to-miracles",
+              title:
+                "The Paperwork of Love: Navigating Infertility and Our Adoption Journey",
+              excerpt:
+                "Four years of IVF treatments brought heartbreak. When we finally turned towards adoption, we discovered the true meaning of family.",
+              category: "Fertility and Family Journeys",
+              categorySlug: "fertility-and-family-journeys",
+              author: "Kavita & Rohith S.",
+              readTime: "7 min read",
+              publishedAt: "Oct 07, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+            },
+            {
+              id: "story-4",
+              slug: "navigating-special-needs-parenting",
+              title:
+                "Finding Our Own Milestones: Raising an Autistic Child with Joy",
+              excerpt:
+                "When the standard growth charts failed to describe our son's world, we stopped measuring him against other people's expectations.",
+              category: "Challenges and Personal Growth",
+              categorySlug: "challenges-and-personal-growth",
+              author: "Meera Narayanan",
+              readTime: "6 min read",
+              publishedAt: "Sep 29, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
+            },
+            {
+              id: "story-5",
+              slug: "everyday-chaos-sibling-love",
+              title:
+                "The Art of the Bedtime Truce: Finding Peace in Everyday Family Chaos",
+              excerpt:
+                "Between spilled milk and homework resistance, ordinary parenting is an exercise in loving endurance and finding laughter in the mess.",
+              category: "Everyday Parenting",
+              categorySlug: "everyday-parenting",
+              author: "Sneha & Dev",
+              readTime: "4 min read",
+              publishedAt: "Sep 22, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=800&q=80",
+            },
+            {
+              id: "story-6",
+              slug: "unexpected-birth-story",
+              title:
+                "When the Birth Plan Vanished: Finding Strength in the Unexpected",
+              excerpt:
+                "I wrote a three-page birth plan with gentle music. What actually happened was an emergency C-section that taught me what true courage is.",
+              category: "Pregnancy and Birth",
+              categorySlug: "pregnancy-and-birth",
+              author: "Ananya Joshi",
+              readTime: "5 min read",
+              publishedAt: "Sep 15, 2026",
+              coverImage:
+                "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80",
+            },
+          ];
+        }
 
-      if (catParam) {
-        currentCategory = catParam;
-        updatePillsUI(currentCategory);
+        // Read URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const catParam = urlParams.get("category");
+        const searchParam = urlParams.get("search");
+
+        if (catParam) {
+          currentCategory = catParam;
+          updatePillsUI(currentCategory);
+        }
+        if (searchParam) {
+          currentSearch = searchParam;
+          searchInput.value = searchParam;
+          clearSearchBtn.classList.remove("hidden");
+        }
+
+        renderStories();
       }
-      if (searchParam) {
-        currentSearch = searchParam;
-        searchInput.value = searchParam;
-        clearSearchBtn.classList.remove('hidden');
-      }
 
-      renderStories();
-    }
+      function renderStories() {
+        const filtered = allStories.filter((story) => {
+          const matchesCategory =
+            currentCategory === "all" || story.categorySlug === currentCategory;
+          const query = currentSearch.toLowerCase().trim();
+          const matchesSearch =
+            !query ||
+            story.title.toLowerCase().includes(query) ||
+            story.excerpt.toLowerCase().includes(query) ||
+            story.category.toLowerCase().includes(query) ||
+            story.author.toLowerCase().includes(query);
 
-    function renderStories() {
-      const filtered = allStories.filter(story => {
-        const matchesCategory = currentCategory === 'all' || story.categorySlug === currentCategory;
-        const query = currentSearch.toLowerCase().trim();
-        const matchesSearch = !query || 
-          story.title.toLowerCase().includes(query) ||
-          story.excerpt.toLowerCase().includes(query) ||
-          story.category.toLowerCase().includes(query) ||
-          story.author.toLowerCase().includes(query);
+          return matchesCategory && matchesSearch;
+        });
 
-        return matchesCategory && matchesSearch;
-      });
+        resultsCount.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? "story" : "stories"}`;
 
-      resultsCount.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? 'story' : 'stories'}`;
+        if (filtered.length === 0) {
+          storiesGrid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
 
-      if (filtered.length === 0) {
-        storiesGrid.innerHTML = '';
-        emptyState.classList.remove('hidden');
-        return;
-      }
-
-      emptyState.classList.add('hidden');
-      storiesGrid.innerHTML = filtered.map(story => `
+        emptyState.classList.add("hidden");
+        storiesGrid.innerHTML = filtered
+          .map(
+            (story) => `
         <article class="bg-white rounded-xl overflow-hidden border border-subtleBorder hover:shadow-lg transition-all duration-300 flex flex-col">
           <div class="h-56 overflow-hidden relative">
             <img src="${story.coverImage}" alt="${story.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
@@ -508,144 +1665,308 @@
             </div>
           </div>
         </article>
-      `).join('');
-    }
+      `,
+          )
+          .join("");
+      }
 
-    function updatePillsUI(cat) {
-      categoryPills.forEach(pill => {
-        if (pill.dataset.category === cat) {
-          pill.className = "cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-berry text-white";
-        } else {
-          pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry";
-        }
+      function updatePillsUI(cat) {
+        categoryPills.forEach((pill) => {
+          if (pill.dataset.category === cat) {
+            pill.className =
+              "cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-berry text-white";
+          } else {
+            pill.className =
+              "cat-pill px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all bg-ivory text-charcoal border border-subtleBorder hover:border-berry";
+          }
+        });
+      }
+
+      // Event listeners
+      categoryPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          currentCategory = pill.dataset.category;
+          updatePillsUI(currentCategory);
+          renderStories();
+        });
       });
-    }
 
-    // Event listeners
-    categoryPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        currentCategory = pill.dataset.category;
-        updatePillsUI(currentCategory);
+      searchInput.addEventListener("input", (e) => {
+        currentSearch = e.target.value;
+        if (currentSearch.trim()) {
+          clearSearchBtn.classList.remove("hidden");
+        } else {
+          clearSearchBtn.classList.add("hidden");
+        }
         renderStories();
       });
-    });
 
-    searchInput.addEventListener('input', (e) => {
-      currentSearch = e.target.value;
-      if (currentSearch.trim()) {
-        clearSearchBtn.classList.remove('hidden');
-      } else {
-        clearSearchBtn.classList.add('hidden');
-      }
-      renderStories();
-    });
+      clearSearchBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearchBtn.classList.add("hidden");
+        renderStories();
+      });
 
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      currentSearch = '';
-      clearSearchBtn.classList.add('hidden');
-      renderStories();
-    });
+      resetFiltersBtn.addEventListener("click", () => {
+        currentCategory = "all";
+        currentSearch = "";
+        searchInput.value = "";
+        clearSearchBtn.classList.add("hidden");
+        updatePillsUI("all");
+        renderStories();
+      });
 
-    resetFiltersBtn.addEventListener('click', () => {
-      currentCategory = 'all';
-      currentSearch = '';
-      searchInput.value = '';
-      clearSearchBtn.classList.add('hidden');
-      updatePillsUI('all');
-      renderStories();
-    });
+      // Start
+      initStories();
 
-    // Start
-    initStories();
+      // Progress bar
+      const pBar = document.getElementById("progress-bar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          const winScroll =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          if (pBar) pBar.style.width = scrolled + "%";
+        },
+        { passive: true },
+      );
 
-    // Progress bar
-    const pBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      if (pBar) pBar.style.width = scrolled + '%';
-    }, { passive: true });
-
-    // Luxury Cursor Engine
-    const cDot = document.getElementById('cursor-dot');
-    const cRing = document.getElementById('cursor-ring');
-    let mX = window.innerWidth / 2, mY = window.innerHeight / 2, rX = mX, rY = mY;
-    window.addEventListener('mousemove', (e) => {
-      mX = e.clientX; mY = e.clientY;
-      if (cDot) { cDot.style.left = mX + 'px'; cDot.style.top = mY + 'px'; }
-    }, { passive: true });
-    function loopCursor() {
-      rX += (mX - rX) * 0.16; rY += (mY - rY) * 0.16;
-      if (cRing) { cRing.style.left = rX + 'px'; cRing.style.top = rY + 'px'; }
-      requestAnimationFrame(loopCursor);
-    }
-    loopCursor();
-    document.querySelectorAll('a, button, input').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
-
-      function splitIntoWords(el) {
-        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
-        el.dataset.split = 'done';
-        if (el.querySelector('em, br, span')) {
-          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-          const textNodes = [];
-          while (walker.nextNode()) textNodes.push(walker.currentNode);
-          textNodes.forEach(node => {
-            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
-            if (words.length === 0) return;
-            const frag = document.createDocumentFragment();
-            words.forEach((w, i) => {
-              const span = document.createElement('span');
-              span.className = 'word';
-              span.style.display = 'inline-block';
-              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
-              frag.appendChild(span);
-            });
-            node.parentNode.replaceChild(frag, node);
-          });
-          return Array.from(el.querySelectorAll('.word'));
+      // Luxury Cursor Engine
+      const cDot = document.getElementById("cursor-dot");
+      const cRing = document.getElementById("cursor-ring");
+      let mX = window.innerWidth / 2,
+        mY = window.innerHeight / 2,
+        rX = mX,
+        rY = mY;
+      window.addEventListener(
+        "mousemove",
+        (e) => {
+          mX = e.clientX;
+          mY = e.clientY;
+          if (cDot) {
+            cDot.style.left = mX + "px";
+            cDot.style.top = mY + "px";
+          }
+        },
+        { passive: true },
+      );
+      function loopCursor() {
+        rX += (mX - rX) * 0.16;
+        rY += (mY - rY) * 0.16;
+        if (cRing) {
+          cRing.style.left = rX + "px";
+          cRing.style.top = rY + "px";
         }
-        const text = el.textContent.trim();
-        const words = text.split(/\s+/);
-        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
-        return Array.from(el.querySelectorAll('.word'));
+        requestAnimationFrame(loopCursor);
       }
-
-      document.querySelectorAll('.reveal-lines').forEach(el => {
-        const words = splitIntoWords(el);
-        gsap.set(words, { yPercent: 120, opacity: 0 });
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-          onEnter: () => gsap.to(words, {
-            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
-            stagger: words.length > 1 ? 0.04 : 0,
-          }),
-        });
+      loopCursor();
+      document.querySelectorAll("a, button, input").forEach((el) => {
+        el.addEventListener("mouseenter", () =>
+          document.body.classList.add("cursor-hover"),
+        );
+        el.addEventListener("mouseleave", () =>
+          document.body.classList.remove("cursor-hover"),
+        );
       });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // =============================================
+        // GSAP BIDIRECTIONAL SCROLL ANIMATION ENGINE
+        // (Smooth word reveals & section reveals when scrolling down AND scrolling up)
+        // =============================================
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined")
+          return;
+        gsap.registerPlugin(ScrollTrigger);
 
-      document.querySelectorAll('.reveal-fade').forEach(el => {
-        gsap.set(el, { y: 30, opacity: 0 });
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 88%',
-          once: true,
-          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
-        });
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        // Split text into individual words for reveal animation
+        function splitIntoWords(el) {
+          if (el.dataset.split === "done")
+            return Array.from(el.querySelectorAll(".word"));
+          el.dataset.split = "done";
+          // Preserve existing markup (em, br, span with classes)
+          if (el.querySelector("em, br, span")) {
+            const walker = document.createTreeWalker(
+              el,
+              NodeFilter.SHOW_TEXT,
+              null,
+            );
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+            textNodes.forEach((node) => {
+              const words = node.textContent
+                .split(/\s+/)
+                .filter((w) => w.length > 0);
+              if (words.length === 0) return;
+              const frag = document.createDocumentFragment();
+              words.forEach((w, i) => {
+                const span = document.createElement("span");
+                span.className = "word";
+                span.style.display = "inline-block";
+                span.textContent = w;
+                frag.appendChild(span);
+                if (i < words.length - 1)
+                  frag.appendChild(document.createTextNode(" "));
+              });
+              node.parentNode.replaceChild(frag, node);
+            });
+            return Array.from(el.querySelectorAll(".word"));
+          }
+          // Simple text — split on spaces
+          const text = el.textContent.trim();
+          const words = text.split(/\s+/);
+          el.innerHTML = words
+            .map(
+              (w) =>
+                `<span class="word" style="display:inline-block">${w}</span>`,
+            )
+            .join(" ");
+          return Array.from(el.querySelectorAll(".word"));
+        }
+
+        window.initScrollTextAnimations = function() {
+          if (prefersReduced) return;
+
+          // 1. HEADINGS & TITLES WORD-BY-WORD REVEAL (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-lines").forEach((el) => {
+            const words = splitIntoWords(el);
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                words,
+                { yPercent: 40, opacity: 0 },
+                {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  stagger: 0.025,
+                },
+              );
+            } else {
+              gsap.set(words, { yPercent: 100, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 88%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.03 : 0,
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.75,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.025 : 0,
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(words, {
+                  yPercent: 50,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(words, {
+                  yPercent: 100,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+
+          // 2. PARAGRAPHS, LABELS, BUTTONS FADE-UP (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-fade").forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                el,
+                { y: 15, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
+              );
+            } else {
+              gsap.set(el, { y: 28, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 90%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.7,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(el, {
+                  y: -15,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(el, {
+                  y: 28,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+        };
+
+        window.initScrollTextAnimations();
       });
-    });
-  </script>
-</body>
+    </script>
+    <script>
+      // Footer Newsletter Subscription
+      const footerForm = document.getElementById("footer-newsletter");
+      if (footerForm) {
+        footerForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const input = footerForm.querySelector('input[type="email"]');
+          if (input && input.value) {
+            const subs = JSON.parse(
+              localStorage.getItem("wethemums_newsletter") || "[]",
+            );
+            subs.push({ email: input.value, date: new Date().toISOString() });
+            localStorage.setItem("wethemums_newsletter", JSON.stringify(subs));
+            footerForm.reset();
+            alert("Welcome to WithTheMums! Thank you for subscribing.");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

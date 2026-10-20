@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses & Masterclasses — WithTheMums | Expert Parenting Academy</title>
+  <meta name="description" content="Doctor-approved, practical parenting masterclasses. Toddler discipline, baby sleep, infant weaning, postpartum recovery, and mompreneurship.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP for smooth interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              DEFAULT: '#862D42',
+              hover: '#6F2335',
+              dark: '#521927',
+              light: '#FAF0ED',
+            },
+            ivory: {
+              light: '#FCFAF7',
+              DEFAULT: '#F7F2EC',
+              dark: '#EBE2D5',
+            },
+            dustyRose: {
+              light: '#F4DDD7',
+              DEFAULT: '#D9A99C',
+              dark: '#C38B7C',
+            },
+            charcoal: {
+              DEFAULT: '#221C1D',
+              light: '#423F3C',
+            },
+            mutedText: {
+              DEFAULT: '#716A65',
+            },
+            subtleBorder: {
+              DEFAULT: '#E7DDD2',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .course-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .course-card:hover {
+      transform: translateY(-4px);
+    }
+    .modal-backdrop {
+      background-color: rgba(34, 28, 29, 0.7);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body class="bg-[#FCFAF7] text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry/20">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-berry text-white text-[11px] sm:text-xs py-2 px-4 border-b border-berry-dark/30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 font-normal">
+        <svg class="w-3.5 h-3.5 text-dustyRose-light fill-current" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+        </svg>
+        <span>🌟 Special Offer: Use code <strong class="underline tracking-wider font-bold">MUMPOWER</strong> for an extra 15% off all masterclasses!</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-[11px] text-white/90">
+        <span class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          100% Doctor Vetted
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Lifetime Access
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="bg-white border-b border-[#EFE8E2] sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex flex-col group">
+        <span class="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-tight group-hover:text-berry transition-colors">
+          WithTheMums<span class="text-berry font-bold">.</span>
+        </span>
+        <span class="text-[10px] sm:text-[11px] text-mutedText -mt-1 tracking-wide">
+          Real Stories. Stronger Together.
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal/80">
+        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
+        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
+        <a href="courses.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">Courses</a>
+        <a href="journal.html" class="hover:text-berry transition-colors">Blogs & Guides</a>
+        <a href="about.html" class="hover:text-berry transition-colors">About</a>
+        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Partnerships</a>
+        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#all-courses" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-all shadow-sm">
+          Explore Courses &darr;
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#EFE8E2] px-4 pt-3 pb-6 space-y-3">
+      <nav class="flex flex-col space-y-2 text-sm font-medium">
+        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
+        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories</a>
+        <a href="courses.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">Courses & Masterclasses</a>
+        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Blogs & Guides</a>
+        <a href="about.html" class="text-charcoal hover:text-berry py-1.5 px-2">About</a>
+        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Partnerships</a>
+        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
+      </nav>
+      <div class="pt-3 border-t border-subtleBorder">
+        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
+          Join Community
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION -->
+    <section class="py-16 sm:py-20 bg-gradient-to-b from-[#FAF4EE] to-[#FCFAF7] border-b border-[#EFE8E2] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center space-y-5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-berry/10 text-berry text-xs font-bold tracking-widest uppercase">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            WITH THE MUMS ACADEMY
+          </div>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal font-normal leading-[1.15]">
+            Practical Parenting Courses That Bring <span class="italic text-berry">Calm to Your Home</span>
+          </h1>
+          <p class="text-sm sm:text-base text-mutedText leading-relaxed max-w-2xl mx-auto">
+            Self-paced masterclasses created by certified pediatricians, child psychologists, lactation consultants, and real mothers. Step-by-step video lessons, printable scripts, and lifetime support.
+          </p>
+
+          <!-- Search & Guarantee pill -->
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-6 text-xs text-charcoal/80">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              14-Day 100% Money-Back Guarantee
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Watch Anytime on Mobile & Desktop
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Downloadable Workbooks & Scripts
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STATS RIBBON -->
+    <section class="py-6 bg-white border-b border-[#EFE8E2]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">8,500+</div>
+            <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">Mums Enrolled</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">4.9 / 5</div>
+            <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">Average Student Rating</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">100%</div>
+            <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">Doctor & Specialist Vetted</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl sm:text-3xl font-bold text-berry">Lifetime</div>
+            <div class="text-[11px] sm:text-xs text-mutedText mt-0.5">Access & Free Updates</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL COURSES SECTION -->
+    <section class="py-16 sm:py-20" id="all-courses">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Category Filter Pills & Search -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-subtleBorder">
+          <!-- Filters -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none" id="course-filters">
+            <button class="course-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-berry text-white shadow-xs whitespace-nowrap cursor-pointer transition-all" data-category="all">
+              All Masterclasses (6)
+            </button>
+            <button class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all" data-category="toddlers">
+              Toddlers & Tantrums (2)
+            </button>
+            <button class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all" data-category="baby">
+              Baby Care & Sleep (2)
+            </button>
+            <button class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all" data-category="wellness">
+              Mum Wellbeing & Postpartum (1)
+            </button>
+            <button class="course-filter-btn px-4 py-2 rounded-full text-xs font-medium text-charcoal/70 bg-white hover:bg-berry/5 hover:text-berry border border-subtleBorder whitespace-nowrap cursor-pointer transition-all" data-category="momboss">
+              Mompreneur & Career (1)
+            </button>
+          </div>
+
+          <!-- Quick Search -->
+          <div class="relative w-full md:w-64">
+            <input type="text" id="course-search" placeholder="Search courses or topics..." class="w-full pl-9 pr-4 py-2 text-xs rounded-full border border-subtleBorder bg-white focus:outline-none focus:ring-2 focus:ring-berry">
+            <svg class="w-4 h-4 text-mutedText absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+        </div>
+
+        <!-- 6 COURSES GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-container">
+
+          <!-- COURSE 1: Toddler Tantrums -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="toddlers" data-title="The Calm Toddler Blueprint: Taming Tantrums & Big Emotions">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80" alt="Toddler emotions" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-berry text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">★ BESTSELLER</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  4.9 (1,840)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>18 Video Lessons</span>
+                <span>Printable Script PDF</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">Ages 1.5 – 5 Years</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  The Calm Toddler Blueprint: Taming Tantrums & Big Emotions
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Learn exactly what to say during meltdowns, bedtime resistance, and aggressive hitting without yelling, bribes, or punishment.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">KI</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Dr. Kavita Iyer, Child Psychologist</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹1,499</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹3,499</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">57% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('toddler')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('The Calm Toddler Blueprint', 1499)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COURSE 2: Baby Weaning & First Foods -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="baby" data-title="First Foods & Gentle Weaning: 6 to 12 Months">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80" alt="Baby eating" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-emerald-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">DOCTOR-APPROVED</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  4.9 (2,120)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>14 Video Modules</span>
+                <span>45 Recipe Cards PDF</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">Ages 6 – 12 Months</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  First Foods & Gentle Weaning: Purees to Finger Foods
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Confidently transition your baby to solids with doctor-approved nutritional guidelines, choking vs gagging safety, and iron-rich Indian menus.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">SS</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Sneha Singhal, Pediatric Nutritionist</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹1,299</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹2,999</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">56% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('weaning')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('First Foods & Gentle Weaning', 1299)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COURSE 3: Gentle Sleep Solutions -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="baby" data-title="Gentle Sleep Solutions: Newborn to 3 Years">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Sleeping baby" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-indigo-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">TEAR-FREE METHOD</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  4.8 (1,450)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>16 Video Lessons</span>
+                <span>Wake Window Calculator</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">Ages 0 – 3 Years</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  Gentle Sleep Solutions: Restful Nights Without Endless Crying
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Establish natural circadian rhythms, soothe night wakings, navigate the 4-month sleep regression, and foster self-soothing safely.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">MD</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Meera Deshmukh, Infant Sleep Specialist</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹1,699</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹3,999</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">57% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('sleep')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('Gentle Sleep Solutions', 1699)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COURSE 4: Postpartum & Fourth Trimester -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="wellness" data-title="The Fourth Trimester: Postpartum Recovery & Maternal Wellbeing">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Mother holding baby tenderly" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-berry text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">MUM WELLBEING</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  5.0 (980)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>12 Video Modules</span>
+                <span>PPD Recovery Journal</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">New Mothers</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  The Fourth Trimester: Physical Recovery & Maternal Mental Health
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  A compassionate roadmap for pelvic floor rehabilitation, hormone fluctuations, breastfeeding troubleshooting, and postpartum anxiety.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">AS</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Dr. Ananya Sharma, Obstetrician & Doula</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹999</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹2,499</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">60% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('fourth')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('The Fourth Trimester Masterclass', 999)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COURSE 5: Potty Training in 5 Days -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="toddlers" data-title="Potty Training in 5 Days: A Tear-Free Step-by-Step System">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" alt="Happy child" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">FAST-TRACK</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  4.9 (1,620)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>8 Step-by-Step Lessons</span>
+                <span>Printable Sticker Chart</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">Ages 2 – 4 Years</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  Potty Training in 5 Days: A Gentle, Tear-Free System
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Know the exact readiness signs, daytime transitions, accident management without shaming, and reliable night-time dryness.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">PK</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Priya Kapoor, Early Childhood Educator</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹899</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹1,999</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">55% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('potty')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('Potty Training in 5 Days', 899)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COURSE 6: Mom Boss & Remote Business -->
+          <div class="course-card bg-white rounded-3xl border border-[#EBE1D9] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-category="momboss" data-title="Mom Boss: Launching a Profitable Business From Home">
+            <div class="relative h-52 overflow-hidden bg-[#F4EDE7]">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Mom working on laptop" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-purple-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">NEW LAUNCH</span>
+                <span class="px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-semibold flex items-center gap-1 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  4.8 (640)
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+                <span>20 Video Lessons</span>
+                <span>Business Launch Templates</span>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="text-[11px] font-semibold text-berry uppercase tracking-wider block">Entrepreneurship</span>
+                <h3 class="font-serif text-xl font-medium text-charcoal mt-1 leading-snug">
+                  Mom Boss: Launching a Profitable Business While Raising Kids
+                </h3>
+                <p class="text-xs text-mutedText mt-2 leading-relaxed">
+                  Turn your passion or expertise into recurring income with realistic time-blocking, social media positioning, and zero mom-guilt.
+                </p>
+                <div class="flex items-center gap-2.5 mt-3 pt-3 border-t border-subtleBorder/60">
+                  <div class="w-7 h-7 rounded-full bg-berry/10 text-berry font-bold text-xs flex items-center justify-center">MV</div>
+                  <span class="text-xs text-charcoal/90 font-medium">Mansi Verma, Founder & Mompreneur Mentor</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold text-charcoal">₹2,499</span>
+                    <span class="text-xs text-mutedText line-through ml-1.5">₹5,999</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">58% OFF</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="openCurriculum('momboss')" class="py-2.5 px-3 rounded-xl border border-subtleBorder text-charcoal text-xs font-semibold hover:bg-ivory transition-colors">
+                    Preview Syllabus
+                  </button>
+                  <button onclick="openCheckout('Mom Boss Masterclass', 2499)" class="py-2.5 px-3 rounded-xl bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors shadow-xs">
+                    Enroll Now &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- BUNDLE CALLOUT BANNER -->
+        <div class="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-berry-dark via-berry to-[#9E3952] text-white relative overflow-hidden shadow-xl">
+          <div class="max-w-2xl relative z-10 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-widest uppercase">
+              👑 ALL-ACCESS MUM ACADEMY PASS
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal leading-tight">
+              Get Unlimited Lifetime Access to All 6 Masterclasses
+            </h2>
+            <p class="text-sm text-white/90 leading-relaxed">
+              Equip your home with doctor-backed guidance for infant feeding, toddler tantrums, tear-free sleep, postpartum healing, and your personal goals. Includes all future courses added to the academy.
+            </p>
+            <div class="pt-2 flex flex-wrap items-baseline gap-4">
+              <span class="text-3xl font-bold">₹4,999</span>
+              <span class="text-sm line-through text-white/60">₹20,000 Total Value</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold">SAVE 75%</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openCheckout('All-Access Mum Academy Pass', 4999)" class="px-8 py-3.5 rounded-full bg-white text-berry font-bold text-xs uppercase tracking-wider hover:bg-ivory shadow-lg transition-transform hover:scale-105">
+                Claim All-Access Pass &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-16 sm:py-20 bg-white border-y border-[#EFE8E2]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs uppercase tracking-widest font-semibold text-berry">From Our Community</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1">What Mothers Are Saying</h2>
+          <p class="text-sm text-mutedText mt-2">Real reviews from mothers who took our masterclasses.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-[#FCFAF7] border border-subtleBorder space-y-3">
+            <div class="flex items-center text-amber-400 gap-1 text-sm">★★★★★</div>
+            <p class="text-xs text-charcoal/90 leading-relaxed italic">
+              "The Toddler Tantrum script changed my life. I went from crying in the bathroom every evening to feeling completely in control when my 2-year-old had a meltdown."
+            </p>
+            <div class="pt-2 border-t border-subtleBorder/60 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-berry/15 text-berry font-bold text-xs flex items-center justify-center">NM</div>
+              <div>
+                <div class="text-xs font-semibold text-charcoal">Neha M., Mumbai</div>
+                <div class="text-[10px] text-mutedText">Calm Toddler Blueprint Student</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#FCFAF7] border border-subtleBorder space-y-3">
+            <div class="flex items-center text-amber-400 gap-1 text-sm">★★★★★</div>
+            <p class="text-xs text-charcoal/90 leading-relaxed italic">
+              "I was so terrified of choking when introducing solid foods to my 6-month-old. The step-by-step videos and choking vs gagging module gave me complete peace of mind."
+            </p>
+            <div class="pt-2 border-t border-subtleBorder/60 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-berry/15 text-berry font-bold text-xs flex items-center justify-center">RS</div>
+              <div>
+                <div class="text-xs font-semibold text-charcoal">Ritu S., Bengaluru</div>
+                <div class="text-[10px] text-mutedText">First Foods Masterclass Student</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#FCFAF7] border border-subtleBorder space-y-3">
+            <div class="flex items-center text-amber-400 gap-1 text-sm">★★★★★</div>
+            <p class="text-xs text-charcoal/90 leading-relaxed italic">
+              "Our 9-month-old was waking up 6 times every night. Within 4 nights of following the gentle wake window schedule, he started sleeping 8-hour stretches without tears!"
+            </p>
+            <div class="pt-2 border-t border-subtleBorder/60 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-berry/15 text-berry font-bold text-xs flex items-center justify-center">AK</div>
+              <div>
+                <div class="text-xs font-semibold text-charcoal">Ananya K., Delhi NCR</div>
+                <div class="text-[10px] text-mutedText">Gentle Sleep Solutions Student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS SECTION -->
+    <section class="py-16 sm:py-20 bg-[#FCFAF7]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-xs uppercase tracking-widest font-semibold text-berry">Got Questions?</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+          <div class="bg-white rounded-2xl border border-subtleBorder p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-medium text-sm text-charcoal">
+              <span>How do I access the course after purchasing?</span>
+              <svg class="w-4 h-4 text-berry transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed">
+              Immediately after successful enrollment, you will receive your personal login credentials via email and WhatsApp. You can watch the video lessons from your phone, tablet, or laptop anytime.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-subtleBorder p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-medium text-sm text-charcoal">
+              <span>Are these live sessions or self-paced?</span>
+              <svg class="w-4 h-4 text-berry transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed">
+              All courses are 100% self-paced high-definition video modules that you can watch whenever you have 10 quiet minutes. You also receive lifetime access and free updates whenever we revise the curriculum.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-subtleBorder p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-medium text-sm text-charcoal">
+              <span>What if the course doesn't work for my child?</span>
+              <svg class="w-4 h-4 text-berry transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed">
+              We stand behind the quality of our expert doctors and educators. If you implement the strategies for 14 days and do not see a positive difference, email us at courses@wethemums.com for a 100% no-questions-asked refund.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-subtleBorder p-5 cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-medium text-sm text-charcoal">
+              <span>Can my spouse or partner watch with me?</span>
+              <svg class="w-4 h-4 text-berry transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="hidden text-xs text-mutedText mt-3 pt-3 border-t border-subtleBorder leading-relaxed">
+              Yes, absolutely! We strongly encourage both parents to watch the modules together so everyone is on the same page with routines, communication, and discipline.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL 1: CURRICULUM SYLLABUS PREVIEW       -->
+  <!-- ========================================== -->
+  <div id="curriculum-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div class="modal-backdrop fixed inset-0" onclick="closeCurriculum()"></div>
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 border border-subtleBorder shadow-2xl z-10">
+      <div class="flex items-center justify-between pb-4 border-b border-subtleBorder">
+        <div>
+          <span class="text-xs font-bold text-berry uppercase tracking-wider" id="curr-tag">CURRICULUM PREVIEW</span>
+          <h3 class="font-serif text-2xl font-normal text-charcoal mt-0.5" id="curr-title">Course Syllabus</h3>
+        </div>
+        <button onclick="closeCurriculum()" class="p-2 rounded-full hover:bg-ivory text-mutedText hover:text-charcoal transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="mt-6 space-y-4" id="curr-content">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-subtleBorder flex items-center justify-between">
+        <span class="text-xs text-mutedText">Includes lifetime access & printable workbooks</span>
+        <button id="curr-enroll-btn" class="px-6 py-2.5 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover transition-all">
+          Enroll Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL 2: CHECKOUT & ENROLLMENT FLOW        -->
+  <!-- ========================================== -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div class="modal-backdrop fixed inset-0" onclick="closeCheckout()"></div>
+    <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-subtleBorder shadow-2xl z-10">
+      <div class="flex items-center justify-between pb-4 border-b border-subtleBorder">
+        <div>
+          <span class="text-[11px] font-bold text-berry uppercase tracking-wider">SECURE CHECKOUT</span>
+          <h3 class="font-serif text-2xl font-normal text-charcoal" id="checkout-course-name">Enroll in Course</h3>
+        </div>
+        <button onclick="closeCheckout()" class="p-2 rounded-full hover:bg-ivory text-mutedText hover:text-charcoal transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="checkout-form" onsubmit="handleCheckout(event)" class="mt-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">Your Full Name *</label>
+          <input type="text" id="buyer-name" required placeholder="e.g. Radhika Sharma" class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">Email Address (For course access link) *</label>
+          <input type="email" id="buyer-email" required placeholder="e.g. radhika@example.com" class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">WhatsApp Number (For community group & login SMS) *</label>
+          <input type="tel" id="buyer-phone" required placeholder="e.g. +91 98765 43210" class="w-full px-4 py-2.5 text-xs rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none">
+        </div>
+
+        <!-- Coupon row -->
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">Discount Code</label>
+          <div class="flex gap-2">
+            <input type="text" id="coupon-code" placeholder="Try MUMPOWER" class="flex-1 px-4 py-2 text-xs uppercase rounded-xl border border-subtleBorder bg-[#FCFAF7] focus:ring-2 focus:ring-berry focus:outline-none">
+            <button type="button" onclick="applyCoupon()" class="px-4 py-2 rounded-xl bg-charcoal text-white text-xs font-semibold hover:bg-black transition-colors">Apply</button>
+          </div>
+          <span id="coupon-msg" class="text-[11px] font-medium hidden mt-1 block"></span>
+        </div>
+
+        <!-- Price breakdown -->
+        <div class="p-3.5 rounded-xl bg-ivory/50 border border-subtleBorder text-xs space-y-1.5">
+          <div class="flex justify-between text-mutedText">
+            <span>Course Fee:</span>
+            <span id="summary-orig-price">₹1,499</span>
+          </div>
+          <div class="flex justify-between text-emerald-700 font-medium hidden" id="discount-row">
+            <span>Discount (MUMPOWER):</span>
+            <span id="summary-discount">-₹225</span>
+          </div>
+          <div class="flex justify-between font-bold text-charcoal text-sm pt-2 border-t border-subtleBorder">
+            <span>Total Payable:</span>
+            <span id="summary-total" class="text-berry">₹1,499</span>
+          </div>
+        </div>
+
+        <!-- Payment methods -->
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1.5">Select Payment Method</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="border border-berry bg-berry/5 rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer">
+              <input type="radio" name="payment-method" value="upi" checked class="text-berry focus:ring-berry text-xs">
+              <span class="text-xs font-bold text-charcoal mt-1">UPI / GPay</span>
+              <span class="text-[9px] text-mutedText">Instant QR</span>
+            </label>
+            <label class="border border-subtleBorder rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer hover:bg-ivory">
+              <input type="radio" name="payment-method" value="card" class="text-berry focus:ring-berry text-xs">
+              <span class="text-xs font-bold text-charcoal mt-1">Card</span>
+              <span class="text-[9px] text-mutedText">Debit/Credit</span>
+            </label>
+            <label class="border border-subtleBorder rounded-xl p-2.5 flex flex-col items-center text-center cursor-pointer hover:bg-ivory">
+              <input type="radio" name="payment-method" value="netbanking" class="text-berry focus:ring-berry text-xs">
+              <span class="text-xs font-bold text-charcoal mt-1">NetBanking</span>
+              <span class="text-[9px] text-mutedText">All Banks</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-full bg-berry text-white text-xs font-bold uppercase tracking-wider hover:bg-berry-hover transition-all shadow-md mt-2">
+          Complete Enrollment &rarr;
+        </button>
+      </form>
+
+      <!-- SUCCESS CONFIRMATION -->
+      <div id="checkout-success" class="hidden mt-6 text-center space-y-4">
+        <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h4 class="font-serif text-2xl text-charcoal font-normal">Welcome to the Academy!</h4>
+        <p class="text-xs text-mutedText leading-relaxed">
+          Your payment was simulated successfully! Your course dashboard access credentials and WhatsApp group invite have been sent to your email.
+        </p>
+        <div class="p-3 bg-ivory rounded-xl text-xs font-mono text-charcoal">
+          Enrollment ID: <strong id="order-id">WTM-2026-8941</strong>
+        </div>
+        <button onclick="closeCheckout()" class="w-full py-2.5 rounded-full bg-charcoal text-white text-xs font-semibold hover:bg-black">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- SITE FOOTER                                -->
+  <!-- ========================================== -->
+  <footer class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14">
+        <!-- Col 1 -->
+        <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+          <div>
+            <a href="index.html" class="inline-block mb-3.5">
+              <span class="font-serif text-2xl sm:text-3xl text-charcoal font-normal">WithTheMums<span class="text-berry font-bold">.</span></span>
+            </a>
+            <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1">
+              A supportive community for every stage of motherhood. Courses, evidence-based guides, and honest stories.
+            </p>
+          </div>
+          <div class="flex items-center gap-2.5 pt-6">
+            <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+          <div class="mb-4">
+            <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">ACADEMY</h4>
+            <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+            <li><a href="courses.html" class="hover:text-berry transition-colors font-semibold text-berry">All Masterclasses</a></li>
+            <li><a href="courses.html#all-courses" class="hover:text-berry transition-colors">Toddler Discipline</a></li>
+            <li><a href="courses.html#all-courses" class="hover:text-berry transition-colors">Baby Weaning</a></li>
+            <li><a href="courses.html#all-courses" class="hover:text-berry transition-colors">Gentle Sleep</a></li>
+            <li><a href="courses.html#all-courses" class="hover:text-berry transition-colors">Mom Boss Program</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Editorial -->
+        <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+          <div class="mb-4">
+            <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">RESOURCES</h4>
+            <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+            <li><a href="journal.html" class="hover:text-berry transition-colors">Blogs by Categories</a></li>
+            <li><a href="stories.html" class="hover:text-berry transition-colors">Personal Stories</a></li>
+            <li><a href="about.html" class="hover:text-berry transition-colors">Our Advisory Board</a></li>
+            <li><a href="contact.html" class="hover:text-berry transition-colors">Student Helpdesk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Help -->
+        <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+          <div class="mb-4">
+            <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">NEED HELP?</h4>
+            <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+          </div>
+          <p class="text-xs text-mutedText leading-relaxed mb-3">
+            Questions about course enrollment or need recommendations for your child's age?
+          </p>
+          <a href="contact.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-berry hover:underline">
+            Chat With Student Support &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-[#F0EAE6] py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-mutedText gap-3">
+        <p>© 2026 WithTheMums Media & Academy. All rights reserved.</p>
+        <p>Evidence-based parenting education & masterclasses.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR COURSES, FILTERS & CHECKOUT -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Category Filtering
+    const filterBtns = document.querySelectorAll('.course-filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-berry', 'text-white');
+          b.classList.add('bg-white', 'text-charcoal/70', 'border', 'border-subtleBorder');
+        });
+        btn.classList.remove('bg-white', 'text-charcoal/70', 'border', 'border-subtleBorder');
+        btn.classList.add('bg-berry', 'text-white');
+
+        const cat = btn.getAttribute('data-category');
+        courseCards.forEach(card => {
+          if (cat === 'all' || card.getAttribute('data-category') === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Real-time search
+    const searchInput = document.getElementById('course-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        courseCards.forEach(card => {
+          const title = card.getAttribute('data-title').toLowerCase();
+          const desc = card.innerText.toLowerCase();
+          if (title.includes(query) || desc.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Curriculum Preview Data
+    const curriculums = {
+      toddler: {
+        tag: "TODDLER DISCIPLINE",
+        title: "The Calm Toddler Blueprint: Syllabus Preview",
+        modules: [
+          { title: "Module 1: The Neuroscience of a Toddler Meltdown", desc: "Why logic fails during tantrums, the amygdala hijack, and how to co-regulate calmly." },
+          { title: "Module 2: 7 Printable Scripts for High-Stress Moments", desc: "Exact phrases for leaving the park, grocery store crying, sharing struggles, and bedtime." },
+          { title: "Module 3: Preventing Aggression (Hitting, Biting, Throwing)", desc: "Gentle boundaries that teach emotional regulation without physical punishment or fear." },
+          { title: "Module 4: Repair & Reconnection", desc: "How to rebuild trust after a rough day so parent and child feel deeply secure." }
+        ]
+      },
+      weaning: {
+        tag: "NUTRITION & SOLIDS",
+        title: "First Foods & Gentle Weaning: Syllabus Preview",
+        modules: [
+          { title: "Module 1: Readiness Signs & Safety Essentials", desc: "When to start, essential high-chair ergonomics, and mastering the difference between gagging and choking." },
+          { title: "Module 2: Purees vs. Baby-Led Weaning", desc: "How to combine the best of both approaches for stress-free meal times." },
+          { title: "Module 3: Top Allergen Introduction Matrix", desc: "Doctor-approved protocol for safely introducing nuts, eggs, dairy, and fish." },
+          { title: "Module 4: 45 Nutrient-Dense Indian Baby Recipes", desc: "Khichdi variations, iron-packed purees, steamed vegetable finger foods, and tiffin meal planners." }
+        ]
+      },
+      sleep: {
+        tag: "INFANT & TODDLER SLEEP",
+        title: "Gentle Sleep Solutions: Syllabus Preview",
+        modules: [
+          { title: "Module 1: Circadian Rhythms & Age-Wise Wake Windows", desc: "Calculating optimal nap times and preventing overtired bedtime battles." },
+          { title: "Module 2: The 4-Month & 8-Month Sleep Regressions", desc: "Understanding biological brain development and navigating regression without setbacks." },
+          { title: "Module 3: Gentle Night-Weaning Without Tears", desc: "Gradual reduction methods that preserve emotional security while sleeping 8+ hour stretches." },
+          { title: "Module 4: Smooth Bedtime Routines & Environment Setup", desc: "Lighting, sound machines, sleep sacks, and positive sleep associations." }
+        ]
+      },
+      fourth: {
+        tag: "POSTPARTUM HEALTH",
+        title: "The Fourth Trimester: Syllabus Preview",
+        modules: [
+          { title: "Module 1: Pelvic Floor & Core Rehab", desc: "Safe postnatal recovery movements, diastasis recti assessment, and preventing prolapse." },
+          { title: "Module 2: Hormones, Baby Blues & PPD Screening", desc: "Distinguishing normal hormonal shifts from postpartum anxiety and where to find clinical help." },
+          { title: "Module 3: Breastfeeding & Latch Mastery", desc: "Pain-free latch techniques, blocked ducts relief, and maintaining milk supply." },
+          { title: "Module 4: Partner Dynamics & The Mental Load", desc: "Communicating needs without resentment and sharing nighttime duties fairly." }
+        ]
+      },
+      potty: {
+        tag: "EARLY CHILDHOOD",
+        title: "Potty Training in 5 Days: Syllabus Preview",
+        modules: [
+          { title: "Module 1: Assessing Genuine Readiness", desc: "The 5 developmental cues before starting, avoiding premature regression." },
+          { title: "Module 2: The 5-Day Step-by-Step Schedule", desc: "Detailed hour-by-hour visual routine for day 1 through day 5." },
+          { title: "Module 3: Responding to Accidents with Zero Shame", desc: "Positive reinforcement scripts and preventing power struggles over bowel movements." },
+          { title: "Module 4: Public Restrooms & Night-time Dryness", desc: "Mastering car rides, preschool transitions, and overnight independence." }
+        ]
+      },
+      momboss: {
+        tag: "CAREER & ENTREPRENEURSHIP",
+        title: "Mom Boss Masterclass: Syllabus Preview",
+        modules: [
+          { title: "Module 1: Finding Your High-Profit Niche", desc: "Turning your skills into services, digital products, or consulting from your kitchen table." },
+          { title: "Module 2: Realistic Time-Blocking for Mums", desc: "How to build a business in 2 hours during naptime without neglecting your children." },
+          { title: "Module 3: Client Attraction & Social Media Growth", desc: "Authentic storytelling strategies that attract paying clients without dancing on Reels." },
+          { title: "Module 4: Pricing, Invoicing & Automations", desc: "Setting professional rates and automating admin tasks so the business runs while you play." }
+        ]
+      }
+    };
+
+    function openCurriculum(key) {
+      const data = curriculums[key];
+      if (!data) return;
+      document.getElementById('curr-tag').innerText = data.tag;
+      document.getElementById('curr-title').innerText = data.title;
+      
+      let html = '';
+      data.modules.forEach((m, idx) => {
+        html += `
+          <div class="p-4 rounded-2xl bg-ivory/60 border border-subtleBorder">
+            <h4 class="font-semibold text-sm text-charcoal">${m.title}</h4>
+            <p class="text-xs text-mutedText mt-1">${m.desc}</p>
+          </div>
+        `;
+      });
+      document.getElementById('curr-content').innerHTML = html;
+      document.getElementById('curr-modal').style.display = 'flex';
+      document.getElementById('curriculum-modal').classList.remove('hidden');
+    }
+
+    function closeCurriculum() {
+      document.getElementById('curriculum-modal').classList.add('hidden');
+    }
+
+    // Checkout Flow
+    let currentPrice = 1499;
+    let couponApplied = false;
+
+    function openCheckout(courseName, price) {
+      closeCurriculum();
+      currentPrice = price;
+      couponApplied = false;
+      document.getElementById('checkout-course-name').innerText = courseName;
+      document.getElementById('summary-orig-price').innerText = '₹' + price;
+      document.getElementById('summary-total').innerText = '₹' + price;
+      document.getElementById('discount-row').classList.add('hidden');
+      document.getElementById('coupon-msg').classList.add('hidden');
+      document.getElementById('coupon-code').value = '';
+      document.getElementById('checkout-form').classList.remove('hidden');
+      document.getElementById('checkout-success').classList.add('hidden');
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('coupon-code').value.trim().toUpperCase();
+      const msg = document.getElementById('coupon-msg');
+      if (code === 'MUMPOWER') {
+        couponApplied = true;
+        const discount = Math.round(currentPrice * 0.15);
+        const finalPrice = currentPrice - discount;
+        document.getElementById('discount-row').classList.remove('hidden');
+        document.getElementById('summary-discount').innerText = '-₹' + discount;
+        document.getElementById('summary-total').innerText = '₹' + finalPrice;
+        msg.className = 'text-[11px] font-medium text-emerald-600 mt-1 block';
+        msg.innerText = '✓ Coupon MUMPOWER applied! 15% discount deducted.';
+      } else {
+        msg.className = 'text-[11px] font-medium text-rose-600 mt-1 block';
+        msg.innerText = 'Invalid coupon code. Try MUMPOWER';
+      }
+    }
+
+    function handleCheckout(e) {
+      e.preventDefault();
+      const name = document.getElementById('buyer-name').value;
+      const email = document.getElementById('buyer-email').value;
+      const phone = document.getElementById('buyer-phone').value;
+      const course = document.getElementById('checkout-course-name').innerText;
+      
+      // Save order in localStorage so editorial-dashboard can see course sales!
+      try {
+        const orders = JSON.parse(localStorage.getItem('wtm_course_orders') || '[]');
+        const newOrder = {
+          id: 'WTM-' + Math.floor(1000 + Math.random() * 9000),
+          course: course,
+          name: name,
+          email: email,
+          phone: phone,
+          price: document.getElementById('summary-total').innerText,
+          date: new Date().toLocaleDateString('en-GB')
+        };
+        orders.unshift(newOrder);
+        localStorage.setItem('wtm_course_orders', JSON.stringify(orders));
+        document.getElementById('order-id').innerText = newOrder.id;
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById('checkout-form').classList.add('hidden');
+      document.getElementById('checkout-success').classList.remove('hidden');
+    }
+
+    // FAQ Toggle
+    function toggleFaq(el) {
+      const p = el.querySelector('div:nth-child(2)');
+      const svg = el.querySelector('svg');
+      if (p.classList.contains('hidden')) {
+        p.classList.remove('hidden');
+        svg.classList.add('rotate-180');
+      } else {
+        p.classList.add('hidden');
+        svg.classList.remove('rotate-180');
+      }
+    }
+  </script>
+</body>
+</html>

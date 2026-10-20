@@ -1,320 +1,2013 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — WeTheMums | Our Mission & Editorial Standards</title>
-  <meta name="description" content="Discover the mission of WeTheMums. We hold space for honest, vulnerable, and inspiring parenting stories across modern families.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — WeTheMums | Our Mission & Editorial Standards</title>
+    <meta
+      name="description"
+      content="Discover the mission of WeTheMums. We hold space for honest, vulnerable, and inspiring parenting stories across modern families."
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- GSAP + ScrollTrigger for premium scroll text animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            berry: {
-              DEFAULT: '#75454B',
-              hover: '#64393F',
-              dark: '#522E33',
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP + ScrollTrigger for premium scroll text animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              berry: {
+                DEFAULT: "#75454B",
+                hover: "#64393F",
+                dark: "#522E33",
+              },
+              ivory: {
+                light: "#FCFAF7",
+                DEFAULT: "#F7F2EC",
+                dark: "#EBE2D5",
+              },
+              dustyRose: {
+                light: "#F4DDD7",
+                DEFAULT: "#D9A99C",
+                dark: "#C38B7C",
+              },
+              charcoal: {
+                DEFAULT: "#292725",
+                light: "#423F3C",
+              },
+              mutedText: {
+                DEFAULT: "#716A65",
+              },
+              subtleBorder: {
+                DEFAULT: "#E7DDD2",
+              },
             },
-            ivory: {
-              light: '#FCFAF7',
-              DEFAULT: '#F7F2EC',
-              dark: '#EBE2D5',
+            fontFamily: {
+              serif: ["Newsreader", "Georgia", "serif"],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
             },
-            dustyRose: {
-              light: '#F4DDD7',
-              DEFAULT: '#D9A99C',
-              dark: '#C38B7C',
-            },
-            charcoal: {
-              DEFAULT: '#292725',
-              light: '#423F3C',
-            },
-            mutedText: {
-              DEFAULT: '#716A65',
-            },
-            subtleBorder: {
-              DEFAULT: '#E7DDD2',
-            }
           },
-          fontFamily: {
-            serif: ['Newsreader', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-          }
-        }
+        },
+      };
+    </script>
+    <style>
+      /* ======================================================== */
+      /* SCROLL TEXT ANIMATION ENGINE (SteadyShield-inspired)     */
+      /* ======================================================== */
+
+      /* Word-level reveal: each word clips up from below */
+      .reveal-lines .word {
+        display: inline-block;
+        will-change: transform, opacity;
       }
-    }
-  </script>
-</head>
-<body class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40">
 
-  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-subtleBorder">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="index.html" class="group flex items-center gap-2">
-        <span class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-charcoal group-hover:text-berry transition-colors">
-          WeTheMums<span class="text-berry font-sans font-bold">.</span>
-        </span>
-      </a>
+      /* Fade-up reveal for paragraphs, subtext, buttons */
+      .reveal-fade {
+        will-change: transform, opacity;
+      }
 
-      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-charcoal/90">
-        <a href="index.html" class="hover:text-berry transition-colors">Home</a>
-        <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
-        <a href="about.html" class="text-berry font-semibold border-b-2 border-berry pb-0.5">About Us</a>
-        <a href="journal.html" class="hover:text-berry transition-colors">Journal</a>
-        <a href="brand-partnerships.html" class="hover:text-berry transition-colors">Brand Partnerships</a>
-        <a href="contact.html" class="hover:text-berry transition-colors">Contact</a>
-      </nav>
+      /* Cards remain steady and fully visible (animations are text-only) */
+      .reveal-block {
+        opacity: 1 !important;
+        transform: none !important;
+      }
 
-      <div class="flex items-center gap-3">
-        <a href="share-your-story.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white hover:bg-berry-hover transition-all">
-          Share Your Story
-        </a>
-        <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden p-2 rounded-lg text-charcoal hover:bg-subtleBorder/50">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
-      </div>
-    </div>
+      .font-hand {
+        font-family: "Caveat", cursive;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-ivory text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-dustyRose/40"
+  >
+    <!-- TOP BAR -->
+    <div
+      class="bg-[#541E2A] text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Left: Heart icon + Tagline with small dropdown indicator -->
+        <div class="flex items-center gap-1.5 font-normal tracking-wide">
+          <svg
+            class="w-3.5 h-3.5 text-[#E6B8AF] fill-current flex-shrink-0"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>A supportive community for every stage of motherhood</span>
+          <svg
+            class="w-2.5 h-2.5 ml-0.5 text-[#E6B8AF] opacity-80"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-subtleBorder px-4 pt-3 pb-6 space-y-3">
-      <nav class="flex flex-col space-y-2 text-base font-medium">
-        <a href="index.html" class="text-charcoal hover:text-berry py-1.5 px-2">Home</a>
-        <a href="stories.html" class="text-charcoal hover:text-berry py-1.5 px-2">Stories Archive</a>
-        <a href="about.html" class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md">About Us</a>
-        <a href="journal.html" class="text-charcoal hover:text-berry py-1.5 px-2">Journal & Resources</a>
-        <a href="brand-partnerships.html" class="text-charcoal hover:text-berry py-1.5 px-2">Brand Partnerships</a>
-        <a href="contact.html" class="text-charcoal hover:text-berry py-1.5 px-2">Contact</a>
-        <a href="editorial-dashboard.html" class="text-mutedText hover:text-berry text-xs py-1.5 px-2">🔒 Editorial Review (Internal)</a>
-      </nav>
-      <div class="pt-3 border-t border-subtleBorder">
-        <a href="share-your-story.html" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs uppercase tracking-wider font-semibold rounded-full bg-berry text-white">
-          Share Your Story
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main class="flex-grow">
-    
-    <!-- HERO -->
-    <section class="py-16 md:py-24 bg-white border-b border-subtleBorder">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
-        <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Our Story & Purpose</span>
-        <h1 class="reveal-lines font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal font-normal leading-tight">
-          Every parenting journey deserves to be heard.
-        </h1>
-        <p class="reveal-fade text-base sm:text-lg text-mutedText leading-relaxed">
-          We founded WeTheMums on a simple, enduring conviction: parenthood is too raw, complex, and profound to be reduced to filtered highlight reels.
-        </p>
-      </div>
-    </section>
-
-    <!-- MISSION STATEMENT & IMAGE -->
-    <section class="py-20 bg-ivory">
-      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div class="lg:col-span-6 space-y-5">
-            <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Why We Exist</span>
-            <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal">
-              A haven for honest parenting realities.
-            </h2>
-            <p class="reveal-fade text-sm text-mutedText leading-relaxed">
-              When you become a parent, the world showers you with unsolicited advice, rigid milestones, and picture-perfect imagery. Yet in the quiet hours of the night—when facing post-partum anxiety, an unexpected diagnosis, adoption paperwork, or simply wondering if you did enough today—what parents crave most is not perfection, but camaraderie.
-            </p>
-            <p class="reveal-fade text-sm text-mutedText leading-relaxed">
-              WeTheMums is an editorial media platform devoted to the whole spectrum of family life: maternal transitions, modern fatherhood, fertility journeys, grief, neurodiversity, and the tender humor of everyday routine.
-            </p>
+        <!-- Right: Follow Us with social icons -->
+        <div
+          class="hidden sm:flex items-center gap-3 text-[11px] text-white/90"
+        >
+          <span class="text-white/80">Follow Us</span>
+          <div class="flex items-center gap-2">
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/wethemums/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Instagram"
+              aria-label="Instagram"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Facebook"
+              aria-label="Facebook"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="YouTube"
+              aria-label="YouTube"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                />
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a
+              href="#"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              title="Pinterest"
+              aria-label="Pinterest"
+            >
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <div class="lg:col-span-6">
-            <div class="rounded-2xl overflow-hidden border border-subtleBorder shadow-md">
-              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80" alt="Indian family embracing outdoors" class="w-full h-96 object-cover">
+    <!-- SITE NAVBAR -->
+    <header class="bg-white border-b border-[#EFE7E1] sticky top-0 z-40">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Brand Logo: WithTheMums. with subtitle -->
+        <a href="index.html" class="flex flex-col group">
+          <span
+            class="font-serif text-2xl sm:text-3xl text-[#2D2926] font-normal tracking-tight group-hover:text-[#632232] transition-colors"
+          >
+            WithTheMums<span class="text-[#632232] font-bold">.</span>
+          </span>
+          <span class="text-[10px] text-[#635C57] -mt-0.5 tracking-wide">
+            Real Stories. Stronger Together.
+          </span>
+        </a>
+
+        <!-- Center Nav Links -->
+        <nav
+          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-[#2D2926]/80"
+        >
+          <a href="index.html" class="hover:text-[#632232] transition-colors"
+            >Home</a
+          >
+          <a href="stories.html" class="hover:text-[#632232] transition-colors"
+            >Stories</a
+          >
+
+          <a
+            href="about.html"
+            class="text-[#632232] font-semibold border-b-2 border-[#632232] pb-1"
+            >About</a
+          >
+
+          <a
+            href="courses.html"
+            class="hover:text-[#632232] transition-colors inline-flex items-center gap-1.5 font-medium"
+            ><span>Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a href="contact.html" class="hover:text-[#632232] transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Right: Search Button + Join Our Community pill -->
+        <div class="flex items-center gap-3">
+          <a
+            href="stories.html"
+            class="w-9 h-9 rounded-full hover:bg-[#FAF7F2] flex items-center justify-center text-[#2D2926]/70 hover:text-[#632232] transition-colors"
+            title="Search Stories"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="share-your-story.html"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm"
+          >
+            Join Our Community
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            aria-label="Toggle navigation menu"
+            class="md:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
+      >
+        <nav class="flex flex-col space-y-2 text-sm font-medium">
+          <a
+            href="index.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Home</a
+          >
+          <a
+            href="stories.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Stories</a
+          >
+          <a
+            href="journal.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Resources</a
+          >
+          <a
+            href="about.html"
+            class="text-[#632232] font-semibold py-1.5 px-2 bg-[#632232]/5 rounded-md"
+            >About</a
+          >
+          <a
+            href="brand-partnerships.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Events & Partnerships</a
+          >
+          <a
+            href="courses.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2 flex items-center justify-between"
+            ><span>Parenting Courses</span
+            ><span
+              class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-2 py-0.5 rounded-full"
+              >New</span
+            ></a
+          >
+          <a
+            href="contact.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
+            >Contact</a
+          >
+        </nav>
+        <div class="pt-3 border-t border-[#EFE7E1]">
+          <a
+            href="share-your-story.html"
+            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all"
+          >
+            Share Your Story
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <!-- ========================================== -->
+      <!-- SECTION 1: IMAGE-FREE ABOUT HERO          -->
+      <!-- ========================================== -->
+      <section
+        id="about-hero-section"
+        class="relative isolate overflow-hidden border-b border-[#EFE4DE] bg-gradient-to-br from-[#FCF8F5] via-[#FAF4EF] to-[#F7ECE8] py-12 sm:py-16 lg:py-20"
+      >
+        <div class="pointer-events-none absolute -right-28 -top-32 h-[30rem] w-[30rem] rounded-full bg-[#E8C5C0]/35 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-40 left-[24%] h-96 w-96 rounded-full bg-white/80 blur-3xl"></div>
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+
+        <div class="relative mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:px-12">
+          <div class="relative z-10 lg:col-span-6">
+            <div class="reveal-fade mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#E8D0CA] bg-white/85 px-4 py-2 shadow-[0_5px_18px_rgba(112,40,58,0.05)]">
+              <svg class="h-4 w-4 fill-[#812E43]" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z" />
+              </svg>
+              <span class="text-[10px] font-bold uppercase tracking-[0.19em] text-[#812E43] sm:text-xs">Our story &bull; The village</span>
+            </div>
+
+            <h1 class="reveal-lines max-w-2xl font-serif text-4xl font-normal leading-[1.04] tracking-[-0.035em] text-[#302322] sm:text-5xl lg:text-[56px] xl:text-[60px]">
+              Every parenting journey<br />
+              <span class="italic text-[#862D42]">deserves a village.</span>
+              <svg class="ml-1 inline-block h-[0.72em] w-[0.72em] -translate-y-1 text-[#862D42]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
+              </svg>
+            </h1>
+
+            <p class="reveal-fade mt-5 max-w-xl text-sm leading-7 text-[#6F625E] sm:text-base sm:leading-8">
+              We founded WithTheMums on a simple conviction: parenthood is too raw, complex, and profound to navigate alone. Here, every family can find honest stories, understanding, and a place to belong.
+            </p>
+
+            <div class="reveal-fade mt-7 flex flex-wrap items-center gap-3">
+              <a href="#our-mission" class="btn-shimmer group inline-flex min-h-12 items-center gap-2.5 rounded-full bg-gradient-to-r from-[#70283A] to-[#572033] px-5 py-3 text-xs font-semibold text-white shadow-[0_9px_22px_rgba(112,40,58,0.2)] transition-all hover:-translate-y-0.5 hover:shadow-[0_13px_28px_rgba(112,40,58,0.25)] sm:text-sm" aria-label="Read Our Story">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M12 6.25v13m0-13C10.83 5.48 9.25 5 7.5 5S4.17 5.48 3 6.25v13C4.17 18.48 5.75 18 7.5 18s3.33.48 4.5 1.25m0-13C13.17 5.48 14.75 5 16.5 5s3.33.48 4.5 1.25v13c-1.17-.77-2.75-1.25-4.5-1.25s-3.33.48-4.5 1.25Z" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Read Our Story
+                <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="stories.html" class="inline-flex min-h-12 items-center gap-2 rounded-full border border-[#D9B9B6] bg-white/70 px-5 py-3 text-xs font-semibold text-[#67212F] transition-all hover:border-[#67212F] hover:bg-white sm:text-sm" aria-label="Join Our Community">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m16 0v-2a4 4 0 0 0-3-3.87M10 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm11 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Join Our Community
+              </a>
+            </div>
+
+            <div class="reveal-fade mt-8 grid max-w-xl grid-cols-3 gap-2 border-t border-[#E9D8D2] pt-5 sm:mt-9 sm:gap-4">
+              <div class="flex items-center gap-2">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#7B2E3E] shadow-sm">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m16 0v-2a4 4 0 0 0-3-3.87M10 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm11 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="text-[10px] leading-tight sm:text-xs"><span class="block font-semibold text-[#302322]">Founded by mothers</span><span class="mt-0.5 block text-[#85736D]">Real care &amp; empathy</span></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#7B2E3E] shadow-sm">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="text-[10px] leading-tight sm:text-xs"><span class="block font-semibold text-[#302322]">10,000+ strong</span><span class="mt-0.5 block text-[#85736D]">Parent community</span></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#7B2E3E] shadow-sm">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="text-[10px] leading-tight sm:text-xs"><span class="block font-semibold text-[#302322]">Zero highlight reels</span><span class="mt-0.5 block text-[#85736D]">Just real stories</span></span>
+              </div>
             </div>
           </div>
 
+          <!-- Image-free community illustration: values orbiting a shared heart -->
+          <div class="reveal-block relative mx-auto w-full max-w-[500px] lg:col-span-6">
+            <div class="relative mx-auto h-[390px] w-full max-w-[460px] sm:h-[460px]">
+              <div class="absolute inset-[8%] rounded-full bg-gradient-to-br from-[#F2D8D4] via-[#FAEFEB] to-white"></div>
+              <div class="absolute inset-[14%] rounded-full border border-[#D9A99C]/40"></div>
+              <svg class="absolute inset-[8%] h-[84%] w-[84%] text-[#C99498]/60" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                <circle cx="200" cy="200" r="154" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 8" />
+                <circle cx="200" cy="46" r="4" fill="currentColor" />
+                <circle cx="354" cy="200" r="4" fill="currentColor" />
+                <circle cx="200" cy="354" r="4" fill="currentColor" />
+                <circle cx="46" cy="200" r="4" fill="currentColor" />
+              </svg>
+
+              <div class="absolute left-1/2 top-1/2 z-10 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border-[6px] border-white bg-gradient-to-br from-[#793044] to-[#572033] text-center text-white shadow-[0_20px_48px_rgba(83,37,44,0.24)] sm:h-48 sm:w-48">
+                <svg class="mb-2 h-8 w-8 text-[#F0C9C1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#F0C9C1]">WithTheMums</span>
+                <span class="mt-1 font-serif text-lg leading-tight sm:text-xl">A village<br />to belong to</span>
+              </div>
+
+              <div class="absolute left-0 top-[7%] z-20 flex items-center gap-2 rounded-2xl border border-white/90 bg-white/95 px-3 py-2.5 shadow-[0_10px_26px_rgba(83,37,44,0.09)] sm:left-[2%] sm:px-4">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8E8E4] text-[#862D42]">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z" stroke-linejoin="round" /><path d="M8 12h8" stroke-linecap="round" /></svg>
+                </span>
+                <span class="text-[10px] font-semibold text-[#302322] sm:text-xs">Care without judgement</span>
+              </div>
+
+              <div class="absolute right-0 top-[7%] z-20 flex items-center gap-2 rounded-2xl border border-white/90 bg-white/95 px-3 py-2.5 shadow-[0_10px_26px_rgba(83,37,44,0.09)] sm:right-[2%] sm:px-4">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8E8E4] text-[#862D42]">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 5h16v12H8l-4 3V5Z" stroke-linejoin="round" /><path d="M8 9h8M8 13h5" stroke-linecap="round" /></svg>
+                </span>
+                <span class="text-[10px] font-semibold text-[#302322] sm:text-xs">Stories that connect</span>
+              </div>
+
+              <div class="absolute bottom-[7%] left-0 z-20 flex items-center gap-2 rounded-2xl border border-white/90 bg-white/95 px-3 py-2.5 shadow-[0_10px_26px_rgba(83,37,44,0.09)] sm:left-[2%] sm:px-4">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8E8E4] text-[#862D42]">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m16 0v-2a4 4 0 0 0-3-3.87M10 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm11 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="text-[10px] font-semibold text-[#302322] sm:text-xs">Built by mothers</span>
+              </div>
+
+              <div class="absolute bottom-[7%] right-0 z-20 flex items-center gap-2 rounded-2xl border border-white/90 bg-white/95 px-3 py-2.5 shadow-[0_10px_26px_rgba(83,37,44,0.09)] sm:right-[2%] sm:px-4">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8E8E4] text-[#862D42]">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v18m9-9H3" stroke-linecap="round" /></svg>
+                </span>
+                <span class="text-[10px] font-semibold text-[#302322] sm:text-xs">Growing together</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- MISSION STATEMENT & IMAGE -->
+
+      <section
+        id="our-mission"
+        class="relative isolate overflow-hidden bg-[#FBF7F2] py-20 sm:py-24 lg:py-32"
+      >
+        <!-- Soft decorative background -->
+        <div
+          class="pointer-events-none absolute -left-28 top-12 h-72 w-72 rounded-full bg-[#F2D9D7]/40 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#E9C9C4]/30 blur-3xl"
+        ></div>
+
+        <div class="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+            <!-- LEFT: Editorial content -->
+            <div class="relative z-10 max-w-2xl">
+              <!-- Eyebrow -->
+              <div class="reveal-fade mb-7 inline-flex items-center gap-3">
+                <span
+                  class="flex h-9 w-9 items-center justify-center rounded-full bg-[#F3E2E0] text-[#76283D]"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 21s-9-5.7-9-12a5 5 0 0 1 9-3.1A5 5 0 0 1 21 9c0 6.3-9 12-9 12Z"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p
+                    class="text-[11px] font-bold uppercase tracking-[0.22em] text-[#76283D]"
+                  >
+                    Why We Exist
+                  </p>
+                  <div class="mt-1 h-px w-12 bg-[#C99498]"></div>
+                </div>
+              </div>
+
+              <!-- Heading -->
+              <h2
+                class="reveal-lines font-serif text-4xl font-normal leading-[1.13] tracking-[-0.035em] text-[#29201F] sm:text-5xl lg:text-[60px]"
+              >
+                A haven for
+                <span class="italic text-[#842D46]">honest</span>
+                parenting realities<span class="text-[#842D46]">.</span>
+              </h2>
+
+              <!-- Decorative quote -->
+              <div class="reveal-fade my-7 flex items-center gap-4">
+                <span class="h-px w-12 bg-[#C99498]"></span>
+                <span class="font-serif text-lg italic text-[#9A626B]">
+                  Real life. Real feelings. Real connection.
+                </span>
+              </div>
+
+              <!-- Main copy -->
+              <p class="reveal-fade text-[15px] leading-8 text-[#746A66] sm:text-base">
+                When you become a parent, the world showers you with unsolicited
+                advice, rigid milestones, and picture-perfect imagery. Yet in
+                the quiet hours of the night—when facing post-partum anxiety, an
+                unexpected diagnosis, adoption paperwork, or simply wondering if
+                you did enough today—what parents crave most is not perfection,
+                but camaraderie.
+              </p>
+
+              <p class="reveal-fade mt-5 text-[15px] leading-8 text-[#746A66] sm:text-base">
+                WeTheMums is an editorial storytelling platform devoted to the
+                whole spectrum of family life: maternal transitions, modern
+                fatherhood, fertility journeys, grief, neurodiversity, and the
+                tender humour of everyday routine.
+              </p>
+
+              <!-- Brand values -->
+              <div
+                class="reveal-fade mt-8 grid grid-cols-1 gap-4 border-y border-[#EADBD4] py-5 sm:grid-cols-3 sm:gap-3"
+              >
+                <div class="flex items-center gap-3">
+                  <span
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#842D46] shadow-sm"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      aria-hidden="true"
+                    >
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="10" cy="7" r="4" />
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-[#302522]">
+                      Every family
+                    </p>
+                    <p class="mt-0.5 text-xs text-[#8B7D77]">Belongs here</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <span
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#842D46] shadow-sm"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-[#302522]">
+                      Honest stories
+                    </p>
+                    <p class="mt-0.5 text-xs text-[#8B7D77]">
+                      Without judgement
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <span
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#842D46] shadow-sm"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-[#302522]">
+                      Safe space
+                    </p>
+                    <p class="mt-0.5 text-xs text-[#8B7D77]">
+                      You are not alone
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href="/about"
+                  class="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#76283D] px-7 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(118,40,61,0.16)] transition duration-300 hover:-translate-y-1 hover:bg-[#5E1D30] hover:shadow-[0_12px_28px_rgba(118,40,61,0.23)]"
+                >
+                  Discover Our Story
+                  <svg
+                    class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+
+                <a
+                  href="/stories"
+                  class="inline-flex min-h-12 items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-[#76283D] transition hover:bg-[#F3E5E2]"
+                >
+                  Meet Our Community
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- RIGHT: Family story image with a separate, clear caption -->
+            <div class="relative mx-auto w-full max-w-[580px] lg:ml-auto">
+              <div class="absolute -inset-4 -rotate-3 rounded-[2.5rem] bg-[#F0DEDA] sm:-inset-5"></div>
+              <div class="absolute -right-3 -top-5 h-24 w-24 rounded-full border border-[#DAB7B6] sm:-right-7 sm:-top-8"></div>
+
+              <div class="group relative overflow-hidden rounded-[2rem] border-[5px] border-white bg-[#E9DDD3] shadow-[0_24px_60px_rgba(76,43,38,0.13)]">
+                <img
+                  src="images/testimonial-left-mother.png"
+                  alt="A mother sharing a joyful moment with her young daughter"
+                  loading="lazy"
+                  class="h-[340px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.035] sm:h-[430px] lg:h-[460px]"
+                />
+              </div>
+
+              <div class="relative mt-4 grid gap-4 rounded-2xl border border-[#EFE3DD] bg-white/95 p-4 shadow-[0_12px_35px_rgba(76,43,38,0.09)] sm:grid-cols-[1fr_auto] sm:items-center sm:p-5">
+                <div class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F8EAE7] text-[#842D46]">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                      <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z" />
+                    </svg>
+                  </span>
+                  <p class="font-serif text-lg italic leading-snug text-[#6F3544] sm:text-xl">
+                    &ldquo;Every family has a story worth telling.&rdquo;
+                  </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-[#EFE3DD] pt-3 sm:border-l sm:border-t-0 sm:pl-4 sm:pt-0">
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8EAE7] text-[#842D46]">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                      <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z" />
+                    </svg>
+                  </span>
+                  <span>
+                    <span class="block text-sm font-semibold text-[#302522]">You belong here.</span>
+                    <span class="mt-0.5 block text-xs text-[#8B7D77]">Your story matters to us.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDITORIAL VALUES -->
+
+      <section
+        id="values"
+        class="relative overflow-hidden border-y border-[#eadbd6] bg-[#fcf7f3] py-20 sm:py-24 lg:py-28"
+      >
+        <!-- Decorative background elements -->
+        <div
+          class="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-[#F0D6D1]/50 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#ead0cb]/50 blur-3xl"
+        ></div>
+
+        <div class="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <!-- Section heading -->
+          <div class="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+            <div class="reveal-fade mb-5 inline-flex items-center gap-3">
+              <span class="h-px w-8 bg-[#9b5964]"></span>
+              <span
+                class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#8b4554]"
+              >
+                Guiding Compass
+              </span>
+              <span class="h-px w-8 bg-[#9b5964]"></span>
+            </div>
+
+            <h2
+              class="reveal-lines font-serif text-4xl font-normal leading-tight tracking-tight text-[#332322] sm:text-5xl lg:text-6xl"
+            >
+              Our Core
+              <span class="italic text-[#994c5d]">Editorial Values</span>
+            </h2>
+
+            <p
+              class="reveal-fade mx-auto mt-5 max-w-xl text-sm leading-7 text-[#766966] sm:text-base"
+            >
+              These non-negotiable principles guide every article we publish and
+              every story we receive, creating a kinder space for every family.
+            </p>
+
+            <div
+              class="mt-7 flex items-center justify-center gap-3 text-[#a85b69]"
+            >
+              <span class="h-px w-16 bg-[#dfb9b7]"></span>
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                />
+              </svg>
+              <span class="h-px w-16 bg-[#dfb9b7]"></span>
+            </div>
+          </div>
+
+          <!-- Values grid -->
+          <div
+            class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+          >
+            <!-- Card 1 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#F0D6D1]/50 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0D6D1]/70 text-[#793342] ring-1 ring-[#e9c3c0]/70"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                      />
+                      <path d="M3 20c2-3 4-4 7-4m11 4c-2-3-4-4-7-4" />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#e7d0cc] transition-colors group-hover:text-[#b87580]"
+                    >01</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Radical Empathy
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  We provide a zero-judgment environment. No shaming, no moral
+                  superiority, and no reductive comparisons.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d6a0a2] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#f5e2d3]/70 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f8e5d6] text-[#87533e] ring-1 ring-[#efd8c7]"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="10" cy="7" r="4" />
+                      <path d="M3 21v-2a7 7 0 0 1 14 0v2" />
+                      <path
+                        d="m19 9 1.1 2.2 2.4.3-1.8 1.7.4 2.4-2.1-1.2-2.1 1.2.4-2.4-1.8-1.7 2.4-.3L19 9Z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#ead9cc] transition-colors group-hover:text-[#c99a7b]"
+                    >02</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Contributor Dignity
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  Stories are vulnerable gifts. Contributors retain control over
+                  attribution, pen names, and preview approval.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d7b195] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#f3d9df]/70 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f8dfe3] text-[#873f51] ring-1 ring-[#edc9d1]"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="7" r="3" />
+                      <circle cx="5" cy="10" r="2.5" />
+                      <circle cx="19" cy="10" r="2.5" />
+                      <path
+                        d="M6 21v-2a6 6 0 0 1 12 0v2M1 20v-1a4 4 0 0 1 4-4m18 5v-1a4 4 0 0 0-4-4"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#ead0d5] transition-colors group-hover:text-[#c88796]"
+                    >03</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Inclusive Family Models
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  We honor biological, adoptive, blended, single, and foster
+                  families across diverse Indian and global experiences.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d6a0ad] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#F0D6D1]/50 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0D6D1]/70 text-[#793342] ring-1 ring-[#e9c3c0]/70"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v12M6 12h12" />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#e7d0cc] transition-colors group-hover:text-[#b87580]"
+                    >04</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Clear Medical Separation
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  Personal experiences are never presented as clinical medical
+                  advice. We encourage readers to consult qualified healthcare
+                  professionals.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d6a0a2] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#f5e2d3]/70 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f8e5d6] text-[#87533e] ring-1 ring-[#efd8c7]"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#ead9cc] transition-colors group-hover:text-[#c99a7b]"
+                    >05</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Honest Commercial Integrity
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  Brand collaborations and sponsored content are disclosed
+                  transparently. Commercial interests never dictate our
+                  editorial truth.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d7b195] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article
+              class="group relative overflow-hidden rounded-[24px] border border-white/90 bg-white/80 p-7 shadow-[0_8px_30px_rgba(82,46,43,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e5b9bb] hover:bg-white hover:shadow-[0_18px_40px_rgba(82,46,43,0.09)] sm:p-8"
+            >
+              <div
+                class="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-[#f3d9df]/70 blur-2xl transition-transform duration-500 group-hover:scale-150"
+              ></div>
+              <div class="relative">
+                <div class="mb-7 flex items-center justify-between">
+                  <div
+                    class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f8dfe3] text-[#873f51] ring-1 ring-[#edc9d1]"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="4" y="10" width="16" height="11" rx="2" />
+                      <path d="M8 10V7a4 4 0 1 1 8 0v3" />
+                      <circle cx="12" cy="15" r="1" />
+                      <path d="M12 16v2" />
+                    </svg>
+                  </div>
+                  <span
+                    class="font-serif text-4xl text-[#ead0d5] transition-colors group-hover:text-[#c88796]"
+                    >06</span
+                  >
+                </div>
+                <h3 class="font-serif text-2xl font-medium text-[#332322]">
+                  Privacy by Design
+                </h3>
+                <p class="mt-3 text-sm leading-7 text-[#766966]">
+                  Personal contact details and private editorial discussions are
+                  handled carefully and protected with appropriate access
+                  controls.
+                </p>
+                <div
+                  class="mt-6 h-px w-12 bg-[#d6a0ad] transition-all duration-300 group-hover:w-20"
+                ></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Closing note -->
+          <div class="mt-12 text-center sm:mt-14">
+            <p class="font-serif text-lg italic text-[#874552]">
+              Every family deserves to be heard, understood, and respected.
+            </p>
+            <div
+              class="mt-4 flex items-center justify-center gap-2 text-[#b16c78]"
+            >
+              <span class="h-px w-10 bg-[#e5c5c2]"></span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 21s-9-5.7-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.3-9 12-9 12Z"
+                />
+              </svg>
+              <span class="h-px w-10 bg-[#e5c5c2]"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVITATION CTA -->
+
+      <section
+        class="relative overflow-hidden border-y border-[#ead2ce] bg-[linear-gradient(135deg,#f7e9e5_0%,#fffaf7_48%,#f2dfdd_100%)] py-20 sm:py-24 lg:py-28"
+      >
+        <!-- Background decorations -->
+        <div
+          class="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#e8c3c2]/55 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[#efd0c8]/65 blur-3xl"
+        ></div>
+
+        <div class="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <!-- Left: Image collage -->
+            <div class="relative mx-auto w-full max-w-xl lg:mx-0">
+              <div
+                class="absolute -inset-4 rounded-[40%_30%_35%_30%] border border-[#dfb2b0]/70 sm:-inset-6"
+              ></div>
+
+              <div
+                class="absolute -left-3 top-12 h-24 w-24 rounded-full bg-[#F0D6D1]/70 blur-2xl sm:-left-8 sm:h-36 sm:w-36"
+              ></div>
+
+              <div
+                class="relative overflow-hidden rounded-[36%_28%_30%_28%] shadow-[0_24px_60px_rgba(83,42,43,0.13)]"
+              >
+                <img
+                  src="images/testimonial-left-mother.png"
+                  alt="A mother sharing a loving moment with her child"
+                  class="h-[380px] w-full object-cover sm:h-[480px] lg:h-[540px]"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#49272a]/25 via-transparent to-transparent"
+                ></div>
+
+                <div
+                  class="absolute bottom-5 left-5 max-w-[190px] rounded-2xl border border-white/60 bg-[#fff9f4]/90 p-4 shadow-lg backdrop-blur-md sm:bottom-8 sm:left-8 sm:p-5"
+                >
+                  <p
+                    class="font-serif text-xl italic leading-snug text-[#874452] sm:text-2xl"
+                  >
+                    Real stories.
+                    <br />
+                    Real parents.
+                    <br />
+                    Real impact.
+                  </p>
+                  <svg
+                    class="mt-2 h-5 w-5 text-[#9b5964]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  >
+                    <path
+                      d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Floating story card -->
+              <div
+                class="absolute -bottom-7 right-2 w-40 rotate-3 rounded-xl border-4 border-white bg-white p-2 shadow-[0_15px_40px_rgba(65,39,39,0.16)] transition-transform duration-300 hover:rotate-0 sm:-right-5 sm:w-52"
+              >
+                <img
+                  src="images/banners/banner-share.jpg"
+                  alt="A newborn baby's tiny feet"
+                  class="h-24 w-full rounded-md object-cover sm:h-32"
+                  loading="lazy"
+                />
+                <p
+                  class="py-2 text-center font-serif text-sm italic text-[#6c4a48] sm:text-base"
+                >
+                  Every story matters ♡
+                </p>
+              </div>
+
+              <!-- Decorative heart -->
+              <div
+                class="absolute -right-2 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-[#e5c3c0] bg-[#fff9f4] text-[#994c5d] shadow-sm sm:-right-5 sm:top-8 sm:h-14 sm:w-14"
+              >
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Right: CTA content -->
+            <div class="pt-4 lg:pt-0">
+              <div
+                class="reveal-fade mb-6 inline-flex items-center gap-3 rounded-full border border-[#efd6d2] bg-[#f9e9e5] px-4 py-2"
+              >
+                <span class="h-px w-5 bg-[#a45c68]"></span>
+                <span
+                  class="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#994c5d]"
+                >
+                  Join Our Community
+                </span>
+                <span class="h-px w-5 bg-[#a45c68]"></span>
+              </div>
+
+              <h2
+                class="reveal-lines font-serif text-4xl font-normal leading-[1.12] tracking-tight text-[#332322] sm:text-5xl lg:text-6xl"
+              >
+                Your Story Matters.
+                <span class="mt-2 block italic text-[#a34f60]">
+                  Let's Keep It Going.
+                </span>
+              </h2>
+
+              <p
+                class="reveal-fade mt-6 max-w-xl text-sm leading-7 text-[#766966] sm:text-base sm:leading-8"
+              >
+                Share your experiences, explore meaningful stories, and connect
+                with parents who understand the beautiful, challenging journey
+                of raising a family. Together, we can learn, grow, and make
+                every voice count.
+              </p>
+
+              <!-- CTA buttons -->
+              <div class="reveal-fade mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <a
+                  href="share-your-story.html"
+                  class="group inline-flex items-center justify-center gap-3 rounded-full bg-[#70283a] px-7 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-white shadow-[0_8px_20px_rgba(112,40,58,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#57202e] hover:shadow-[0_14px_30px_rgba(112,40,58,0.25)]"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m16 4 4 4L8 20H4v-4L16 4Z" />
+                    <path d="m14 6 4 4" />
+                  </svg>
+                  Share Your Story
+                  <span
+                    class="transition-transform duration-300 group-hover:translate-x-1"
+                    >→</span
+                  >
+                </a>
+
+                <a
+                  href="https://www.instagram.com/wethemums/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group inline-flex items-center justify-center gap-3 rounded-full border border-[#a45c68] bg-white/60 px-7 py-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#70283a] transition-all duration-300 hover:-translate-y-1 hover:bg-[#f6e5e1]"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+                  </svg>
+                  Follow on Instagram
+                  <span
+                    class="transition-transform duration-300 group-hover:translate-x-1"
+                    >→</span
+                  >
+                </a>
+              </div>
+
+              <!-- Community benefits -->
+              <div
+                class="mt-10 grid grid-cols-2 gap-y-6 border-t border-[#e9d9d3] pt-7 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4"
+              >
+                <div
+                  class="flex flex-col items-center px-2 text-center sm:px-3"
+                >
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0D6D1]/70 text-[#873c4b]"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="9" cy="8" r="3" />
+                      <path
+                        d="M3 20v-2a6 6 0 0 1 12 0v2M16 5.5a3 3 0 0 1 0 5.8M18 15a5 5 0 0 1 3 4.5"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mt-3 text-xs font-semibold text-[#493331]">
+                    Real Parents
+                  </h3>
+                  <p class="mt-1 text-[11px] leading-5 text-[#897874]">
+                    Real experiences
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col items-center px-2 text-center sm:px-3"
+                >
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0D6D1]/70 text-[#873c4b]"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mt-3 text-xs font-semibold text-[#493331]">
+                    Support
+                  </h3>
+                  <p class="mt-1 text-[11px] leading-5 text-[#897874]">
+                    When you need it
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col items-center px-2 text-center sm:px-3"
+                >
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0D6D1]/70 text-[#873c4b]"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+                      <path d="M12 17V9m-3 3 3-3 3 3" />
+                    </svg>
+                  </div>
+                  <h3 class="mt-3 text-xs font-semibold text-[#493331]">
+                    Helpful Resources
+                  </h3>
+                  <p class="mt-1 text-[11px] leading-5 text-[#897874]">
+                    For every stage
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col items-center px-2 text-center sm:px-3"
+                >
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0D6D1]/70 text-[#873c4b]"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mt-3 text-xs font-semibold text-[#493331]">
+                    A Kinder World
+                  </h3>
+                  <p class="mt-1 text-[11px] leading-5 text-[#897874]">
+                    Better parenting
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- SITE FOOTER                                -->
+    <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!-- SITE FOOTER (100% MATCH TO REFERENCE)       -->
+    <!-- ========================================== -->
+    <footer
+      class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none"
+    >
+      <!-- Left Botanical Leaf Doodle -->
+      <img
+        src="images/footer-left-leaves.png"
+        alt=""
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-12 sm:w-14 pointer-events-none select-none z-0"
+        loading="lazy"
+      />
+
+      <!-- Right Mother & Baby Artwork with Script Text -->
+      <img
+        src="images/footer-right-artwork.png"
+        alt="Real mums. Real stories. Real support."
+        class="absolute right-0 top-4 sm:top-6 w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
+        loading="lazy"
+      />
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- 4 Columns Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14"
+        >
+          <!-- Col 1: Brand Logo, Description & Socials -->
+          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+            <div>
+              <a href="index.html" class="inline-block mb-3.5">
+                <img
+                  src="images/footer-logo-full.png"
+                  alt="WithTheMums. Real Stories. Stronger Together."
+                  class="h-10 sm:h-11 w-auto object-contain"
+                />
+              </a>
+              <p
+                class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1"
+              >
+                A supportive community for every stage of motherhood. Because
+                you're not alone.
+              </p>
+            </div>
+
+            <!-- Social Pill Buttons -->
+            <div class="flex items-center gap-2.5 pt-6">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Instagram"
+                aria-label="Instagram"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <!-- Pinterest -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Pinterest"
+                aria-label="Pinterest"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="YouTube"
+                aria-label="YouTube"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                QUICK LINKS
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Stories
+                </a>
+              </li>
+              <li>
+                <a
+                  href="journal.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Resources
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="brand-partnerships.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Events
+                </a>
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Categories -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                CATEGORIES
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
+              <li>
+                <a
+                  href="stories.html?category=motherhood"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Motherhood
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=pregnancy-and-birth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Pregnancy &amp; Birth
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=feeding-and-lifestyle"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Feeding &amp; Lifestyle
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=everyday-parenting"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Everyday Parenting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=challenges-and-growth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Challenges &amp; Growth
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Stay Connected -->
+          <div
+            class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <div
+                class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+                >
+                  STAY CONNECTED
+                </h4>
+                <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
+              </div>
+            </div>
+
+            <p
+              class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4"
+            >
+              Subscribe to our newsletter for the latest stories and updates.
+            </p>
+
+            <form
+              id="footer-newsletter"
+              class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors"
+            >
+              <svg
+                class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input
+                type="email"
+                required
+                placeholder="Your email address"
+                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
+              >
+                <span class="text-xs font-bold">&rarr;</span>
+              </button>
+            </form>
+
+            <div
+              class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none"
+            >
+              <span>Join our community</span>
+              <svg
+                class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- EDITORIAL VALUES -->
-    <section id="values" class="py-20 bg-white border-y border-subtleBorder">
-      <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="reveal-fade text-xs uppercase tracking-widest font-semibold text-berry">Guiding Compass</span>
-          <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1">Our Core Editorial Values</h2>
-          <p class="reveal-fade text-sm text-mutedText mt-2">These non-negotiable principles guide every article we publish and every story we receive.</p>
+      <!-- Bottom Dark Wave & Copyright Bar -->
+      <div class="relative w-full bg-[#531D2C] text-white/80 pt-6">
+        <!-- Top Wave SVG -->
+        <div
+          class="w-full overflow-hidden leading-none -translate-y-[99%] absolute top-0 left-0 right-0 pointer-events-none"
+        >
+          <svg
+            class="w-full h-4 sm:h-6 text-[#531D2C] fill-current block"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C250,28 500,8 750,22 C1000,32 1150,12 1200,18 L1200,30 L0,30 Z"
+            ></path>
+          </svg>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">1. Radical Empathy</h3>
-            <p class="text-xs text-mutedText leading-relaxed">We provide a zero-judgment environment. No shaming, no moral superiority, and no reductive comparisons.</p>
+        <div
+          class="max-w-7xl mx-auto px-5 sm:px-8 pb-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 relative z-10"
+        >
+          <!-- Left: Heart + Copyright -->
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-4 h-4 text-white/80 stroke-current fill-none shrink-0"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="w-[1px] h-3.5 bg-white/30"></span>
+            <span
+              >&copy; 2025
+              <strong class="font-semibold text-white">WithTheMums.</strong> All
+              rights reserved.</span
+            >
           </div>
 
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">2. Contributor Dignity</h3>
-            <p class="text-xs text-mutedText leading-relaxed">Stories are vulnerable gifts. Contributors retain complete say over attribution, pen names, and preview approval.</p>
-          </div>
+          <!-- Right: Policy Links + Scroll to Top Button -->
+          <div class="flex items-center gap-4 sm:gap-6">
+            <a
+              href="contact.html#privacy"
+              class="hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a
+              href="contact.html#terms"
+              class="hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+            <span class="w-[1px] h-3 bg-white/30"></span>
+            <a href="contact.html" class="hover:text-white transition-colors"
+              >Contact</a
+            >
 
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">3. Inclusive Family Models</h3>
-            <p class="text-xs text-mutedText leading-relaxed">We honor biological, adoptive, blended, single, and foster families across the multifaceted Indian and global experience.</p>
+            <!-- Back to Top Button -->
+            <button
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all ml-2"
+              title="Back to top"
+              aria-label="Back to top"
+            >
+              <svg
+                class="w-3.5 h-3.5 stroke-current fill-none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
           </div>
-
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">4. Clear Medical Separation</h3>
-            <p class="text-xs text-mutedText leading-relaxed">First-person lived stories are never confused with clinical medical advice. We urge readers to consult certified healthcare specialists.</p>
-          </div>
-
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">5. Honest Commercial Integrity</h3>
-            <p class="text-xs text-mutedText leading-relaxed">Any brand collaboration or sponsored series is disclosed openly. We never allow commercial interests to compromise editorial truth.</p>
-          </div>
-
-          <div class="bg-ivory p-8 rounded-2xl border border-subtleBorder space-y-3">
-            <h3 class="font-serif text-xl font-medium text-charcoal">6. Privacy by Design</h3>
-            <p class="text-xs text-mutedText leading-relaxed">Personal emails, contact details, and internal editorial deliberations are protected with strict access controls.</p>
-          </div>
-
         </div>
       </div>
-    </section>
-
-    <!-- INVITATION CTA -->
-    <section class="py-20 bg-ivory">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
-        <h2 class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal">
-          Be part of the storytelling community.
-        </h2>
-        <p class="reveal-fade text-sm text-mutedText max-w-xl mx-auto leading-relaxed">
-          Whether you want to submit a memory, explore a brand campaign, or join the conversation on Instagram, we welcome your presence.
-        </p>
-        <div class="reveal-fade pt-2 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="share-your-story.html" class="inline-flex items-center justify-center px-7 py-3 rounded-full bg-berry text-white text-xs font-semibold uppercase tracking-wider hover:bg-berry-hover shadow-md">
-            Share Your Story &rarr;
-          </a>
-          <a href="https://www.instagram.com/wethemums/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-7 py-3 rounded-full border border-charcoal text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-charcoal hover:text-white">
-            Follow @wethemums
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-charcoal text-ivory/80 pt-16 pb-12 border-t border-charcoal-light">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-charcoal-light">
-        <div class="lg:col-span-2 space-y-4">
-          <span class="font-serif text-2xl font-normal text-white tracking-tight">WeTheMums<span class="text-dustyRose">.</span></span>
-          <p class="text-xs text-ivory/70 leading-relaxed max-w-sm">Authentic parenting storytelling media platform. Real experiences, shared with care.</p>
-        </div>
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Explore Stories</span>
-          <ul class="space-y-2 text-xs">
-            <li><a href="stories.html?category=motherhood" class="hover:text-white">Motherhood</a></li>
-            <li><a href="stories.html?category=fatherhood" class="hover:text-white">Fatherhood</a></li>
-            <li><a href="stories.html?category=pregnancy-and-birth" class="hover:text-white">Pregnancy & Birth</a></li>
-          </ul>
-        </div>
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Platform</span>
-          <ul class="space-y-2 text-xs">
-            <li><a href="about.html" class="hover:text-white">About Us</a></li>
-            <li><a href="share-your-story.html" class="hover:text-white">Share Your Story</a></li>
-            <li><a href="brand-partnerships.html" class="hover:text-white">Brand Partnerships</a></li>
-          </ul>
-        </div>
-        <div class="space-y-3">
-          <span class="text-xs uppercase tracking-wider text-dustyRose font-semibold">Legal</span>
-          <ul class="space-y-2 text-xs">
-            <li><a href="contact.html#privacy" class="hover:text-white">Privacy Policy</a></li>
-            <li><a href="contact.html#terms" class="hover:text-white">Terms of Use</a></li>
-            <li><a href="about.html#values" class="hover:text-white">Editorial Values</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
-        <p>&copy; 2026 WeTheMums. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  <script>
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-      gsap.registerPlugin(ScrollTrigger);
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
-
-      function splitIntoWords(el) {
-        if (el.dataset.split === 'done') return Array.from(el.querySelectorAll('.word'));
-        el.dataset.split = 'done';
-        if (el.querySelector('em, br, span')) {
-          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-          const textNodes = [];
-          while (walker.nextNode()) textNodes.push(walker.currentNode);
-          textNodes.forEach(node => {
-            const words = node.textContent.split(/\s+/).filter(w => w.length > 0);
-            if (words.length === 0) return;
-            const frag = document.createDocumentFragment();
-            words.forEach((w, i) => {
-              const span = document.createElement('span');
-              span.className = 'word';
-              span.style.display = 'inline-block';
-              span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
-              frag.appendChild(span);
-            });
-            node.parentNode.replaceChild(frag, node);
-          });
-          return Array.from(el.querySelectorAll('.word'));
-        }
-        const text = el.textContent.trim();
-        const words = text.split(/\s+/);
-        el.innerHTML = words.map(w => `<span class="word" style="display:inline-block">${w}&nbsp;</span>`).join('');
-        return Array.from(el.querySelectorAll('.word'));
+    </footer>
+    <script>
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener("click", () =>
+          mobileMenu.classList.toggle("hidden"),
+        );
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // =============================================
+        // GSAP BIDIRECTIONAL SCROLL ANIMATION ENGINE
+        // (Smooth word reveals & section reveals when scrolling down AND scrolling up)
+        // =============================================
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined")
+          return;
+        gsap.registerPlugin(ScrollTrigger);
 
-      document.querySelectorAll('.reveal-lines').forEach(el => {
-        const words = splitIntoWords(el);
-        gsap.set(words, { yPercent: 120, opacity: 0 });
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-          onEnter: () => gsap.to(words, {
-            yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out',
-            stagger: words.length > 1 ? 0.04 : 0,
-          }),
-        });
-      });
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
 
-      document.querySelectorAll('.reveal-fade').forEach(el => {
-        gsap.set(el, { y: 30, opacity: 0 });
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 88%',
-          once: true,
-          onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }),
-        });
+        // Split text into individual words for reveal animation
+        function splitIntoWords(el) {
+          if (el.dataset.split === "done")
+            return Array.from(el.querySelectorAll(".word"));
+          el.dataset.split = "done";
+          // Preserve existing markup (em, br, span with classes)
+          if (el.querySelector("em, br, span")) {
+            const walker = document.createTreeWalker(
+              el,
+              NodeFilter.SHOW_TEXT,
+              null,
+            );
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+            textNodes.forEach((node) => {
+              const words = node.textContent
+                .split(/\s+/)
+                .filter((w) => w.length > 0);
+              if (words.length === 0) return;
+              const frag = document.createDocumentFragment();
+              words.forEach((w, i) => {
+                const span = document.createElement("span");
+                span.className = "word";
+                span.style.display = "inline-block";
+                span.textContent = w;
+                frag.appendChild(span);
+                if (i < words.length - 1)
+                  frag.appendChild(document.createTextNode(" "));
+              });
+              node.parentNode.replaceChild(frag, node);
+            });
+            return Array.from(el.querySelectorAll(".word"));
+          }
+          // Simple text — split on spaces
+          const text = el.textContent.trim();
+          const words = text.split(/\s+/);
+          el.innerHTML = words
+            .map(
+              (w) =>
+                `<span class="word" style="display:inline-block">${w}</span>`,
+            )
+            .join(" ");
+          return Array.from(el.querySelectorAll(".word"));
+        }
+
+        if (!prefersReduced) {
+          // 1. HEADINGS & TITLES WORD-BY-WORD REVEAL (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-lines").forEach((el) => {
+            const words = splitIntoWords(el);
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                words,
+                { yPercent: 40, opacity: 0 },
+                {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  stagger: 0.025,
+                },
+              );
+            } else {
+              gsap.set(words, { yPercent: 100, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 88%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.03 : 0,
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(words, {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.75,
+                  ease: "power4.out",
+                  stagger: words.length > 1 ? 0.025 : 0,
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(words, {
+                  yPercent: 50,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(words, {
+                  yPercent: 100,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+
+          // 2. PARAGRAPHS, LABELS, BUTTONS FADE-UP (Bidirectional: scroll down AND scroll up)
+          document.querySelectorAll(".reveal-fade").forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (inViewport) {
+              gsap.fromTo(
+                el,
+                { y: 15, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
+              );
+            } else {
+              gsap.set(el, { y: 28, opacity: 0 });
+            }
+
+            ScrollTrigger.create({
+              trigger: el,
+              start: "top 90%",
+              end: "bottom top",
+              onEnter: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onEnterBack: () =>
+                gsap.to(el, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.7,
+                  ease: "power3.out",
+                  overwrite: "auto",
+                }),
+              onLeave: () =>
+                gsap.set(el, {
+                  y: -15,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+              onLeaveBack: () =>
+                gsap.set(el, {
+                  y: 28,
+                  opacity: 0,
+                  overwrite: "auto",
+                }),
+            });
+          });
+        }
       });
-    });
-  </script>
-</body>
+    </script>
+    <script>
+      // Footer Newsletter Subscription
+      const footerForm = document.getElementById("footer-newsletter");
+      if (footerForm) {
+        footerForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const input = footerForm.querySelector('input[type="email"]');
+          if (input && input.value) {
+            const subs = JSON.parse(
+              localStorage.getItem("wethemums_newsletter") || "[]",
+            );
+            subs.push({ email: input.value, date: new Date().toISOString() });
+            localStorage.setItem("wethemums_newsletter", JSON.stringify(subs));
+            footerForm.reset();
+            alert("Welcome to WithTheMums! Thank you for subscribing.");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

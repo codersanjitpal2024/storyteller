@@ -1,0 +1,36 @@
+const fs = require('fs');
+const html = `<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c"></canvas>
+<script>
+const img = new Image();
+img.src = "images/Golden Garden Embrace-200kb.jpeg";
+img.onload = () => {
+  const c = document.getElementById('c');
+  c.width = img.width;
+  c.height = img.height;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  
+  // Sample left region (where text might be)
+  const leftData = ctx.getImageData(100, 100, 300, 200).data;
+  let darkPixels = 0;
+  for (let i = 0; i < leftData.length; i += 4) {
+    const r = leftData[i], g = leftData[i+1], b = leftData[i+2];
+    // Charcoal text is dark (< 60)
+    if (r < 60 && g < 60 && b < 60) darkPixels++;
+  }
+  document.body.setAttribute('data-dark-pixels', darkPixels);
+  document.title = "DARK:" + darkPixels;
+};
+</script>
+</body>
+</html>`;
+
+fs.writeFileSync('scratch/canvas_test.html', html, 'utf8');
+
+const { execSync } = require('child_process');
+const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+const res = execSync(`"${edgePath}" --headless --dump-dom "file:///${require('path').resolve('scratch/canvas_test.html').replace(/\\\\/g, '/')}"`);
+console.log('Result:', res.toString());

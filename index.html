@@ -342,6 +342,11 @@
         pointer-events: none;
       }
     </style>
+    <style>
+      .font-hand {
+        font-family: "Caveat", cursive;
+      }
+    </style>
   </head>
   <body
     class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col selection:bg-berry-200"
@@ -355,13 +360,13 @@
 
     <!-- TOP BAR -->
     <div
-      class="bg-berry-topbar text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
+      class="bg-[#541E2A] text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
     >
       <div class="max-w-7xl mx-auto flex items-center justify-between">
         <!-- Left: Heart icon + Tagline with small dropdown indicator -->
         <div class="flex items-center gap-1.5 font-normal tracking-wide">
           <svg
-            class="w-3.5 h-3.5 text-dustyPeach fill-current flex-shrink-0"
+            class="w-3.5 h-3.5 text-[#E6B8AF] fill-current flex-shrink-0"
             viewBox="0 0 20 20"
           >
             <path
@@ -372,7 +377,7 @@
           </svg>
           <span>A supportive community for every stage of motherhood</span>
           <svg
-            class="w-2.5 h-2.5 ml-0.5 text-dustyPeach opacity-80"
+            class="w-2.5 h-2.5 ml-0.5 text-[#E6B8AF] opacity-80"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -397,8 +402,9 @@
               href="https://www.instagram.com/wethemums/"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-berry-topbar transition-all"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
               title="Instagram"
+              aria-label="Instagram"
             >
               <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                 <path
@@ -409,8 +415,9 @@
             <!-- Facebook -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-berry-topbar transition-all"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
               title="Facebook"
+              aria-label="Facebook"
             >
               <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                 <path
@@ -421,8 +428,9 @@
             <!-- YouTube -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-berry-topbar transition-all"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
               title="YouTube"
+              aria-label="YouTube"
             >
               <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                 <path
@@ -433,8 +441,9 @@
             <!-- Pinterest -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-berry-topbar transition-all"
+              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
               title="Pinterest"
+              aria-label="Pinterest"
             >
               <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
                 <path
@@ -448,55 +457,49 @@
     </div>
 
     <!-- SITE NAVBAR -->
-    <header class="bg-white border-b border-cream-border sticky top-0 z-40">
+    <header class="bg-white border-b border-[#EFE7E1] sticky top-0 z-40">
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
       >
         <!-- Brand Logo: WithTheMums. with subtitle -->
         <a href="index.html" class="flex flex-col group">
           <span
-            class="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-tight group-hover:text-berry transition-colors"
+            class="font-serif text-2xl sm:text-3xl text-[#2D2926] font-normal tracking-tight group-hover:text-[#632232] transition-colors"
           >
-            WithTheMums<span class="text-berry font-bold">.</span>
+            WithTheMums<span class="text-[#632232] font-bold">.</span>
           </span>
-          <span class="text-[10px] text-muted -mt-0.5 tracking-wide">
+          <span class="text-[10px] text-[#635C57] -mt-0.5 tracking-wide">
             Real Stories. Stronger Together.
           </span>
         </a>
 
         <!-- Center Nav Links -->
         <nav
-          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal/80"
+          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-[#2D2926]/80"
         >
           <a
             href="index.html"
-            class="text-berry font-semibold border-b-2 border-berry pb-1"
+            class="text-[#632232] font-semibold border-b-2 border-[#632232] pb-1"
             >Home</a
           >
-          <a href="stories.html" class="hover:text-berry transition-colors"
+          <a href="stories.html" class="hover:text-[#632232] transition-colors"
             >Stories</a
           >
-          <a href="journal.html" class="hover:text-berry transition-colors"
-            >Resources</a
-          >
-          <a href="about.html" class="hover:text-berry transition-colors"
+
+          <a href="about.html" class="hover:text-[#632232] transition-colors"
             >About</a
           >
+
           <a
-            href="brand-partnerships.html"
-            class="hover:text-berry transition-colors"
-            >Events</a
-          >
-          <a
-            href="#parenting-courses-section"
-            class="hover:text-berry transition-colors inline-flex items-center gap-1.5 font-medium"
+            href="courses.html"
+            class="hover:text-[#632232] transition-colors inline-flex items-center gap-1.5 font-medium"
             ><span>Courses</span
             ><span
               class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-1.5 py-0.5 rounded-full"
               >New</span
             ></a
           >
-          <a href="contact.html" class="hover:text-berry transition-colors"
+          <a href="contact.html" class="hover:text-[#632232] transition-colors"
             >Contact</a
           >
         </nav>
@@ -505,7 +508,7 @@
         <div class="flex items-center gap-3">
           <a
             href="stories.html"
-            class="w-9 h-9 rounded-full hover:bg-cream flex items-center justify-center text-charcoal/70 hover:text-berry transition-colors"
+            class="w-9 h-9 rounded-full hover:bg-[#FAF7F2] flex items-center justify-center text-[#2D2926]/70 hover:text-[#632232] transition-colors"
             title="Search Stories"
           >
             <svg
@@ -525,14 +528,15 @@
 
           <a
             href="share-your-story.html"
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-all shadow-sm"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm"
           >
             Join Our Community
           </a>
 
           <button
             id="mobile-menu-btn"
-            class="md:hidden p-2 rounded-lg text-charcoal hover:bg-cream-border/50"
+            aria-label="Toggle navigation menu"
+            class="md:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
           >
             <svg
               class="w-6 h-6"
@@ -554,37 +558,37 @@
       <!-- Mobile Drawer -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden bg-white border-b border-cream-border px-4 pt-3 pb-6 space-y-3"
+        class="hidden md:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
       >
         <nav class="flex flex-col space-y-2 text-sm font-medium">
           <a
             href="index.html"
-            class="text-berry font-semibold py-1.5 px-2 bg-berry/5 rounded-md"
+            class="text-[#632232] font-semibold py-1.5 px-2 bg-[#632232]/5 rounded-md"
             >Home</a
           >
           <a
             href="stories.html"
-            class="text-charcoal hover:text-berry py-1.5 px-2"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >Stories</a
           >
           <a
             href="journal.html"
-            class="text-charcoal hover:text-berry py-1.5 px-2"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >Resources</a
           >
           <a
             href="about.html"
-            class="text-charcoal hover:text-berry py-1.5 px-2"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >About</a
           >
           <a
             href="brand-partnerships.html"
-            class="text-charcoal hover:text-berry py-1.5 px-2"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >Events & Partnerships</a
           >
           <a
-            href="#parenting-courses-section"
-            class="text-charcoal hover:text-berry py-1.5 px-2 flex items-center justify-between"
+            href="courses.html"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2 flex items-center justify-between"
             ><span>Parenting Courses</span
             ><span
               class="bg-[#862D42]/10 text-[#862D42] text-[10px] font-bold px-2 py-0.5 rounded-full"
@@ -593,14 +597,14 @@
           >
           <a
             href="contact.html"
-            class="text-charcoal hover:text-berry py-1.5 px-2"
+            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >Contact</a
           >
         </nav>
-        <div class="pt-3 border-t border-cream-border">
+        <div class="pt-3 border-t border-[#EFE7E1]">
           <a
             href="share-your-story.html"
-            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-berry text-white"
+            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all"
           >
             Share Your Story
           </a>
@@ -2033,6 +2037,110 @@
       <!-- SECTION 5: STORIES THAT STAY WITH YOU      -->
       <!-- (100% EXACT MATCH TO REFERENCE DESIGN)     -->
       <!-- ========================================== -->
+      <!-- PARENTING STAGES -->
+      <section
+        class="relative isolate overflow-hidden border-y border-[#eadbd5] bg-[linear-gradient(180deg,#fffdfa_0%,#fbf4f0_100%)] py-16 sm:py-20"
+        aria-labelledby="parenting-stages-title"
+      >
+        <div class="pointer-events-none absolute -left-28 top-0 h-72 w-72 rounded-full bg-[#f1d6d3]/55 blur-3xl"></div>
+        <div class="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#e8d8cb]/60 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div class="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <span class="inline-flex items-center gap-2 rounded-full border border-[#ead1ce] bg-white/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#862d42] shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-[#a95668]"></span>
+              Every chapter, together
+            </span>
+            <h2 id="parenting-stages-title" class="reveal-lines mt-4 font-serif text-3xl font-normal tracking-tight text-[#332322] sm:text-4xl lg:text-[44px]">
+              Find your <span class="italic text-[#9b4b5d]">parenting stage</span>
+            </h2>
+            <p class="reveal-fade mx-auto mt-3 max-w-xl text-sm leading-6 text-[#766966] sm:text-base">
+              Whatever season your family is in, there’s a story, a little guidance, and a community here for you.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-6 lg:gap-5">
+            <a href="stories.html?category=pregnancy-and-birth" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/cat-photo-3-maternity.jpg" alt="Expecting parent holding her baby bump" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/65 via-[#321820]/5 to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Pregnancy</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Pregnancy & birth</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">A new beginning</span>
+            </a>
+
+            <a href="stories.html?category=motherhood" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/banners/banner-share.jpg" alt="Newborn baby’s tiny feet wrapped in a soft blanket" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/65 via-[#321820]/5 to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Infants & baby</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Infants & baby</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">The little years</span>
+            </a>
+
+            <a href="stories.html?category=everyday-parenting" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/unsplash-card3.jpg" alt="Toddler exploring the world through play" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/65 via-[#321820]/5 to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Toddlers</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Toddlers</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">Big feelings, little steps</span>
+            </a>
+
+            <a href="stories.html?category=challenges-and-personal-growth" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/banner-card-photo.png" alt="Child growing in confidence and exploring outdoors" class="h-full w-full object-cover object-center transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/70 via-transparent to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Kids</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Kids</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">Growing independence</span>
+            </a>
+
+            <a href="stories.html?category=fatherhood" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/unsplash-card4.jpg" alt="A parent reflecting on the journey of raising a family" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/65 via-[#321820]/5 to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Tweens & teens</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Tweens & teens</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">Changing together</span>
+            </a>
+
+            <a href="stories.html?category=fertility-and-family-journeys" class="group flex flex-col items-center text-center">
+              <span class="relative block aspect-square w-full max-w-[178px] rounded-full p-[5px] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-2 group-hover:shadow-[0_18px_35px_rgba(112,40,58,0.2)]" style="background:linear-gradient(135deg,#d8a0a2,#f4d8ca,#8f4054)">
+                <span class="relative block h-full w-full overflow-hidden rounded-full border-[3px] border-[#fffaf7]">
+                  <img src="images/testimonial-left-mother.png" alt="Mother sharing a joyful moment with her child" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
+                  <span class="absolute inset-0 bg-gradient-to-t from-[#321820]/65 via-[#321820]/5 to-transparent"></span>
+                  <span class="absolute inset-x-2 bottom-0 flex h-1/2 items-end justify-center pb-7 font-serif text-lg text-white drop-shadow sm:text-xl">Parents</span>
+                </span>
+                <span class="absolute -right-1 bottom-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-[#efd8d2] bg-white text-[#862d42] opacity-0 shadow-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="mt-3 text-xs font-semibold text-[#5d3d3d] transition-colors group-hover:text-[#862d42] sm:text-sm">Parents</span>
+              <span class="mt-1 text-[11px] text-[#8a7770]">Your story belongs</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- ========================================== -->
       <!-- SECTION: ONLINE PARENTING COURSES & ACADEMY -->
       <!-- (VERY MODERN, ATTRACTIVE & HIGH CONVERTING) -->
@@ -2793,34 +2901,6 @@
         class="w-full bg-white relative overflow-hidden border-y border-[#F0EAE6] py-14 sm:py-18 lg:py-20"
         id="you-are-not-alone-section"
       >
-        <!-- Bottom-Left Decorative Wave Graphic -->
-        <div
-          class="absolute bottom-0 left-0 w-48 sm:w-64 lg:w-80 h-36 sm:h-48 lg:h-60 pointer-events-none select-none z-0"
-        >
-          <svg viewBox="0 0 200 160" fill="none" class="w-full h-full">
-            <!-- Lighter berry under-wave -->
-            <path
-              d="M0,70 Q70,90 120,160 L0,160 Z"
-              fill="#7A2D3E"
-              opacity="0.35"
-            />
-            <!-- Deep rich berry main wave -->
-            <path
-              d="M0,90 Q50,105 90,160 L0,160 Z"
-              fill="#581D29"
-              opacity="0.95"
-            />
-            <!-- Fine rose curve line -->
-            <path
-              d="M0,60 Q80,85 140,160"
-              stroke="#E6B4BE"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              opacity="0.75"
-            />
-          </svg>
-        </div>
-
         <!-- Main Full-Width Content Container -->
         <div
           class="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-14 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center"
@@ -3066,6 +3146,207 @@
         </div>
       </section>
 
+      <!-- WeTheMums — Premium Instagram Community Section -->
+      <section
+        id="instagram-community"
+        class="relative overflow-hidden border-y border-[#F0E3DD] bg-[#FCF7F3] py-12 sm:py-16 lg:py-20"
+      >
+        <!-- Background decorations -->
+        <div
+          class="pointer-events-none absolute -left-28 top-8 h-80 w-80 rounded-full bg-[#F0D6D1]/45 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute -right-28 bottom-12 h-96 w-96 rounded-full bg-[#E8C5C0]/30 blur-3xl"
+        ></div>
+        <div
+          class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+        ></div>
+
+        <div class="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <!-- Section Heading -->
+          <div
+            class="mb-8 flex flex-col gap-7 md:mb-10 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="max-w-3xl">
+              <div
+                class="reveal-fade mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#E8D0CA] bg-white/85 px-4 py-2 shadow-[0_4px_16px_rgba(112,40,58,0.04)]"
+              >
+                <svg
+                  class="h-4 w-4 text-[#812E43]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#812E43] sm:text-xs"
+                >
+                  The WeTheMums Community
+                </span>
+              </div>
+
+              <h2
+                class="reveal-lines font-serif text-4xl font-normal leading-[1.08] tracking-[-0.035em] text-[#302322] sm:text-5xl lg:text-[58px] xl:text-[64px]"
+                data-keep-visible
+              >
+                Little moments,
+                <span class="whitespace-nowrap italic text-[#914356]"
+                  >big feelings.</span
+                >
+              </h2>
+
+              <p
+                class="reveal-fade mt-5 max-w-[610px] text-sm leading-7 text-[#786A65] sm:text-base sm:leading-8"
+              >
+                Real parents, honest conversations, everyday wins and gentle
+                reminders that none of us has to figure out parenthood alone.
+                Come be part of our growing community.
+              </p>
+            </div>
+
+            <!-- Instagram CTA -->
+            <div
+              class="flex shrink-0 flex-col items-start gap-3 rounded-[22px] border border-[#EAD8D2] bg-white/65 p-3.5 sm:flex-row sm:items-center sm:gap-4 sm:rounded-full sm:pl-4"
+            >
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group inline-flex min-h-[50px] items-center justify-center gap-3 rounded-full bg-gradient-to-br from-[#7D3045] to-[#632235] px-6 py-3.5 text-xs font-semibold text-white shadow-[0_8px_20px_rgba(112,40,58,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_26px_rgba(112,40,58,0.26)]"
+              >
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg>
+                Follow @wethemums
+                <span
+                  class="transition-transform duration-300 group-hover:translate-x-1"
+                  >↗</span
+                >
+              </a>
+
+              <span class="px-1 text-xs text-[#806E68] sm:pr-3">
+                A little inspiration for your everyday
+              </span>
+            </div>
+          </div>
+
+          <!-- Decorative divider -->
+          <div class="mb-6 flex items-center gap-4 sm:mb-7">
+            <div
+              class="h-px flex-1 bg-gradient-to-r from-transparent via-[#E6CFC8] to-[#E6CFC8]"
+            ></div>
+            <svg
+              class="h-5 w-5 text-[#B77D80]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+              />
+            </svg>
+            <div
+              class="h-px flex-1 bg-gradient-to-l from-transparent via-[#E6CFC8] to-[#E6CFC8]"
+            ></div>
+          </div>
+
+          <!-- Instagram Feed Frame -->
+          <div
+            class="relative rounded-[24px] border border-[#E8D5CE] bg-white/95 p-3 shadow-[0_24px_70px_rgba(83,37,44,0.09)] ring-1 ring-white/80 sm:rounded-[32px] sm:p-5 lg:p-7"
+          >
+            <!-- Small top label -->
+            <div
+              class="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#F0E5E0] pb-4 sm:mb-6 sm:pb-5"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#F8E8E4] to-[#F0D6D1]/70 ring-1 ring-[#EBD2CC]"
+                >
+                  <svg
+                    class="h-5 w-5 text-[#70283A]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-[#302322]">
+                    Life lately at WeTheMums
+                  </p>
+                  <p class="mt-0.5 text-[11px] text-[#93817A]">
+                    Parenthood, connection & everything in between
+                  </p>
+                </div>
+              </div>
+
+              <span
+                class="rounded-full bg-[#FCF4F1] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#812E43]"
+              >
+                From Instagram
+              </span>
+            </div>
+
+            <!-- YOUR EXISTING ELFSIGHT FEED -->
+            <div class="instagram-feed-container min-w-0">
+              <script src="https://elfsightcdn.com/platform.js" async></script>
+              <div
+                class="elfsight-app-46f9657d-35a2-441b-a388-2a10ac5f4916"
+                data-elfsight-app-lazy
+              ></div>
+            </div>
+
+            <!-- Bottom invitation -->
+            <div
+              class="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl border border-[#F0E3DD] bg-gradient-to-r from-[#FCF7F3] via-[#FFFDFC] to-[#F9EFEB] px-5 py-5 text-center sm:flex-row sm:px-6 sm:text-left"
+            >
+              <div>
+                <p class="font-serif text-xl text-[#302322]">
+                  Parenthood is better together.
+                </p>
+                <p class="mt-1 text-xs leading-5 text-[#786A65]">
+                  Follow along for relatable moments, thoughtful guidance and
+                  community stories.
+                </p>
+              </div>
+
+              <a
+                href="https://www.instagram.com/wethemums/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#DFC7C0] bg-white px-5 py-3 text-xs font-semibold text-[#70283A] transition-all hover:border-[#70283A] hover:bg-[#F0D6D1]/40"
+              >
+                Explore Instagram <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Closing note -->
+          <p
+            class="mt-8 text-center font-serif text-sm italic text-[#927C75] sm:text-base"
+          >
+            A community where every little story matters. ♡
+          </p>
+        </div>
+      </section>
+
       <!-- ========================================== -->
       <!-- SECTION 7: PARENT TESTIMONIALS (REVIEWS)   -->
       <!-- (100% EXACT MATCH TO REFERENCE DESIGN)     -->
@@ -3131,7 +3412,7 @@
             <!-- Header Area -->
             <div>
               <!-- Category Label & Line -->
-              <div class="reveal-fade flex items-center gap-3 mb-2.5 sm:mb-3">
+              <div class="flex items-center gap-3 mb-2.5 sm:mb-3">
                 <span
                   class="text-[#5A2633] text-[11px] sm:text-[12px] font-bold tracking-[0.15em] uppercase"
                 >
@@ -3142,14 +3423,14 @@
 
               <!-- Main Headline -->
               <h2
-                class="reveal-lines font-serif text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] text-[#1E191A] font-medium leading-[1.15] tracking-[-0.01em]"
+                class="font-serif text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] text-[#1E191A] font-medium leading-[1.15] tracking-[-0.01em]"
               >
                 Real Parents. Real Growth.
               </h2>
 
               <!-- Editorial Subtitle Paragraph -->
               <p
-                class="reveal-fade font-sans text-xs sm:text-[13.5px] text-[#635752] leading-[1.65] mt-2.5 sm:mt-3 max-w-xl"
+                class="font-sans text-xs sm:text-[13.5px] text-[#635752] leading-[1.65] mt-2.5 sm:mt-3 max-w-xl"
               >
                 Hear how thoughtful guidance is helping families build stronger
                 connections, calmer routines, and more confident parenting.
@@ -3366,16 +3647,16 @@
         <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-2xl mx-auto mb-12">
             <span
-              class="reveal-fade text-[11px] uppercase tracking-widest font-semibold text-berry/80 block"
+              class="text-[11px] uppercase tracking-widest font-semibold text-berry/80 block"
             >
               OUR COMMITMENT
             </span>
             <h2
-              class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1"
+              class="font-serif text-3xl sm:text-4xl text-charcoal font-normal mt-1"
             >
               Our Commitment to Responsible Storytelling
             </h2>
-            <p class="reveal-fade text-xs sm:text-sm text-muted mt-2">
+            <p class="text-xs sm:text-sm text-muted mt-2">
               We believe in real stories, kind communities and a safe space for
               every parent.
             </p>
@@ -3469,552 +3750,68 @@
         </div>
       </section>
 
+      <!-- SECTION 9: NEWSLETTER                      -->
       <!-- ========================================== -->
-      <!-- SECTION: TRENDING VIDEOS & REELS           -->
-      <!-- (INDIAN HAIR WORLD INSPIRED CAROUSEL)      -->
-      <!-- ========================================== -->
-      <section
-        class="py-16 sm:py-24 bg-white border-t border-[#F0EAE6] relative overflow-hidden"
-        id="trending-videos-section"
-      >
-        <!-- Soft background blurs -->
-        <div class="absolute -left-24 top-1/3 w-80 h-80 rounded-full bg-[#FAF0F2]/50 blur-3xl pointer-events-none select-none"></div>
-        <div class="absolute -right-24 bottom-1/4 w-80 h-80 rounded-full bg-[#FAF5F0]/60 blur-3xl pointer-events-none select-none"></div>
-
-        <div class="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <!-- Section Header Row (Directly Inspired by Indian Hair World) -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
-            <div class="max-w-2xl">
-              <div class="flex items-center gap-2 mb-2.5">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#862D42]/10 to-[#F28B82]/20 text-[#862D42] text-[11px] font-bold tracking-widest uppercase">
-                  <!-- Instagram Gradient Camera Icon -->
-                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  COMMUNITY REELS
-                </span>
-                <span class="text-xs text-[#8C827E]">· Updated Daily</span>
-              </div>
-              <h2 class="reveal-lines font-serif text-3xl sm:text-4xl lg:text-[44px] text-[#221C1D] font-normal leading-[1.18]">
-                Trending <span class="italic text-[#862D42]">Videos &amp; Reels</span>
-              </h2>
-              <p class="reveal-fade font-sans text-xs sm:text-sm text-[#5A524F] mt-2.5 leading-relaxed max-w-xl">
-                Candid laughs, 30-second co-regulation scripts, raw postpartum truths, and heartfelt motherhood moments from our official Instagram feed.
-              </p>
-            </div>
-
-            <!-- Follow on Instagram Action Link (IHW Style) -->
-            <div class="flex items-center gap-4 shrink-0">
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#FAF0F2] hover:bg-[#862D42] text-[#862D42] hover:text-white border border-[#E8CCD2] text-xs font-semibold shadow-2xs transition-all duration-300 group/link"
-              >
-                <!-- Instagram Colored Gradient Badge -->
-                <svg class="w-4 h-4 fill-current transition-transform group-hover/link:scale-110" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <span>Follow @wethemums</span>
-                <span class="text-sm transition-transform group-hover/link:translate-x-1">&rarr;</span>
-              </a>
-
-              <!-- Arrow Carousel Navigation Buttons (IHW Style) -->
-              <div class="hidden sm:flex items-center gap-2">
-                <button
-                  id="reels-btn-prev"
-                  class="w-10 h-10 rounded-full bg-white border border-[#E0D4CD] shadow-sm flex items-center justify-center text-[#221C1D] hover:bg-[#862D42] hover:text-white hover:border-[#862D42] transition-all cursor-pointer focus:outline-none disabled:opacity-35"
-                  aria-label="Previous Videos"
-                >
-                  <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button
-                  id="reels-btn-next"
-                  class="w-10 h-10 rounded-full bg-white border border-[#E0D4CD] shadow-sm flex items-center justify-center text-[#221C1D] hover:bg-[#862D42] hover:text-white hover:border-[#862D42] transition-all cursor-pointer focus:outline-none"
-                  aria-label="Next Videos"
-                >
-                  <svg class="w-4 h-4 stroke-current fill-none" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Video Carousel Track (Relative with Side Controls for Mobile/Desktop) -->
-          <div class="relative">
-            <!-- Carousel Scroll Container -->
-            <div
-              id="reels-track"
-              class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 px-1 scrollbar-none"
-              style="scrollbar-width: none; -ms-overflow-style: none;"
-            >
-
-              <!-- REEL 1: TODDLER EMOTIONS -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=600&q=80"
-                  alt="Toddler Tantrum Reset"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    14.8k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "When toddler says 'No' 50 times in a row... the 30-sec trick that saves your sanity 🧘‍♀️"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- REEL 2: POSTPARTUM TRUTH -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=600&q=80"
-                  alt="Postpartum Truths"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    22.4k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "Postpartum truth: The silent loneliness at 3 AM that nobody warned you about ☕"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- REEL 3: BABY-LED WEANING -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="images/cat-photo-4-feeding.jpg"
-                  alt="Baby-led Weaning"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    18.1k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "Baby-led weaning: Day 1 expectation vs reality! Watch till the messy end 😂🥑"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- REEL 4: PREGNANCY EXPECTATION -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="images/cat-photo-3-maternity.jpg"
-                  alt="Pregnancy Real Talk"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    31.7k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "3 things nobody told me about the fourth trimester that I wish I knew before delivery 🌸"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- REEL 5: SIBLING HARMONY -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80"
-                  alt="Sibling Bonding"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    16.3k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "Turning sibling jealousy into teamwork: The 15-minute secret bedtime shift that changed everything 🧸"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- REEL 6: EXHAUSTED MUM REMINDER -->
-              <a
-                href="https://www.instagram.com/wethemums/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-[240px] sm:w-[270px] aspect-[9/16] shrink-0 snap-start rounded-[24px] overflow-hidden relative group bg-[#1F191A] shadow-[0_6px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_40px_rgba(134,45,66,0.18)] hover:-translate-y-2 transition-all duration-300 block select-none border border-[#EBE1D9]"
-              >
-                <!-- Background Video Poster Image -->
-                <img
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
-                  alt="Mother Encouragement"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/30"></div>
-
-                <!-- Top Header Overlay -->
-                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white text-[10px] font-semibold tracking-wide border border-white/20">
-                    <svg class="w-3 h-3 fill-current text-[#F28B82]" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Reel
-                  </span>
-                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-md text-white/95 text-[10px] font-medium border border-white/20">
-                    <svg class="w-3 h-3 text-[#F28B82] fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    42.9k
-                  </span>
-                </div>
-
-                <!-- Center Hover Play Pulse Button -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-115 group-hover:bg-[#862D42] group-hover:border-[#862D42] transition-all duration-300">
-                    <svg class="w-5 h-5 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  </div>
-                </div>
-
-                <!-- Bottom Captions & Profile Overlay -->
-                <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end">
-                  <div class="flex items-center gap-2 mb-2">
-                    <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-6 h-6 rounded-full object-cover border border-white/70 shadow-2xs" />
-                    <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-                    <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
-                  </div>
-                  <p class="text-white text-xs sm:text-[13px] font-medium leading-snug line-clamp-2">
-                    "To the mum reading this exhausted in the dark tonight: You are doing an incredible job. Save this ♡"
-                  </p>
-                  <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-white/20 text-[10px] text-white/80">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                      Original Audio
-                    </span>
-                    <span class="font-semibold text-white group-hover:text-[#F28B82] transition-colors flex items-center gap-1">
-                      Watch on IG &rarr;
-                    </span>
-                  </div>
-                </div>
-              </a>
-
-            </div>
-          </div>
-
-          <!-- Bottom Follow Bar with Live Follower Social Proof -->
-          <div class="mt-10 sm:mt-12 p-4 sm:p-5 rounded-2xl bg-[#FAF5F0] border border-[#EBE1D9] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3.5 text-center sm:text-left">
-              <div class="w-10 h-10 rounded-full bg-[#862D42]/10 text-[#862D42] flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="text-xs sm:text-[13px] font-semibold text-[#221C1D]">
-                  Join 24,000+ mums learning, laughing, and supporting each other daily
-                </p>
-                <p class="text-[11px] text-[#786E69] mt-0.5">
-                  Follow <span class="font-bold text-[#862D42]">@wethemums</span> for daily advice, community polls, and heartfelt story features.
-                </p>
-              </div>
-            </div>
-
-            <a
-              href="https://www.instagram.com/wethemums/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white text-xs font-semibold shadow-sm hover:scale-[1.02] active:scale-95 transition-all shrink-0"
-            >
-              <span>Follow @wethemums</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-<!-- SECTION 9: NEWSLETTER                      -->
-      <!-- ========================================== -->
-      <section class="py-16 bg-cream border-t border-cream-border relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
-          <h3
-            class="reveal-lines font-serif text-3xl sm:text-4xl text-charcoal font-normal"
-          >
-            Stories Worth Coming Back For
-          </h3>
-
-          <p class="reveal-fade text-xs text-muted max-w-md mx-auto">
-            Get the latest stories, parenting tips and community updates in a
-            thoughtful weekly inbox.
-          </p>
-
-          <form
-            id="newsletter-form"
-            class="reveal-fade mt-6 max-w-md mx-auto flex items-center bg-white p-1 rounded-full border border-cream-border shadow-xs"
-          >
-            <input
-              type="email"
-              id="newsletter-email"
-              required
-              placeholder="Your email address"
-              class="flex-1 px-5 py-2.5 bg-transparent text-xs text-charcoal focus:outline-none placeholder:text-muted"
-            />
-            <button
-              type="submit"
-              class="px-6 py-2.5 rounded-full bg-berry text-white text-xs font-semibold hover:bg-berry-hover transition-colors flex items-center gap-1.5 flex-shrink-0"
-            >
-              Subscribe <span>&rarr;</span>
-            </button>
-          </form>
-
-          <div
-            id="newsletter-feedback"
-            class="hidden text-xs text-emerald-700 font-medium pt-2"
-          >
-            &check; Thank you for subscribing!
-          </div>
-
-          <div
-            class="absolute right-6 sm:right-16 bottom-6 hidden sm:block text-right"
-          >
-            <span
-              class="hand-script text-2xl sm:text-3xl text-berry/80 leading-tight block transform rotate-6"
-            >
-              Small steps.<br />Big stories.
-            </span>
-            <span class="hand-script text-berry/80 text-xl block pr-2"
-              >&hearts;</span
-            >
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- ========================================== -->
     <!-- SITE FOOTER                                -->
     <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!-- SITE FOOTER (100% MATCH TO REFERENCE)       -->
+    <!-- ========================================== -->
     <footer
-      class="bg-berry-footer text-white/80 pt-16 pb-10 border-t border-berry-dark"
+      class="w-full bg-[#FDFCFB] relative overflow-hidden border-t border-[#F0EAE6] pt-12 sm:pt-14 select-none"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Left Botanical Leaf Doodle -->
+      <img
+        src="images/footer-left-leaves.png"
+        alt=""
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-12 sm:w-14 pointer-events-none select-none z-0"
+        loading="lazy"
+      />
+
+      <!-- Right Mother & Baby Artwork with Script Text -->
+      <img
+        src="images/footer-right-artwork.png"
+        alt="Real mums. Real stories. Real support."
+        class="absolute right-0 top-4 sm:top-6 w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
+        loading="lazy"
+      />
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- 4 Columns Grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14"
         >
-          <!-- Col 1: Brand & Tagline -->
-          <div class="space-y-4">
+          <!-- Col 1: Brand Logo, Description & Socials -->
+          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
             <div>
-              <span
-                class="font-serif text-2xl font-normal text-white tracking-tight"
+              <a href="index.html" class="inline-block mb-3.5">
+                <img
+                  src="images/footer-logo-full.png"
+                  alt="WithTheMums. Real Stories. Stronger Together."
+                  class="h-10 sm:h-11 w-auto object-contain"
+                />
+              </a>
+              <p
+                class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1"
               >
-                WithTheMums<span class="text-dustyPeach">.</span>
-              </span>
-              <p class="text-[11px] text-white/60 -mt-0.5">
-                Real Stories. Stronger Together.
+                A supportive community for every stage of motherhood. Because
+                you're not alone.
               </p>
             </div>
-            <p class="text-xs text-white/70 leading-relaxed max-w-xs">
-              A supportive community for every stage of motherhood. Because
-              you're not alone.
-            </p>
-            <div class="flex items-center gap-3 pt-2">
+
+            <!-- Social Pill Buttons -->
+            <div class="flex items-center gap-2.5 pt-6">
+              <!-- Instagram -->
               <a
                 href="https://www.instagram.com/wethemums/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Instagram"
+                aria-label="Instagram"
               >
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path
@@ -4022,9 +3819,12 @@
                   />
                 </svg>
               </a>
+              <!-- Facebook -->
               <a
                 href="#"
-                class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Facebook"
+                aria-label="Facebook"
               >
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path
@@ -4032,9 +3832,12 @@
                   />
                 </svg>
               </a>
+              <!-- Pinterest -->
               <a
                 href="#"
-                class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Pinterest"
+                aria-label="Pinterest"
               >
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path
@@ -4042,9 +3845,12 @@
                   />
                 </svg>
               </a>
+              <!-- YouTube -->
               <a
                 href="#"
-                class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="YouTube"
+                aria-label="YouTube"
               >
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path
@@ -4056,161 +3862,342 @@
           </div>
 
           <!-- Col 2: Quick Links -->
-          <div class="space-y-3">
-            <span
-              class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block"
-              >Quick Links</span
-            >
-            <ul class="space-y-2 text-xs">
+          <div class="lg:col-span-2 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                QUICK LINKS
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
               <li>
-                <a href="index.html" class="hover:text-white transition-colors"
-                  >Home</a
+                <a
+                  href="index.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Home
+                </a>
               </li>
               <li>
                 <a
                   href="stories.html"
-                  class="hover:text-white transition-colors"
-                  >Stories</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Stories
+                </a>
               </li>
               <li>
                 <a
                   href="journal.html"
-                  class="hover:text-white transition-colors"
-                  >Resources</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Resources
+                </a>
               </li>
               <li>
-                <a href="about.html" class="hover:text-white transition-colors"
-                  >About</a
+                <a
+                  href="about.html"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  About
+                </a>
               </li>
               <li>
                 <a
                   href="brand-partnerships.html"
-                  class="hover:text-white transition-colors"
-                  >Events</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Events
+                </a>
               </li>
               <li>
                 <a
                   href="contact.html"
-                  class="hover:text-white transition-colors"
-                  >Contact</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
 
           <!-- Col 3: Categories -->
-          <div class="space-y-3">
-            <span
-              class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block"
-              >Categories</span
-            >
-            <ul class="space-y-2 text-xs">
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7">
+            <div class="mb-4">
+              <h4
+                class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+              >
+                CATEGORIES
+              </h4>
+              <div class="w-6 h-[1.5px] bg-[#862D42] mt-1.5"></div>
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
               <li>
                 <a
                   href="stories.html?category=motherhood"
-                  class="hover:text-white transition-colors"
-                  >Motherhood</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Motherhood
+                </a>
               </li>
               <li>
                 <a
                   href="stories.html?category=everyday-parenting"
-                  class="hover:text-white transition-colors"
-                  >Parenting</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Parenting
+                </a>
               </li>
               <li>
                 <a
                   href="stories.html?category=pregnancy-and-birth"
-                  class="hover:text-white transition-colors"
-                  >Pregnancy & Birth</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Pregnancy &amp; Birth
+                </a>
+              </li>
+              <li>
+                <a
+                  href="stories.html?category=feeding-and-lifestyle"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
+                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Feeding &amp; Lifestyle
+                </a>
               </li>
               <li>
                 <a
                   href="stories.html?category=everyday-parenting"
-                  class="hover:text-white transition-colors"
-                  >Feeding & Lifestyle</a
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Everyday Parenting
+                </a>
               </li>
               <li>
                 <a
-                  href="stories.html?category=everyday-parenting"
-                  class="hover:text-white transition-colors"
-                  >Everyday Parenting</a
+                  href="stories.html?category=challenges-and-growth"
+                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
-              </li>
-              <li>
-                <a
-                  href="stories.html?category=challenges-and-personal-growth"
-                  class="hover:text-white transition-colors"
-                  >Challenges & Growth</a
-                >
+                  <span
+                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
+                    >&rsaquo;</span
+                  >
+                  Challenges &amp; Growth
+                </a>
               </li>
             </ul>
           </div>
 
-          <!-- Col 4: Stay Connected Newsletter -->
-          <div class="space-y-3">
-            <span
-              class="text-xs uppercase tracking-wider text-dustyPeach font-semibold block"
-              >Stay Connected</span
+          <!-- Col 4: Stay Connected -->
+          <div
+            class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <div
+                class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 stroke-current fill-none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
+                >
+                  STAY CONNECTED
+                </h4>
+                <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
+              </div>
+            </div>
+
+            <p
+              class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4"
             >
-            <p class="text-xs text-white/70 leading-relaxed">
               Subscribe to our newsletter for the latest stories and updates.
             </p>
+
             <form
               id="footer-newsletter"
-              class="flex items-center bg-white/10 p-1 rounded-full border border-white/20"
+              class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors"
             >
+              <svg
+                class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
               <input
                 type="email"
                 required
                 placeholder="Your email address"
-                class="w-full px-3 py-1.5 bg-transparent text-xs text-white placeholder:text-white/50 focus:outline-none"
+                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
               />
               <button
                 type="submit"
-                class="w-7 h-7 rounded-full bg-white text-berry flex items-center justify-center flex-shrink-0 hover:bg-dustyPeach transition-colors"
+                aria-label="Subscribe"
+                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
               >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+                <span class="text-xs font-bold">&rarr;</span>
               </button>
             </form>
+
+            <div
+              class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none"
+            >
+              <span>Join our community</span>
+              <svg
+                class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Bottom Bar -->
+      <!-- Bottom Dark Wave & Copyright Bar -->
+      <div class="relative w-full bg-[#531D2C] text-white/80 pt-6">
+        <!-- Top Wave SVG -->
         <div
-          class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/50 gap-4"
+          class="w-full overflow-hidden leading-none -translate-y-[99%] absolute top-0 left-0 right-0 pointer-events-none"
         >
-          <p>&copy; 2025 WithTheMums. All rights reserved.</p>
-          <div class="flex items-center gap-4">
+          <svg
+            class="w-full h-4 sm:h-6 text-[#531D2C] fill-current block"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C250,28 500,8 750,22 C1000,32 1150,12 1200,18 L1200,30 L0,30 Z"
+            ></path>
+          </svg>
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto px-5 sm:px-8 pb-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 relative z-10"
+        >
+          <!-- Left: Heart + Copyright -->
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-4 h-4 text-white/80 stroke-current fill-none shrink-0"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="w-[1px] h-3.5 bg-white/30"></span>
+            <span
+              >&copy; 2025
+              <strong class="font-semibold text-white">WithTheMums.</strong> All
+              rights reserved.</span
+            >
+          </div>
+
+          <!-- Right: Policy Links + Scroll to Top Button -->
+          <div class="flex items-center gap-4 sm:gap-6">
             <a
               href="contact.html#privacy"
               class="hover:text-white transition-colors"
               >Privacy Policy</a
             >
-            <span>&bull;</span>
+            <span class="w-[1px] h-3 bg-white/30"></span>
             <a
               href="contact.html#terms"
               class="hover:text-white transition-colors"
               >Terms of Service</a
             >
-            <span>&bull;</span>
+            <span class="w-[1px] h-3 bg-white/30"></span>
             <a href="contact.html" class="hover:text-white transition-colors"
               >Contact</a
             >
+
+            <!-- Back to Top Button -->
+            <button
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition-all ml-2"
+              title="Back to top"
+              aria-label="Back to top"
+            >
+              <svg
+                class="w-3.5 h-3.5 stroke-current fill-none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -4283,7 +4270,10 @@
             const rect = el.getBoundingClientRect();
             const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
 
-            if (inViewport) {
+            if (
+              inViewport ||
+              (el.hasAttribute("data-keep-visible") && rect.bottom <= 0)
+            ) {
               gsap.fromTo(
                 words,
                 { yPercent: 40, opacity: 0 },
@@ -4321,12 +4311,15 @@
                   stagger: words.length > 1 ? 0.025 : 0,
                   overwrite: "auto",
                 }),
-              onLeave: () =>
-                gsap.set(words, {
-                  yPercent: 50,
-                  opacity: 0,
-                  overwrite: "auto",
-                }),
+              onLeave: () => {
+                if (!el.hasAttribute("data-keep-visible")) {
+                  gsap.set(words, {
+                    yPercent: 50,
+                    opacity: 0,
+                    overwrite: "auto",
+                  });
+                }
+              },
               onLeaveBack: () =>
                 gsap.set(words, {
                   yPercent: 100,
@@ -5170,7 +5163,7 @@
             });
           });
         }
-      
+
         // =============================================
         // TRENDING VIDEOS / REELS CAROUSEL ENGINE
         // (Smooth Scroll Inspired by Indian Hair World)
@@ -5195,30 +5188,39 @@
             if (reelsTrack.scrollLeft <= 5) {
               reelsBtnPrev.classList.add("opacity-40", "pointer-events-none");
             } else {
-              reelsBtnPrev.classList.remove("opacity-40", "pointer-events-none");
+              reelsBtnPrev.classList.remove(
+                "opacity-40",
+                "pointer-events-none",
+              );
             }
 
-            const maxScroll = reelsTrack.scrollWidth - reelsTrack.clientWidth - 5;
+            const maxScroll =
+              reelsTrack.scrollWidth - reelsTrack.clientWidth - 5;
             if (reelsTrack.scrollLeft >= maxScroll) {
               reelsBtnNext.classList.add("opacity-40", "pointer-events-none");
             } else {
-              reelsBtnNext.classList.remove("opacity-40", "pointer-events-none");
+              reelsBtnNext.classList.remove(
+                "opacity-40",
+                "pointer-events-none",
+              );
             }
           };
 
-          reelsTrack.addEventListener("scroll", updateReelsButtons, { passive: true });
+          reelsTrack.addEventListener("scroll", updateReelsButtons, {
+            passive: true,
+          });
           updateReelsButtons();
         }
 
-
-        
         // =============================================
         // WHATMORE AI REELS FULLSCREEN MODAL CONTROLLER
         // (100% Match to Whatmore AI Mobile Reel Scroll UX)
         // =============================================
         const whatmoreModal = document.getElementById("whatmore-reels-modal");
         const whatmoreTrack = document.getElementById("whatmore-slides-track");
-        const whatmoreCloseCard = document.getElementById("whatmore-close-card");
+        const whatmoreCloseCard = document.getElementById(
+          "whatmore-close-card",
+        );
         const whatmoreNavUp = document.getElementById("whatmore-nav-up");
         const whatmoreNavDown = document.getElementById("whatmore-nav-down");
         const whatmoreCounter = document.getElementById("whatmore-counter");
@@ -5229,10 +5231,14 @@
 
         const peekPrev = document.getElementById("whatmore-peek-prev");
         const peekPrevImg = document.getElementById("whatmore-peek-prev-img");
-        const peekPrevTitle = document.getElementById("whatmore-peek-prev-title");
+        const peekPrevTitle = document.getElementById(
+          "whatmore-peek-prev-title",
+        );
         const peekNext = document.getElementById("whatmore-peek-next");
         const peekNextImg = document.getElementById("whatmore-peek-next-img");
-        const peekNextTitle = document.getElementById("whatmore-peek-next-title");
+        const peekNextTitle = document.getElementById(
+          "whatmore-peek-next-title",
+        );
 
         const likeBtn = document.getElementById("whatmore-like-btn");
         const likeSvg = document.getElementById("whatmore-like-svg");
@@ -5244,49 +5250,49 @@
         const toastMsg = document.getElementById("whatmore-toast-msg");
 
         const reelsData = [
-  {
-    "index": 0,
-    "hook": "Toddler screaming 'NO'? Try this 30-sec trick 🧘‍♀️",
-    "img": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80",
-    "likes": 8,
-    "shares": 27
-  },
-  {
-    "index": 1,
-    "hook": "The silent loneliness at 3 AM nobody warned you about ☕",
-    "img": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80",
-    "likes": 19,
-    "shares": 42
-  },
-  {
-    "index": 2,
-    "hook": "Baby-led weaning: Day 1 vs Day 30 😂🥑",
-    "img": "images/cat-photo-4-feeding.jpg",
-    "likes": 34,
-    "shares": 88
-  },
-  {
-    "index": 3,
-    "hook": "4th Trimester: 3 things nobody told me before delivery 🌸",
-    "img": "images/cat-photo-3-maternity.jpg",
-    "likes": 45,
-    "shares": 63
-  },
-  {
-    "index": 4,
-    "hook": "Stop sibling fighting with this 15-min bedtime ritual 🧸",
-    "img": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
-    "likes": 12,
-    "shares": 35
-  },
-  {
-    "index": 5,
-    "hook": "To the exhausted mama reading this tonight: You are enough ♡",
-    "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
-    "likes": 68,
-    "shares": 114
-  }
-];
+          {
+            index: 0,
+            hook: "Toddler screaming 'NO'? Try this 30-sec trick 🧘‍♀️",
+            img: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80",
+            likes: 8,
+            shares: 27,
+          },
+          {
+            index: 1,
+            hook: "The silent loneliness at 3 AM nobody warned you about ☕",
+            img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80",
+            likes: 19,
+            shares: 42,
+          },
+          {
+            index: 2,
+            hook: "Baby-led weaning: Day 1 vs Day 30 😂🥑",
+            img: "images/cat-photo-4-feeding.jpg",
+            likes: 34,
+            shares: 88,
+          },
+          {
+            index: 3,
+            hook: "4th Trimester: 3 things nobody told me before delivery 🌸",
+            img: "images/cat-photo-3-maternity.jpg",
+            likes: 45,
+            shares: 63,
+          },
+          {
+            index: 4,
+            hook: "Stop sibling fighting with this 15-min bedtime ritual 🧸",
+            img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
+            likes: 12,
+            shares: 35,
+          },
+          {
+            index: 5,
+            hook: "To the exhausted mama reading this tonight: You are enough ♡",
+            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
+            likes: 68,
+            shares: 114,
+          },
+        ];
 
         let currentReelIndex = 0;
         const totalReels = reelsData.length;
@@ -5309,16 +5315,19 @@
 
         function updateReelUI(index) {
           currentReelIndex = Math.max(0, Math.min(totalReels - 1, index));
-          
+
           // Smooth slide vertical transform (like mobile reels scrolling from below)
           if (whatmoreTrack) {
-            whatmoreTrack.style.transition = "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)";
-            whatmoreTrack.style.transform = "translateY(-" + (currentReelIndex * 100) + "%)";
+            whatmoreTrack.style.transition =
+              "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)";
+            whatmoreTrack.style.transform =
+              "translateY(-" + currentReelIndex * 100 + "%)";
           }
 
           // Update Counter
           if (whatmoreCounter) {
-            whatmoreCounter.textContent = (currentReelIndex + 1) + " / " + totalReels;
+            whatmoreCounter.textContent =
+              currentReelIndex + 1 + " / " + totalReels;
           }
 
           // Update like and share counters for active reel
@@ -5375,14 +5384,23 @@
             if (currentReelIndex === 0) {
               whatmoreNavUp.classList.add("opacity-40", "pointer-events-none");
             } else {
-              whatmoreNavUp.classList.remove("opacity-40", "pointer-events-none");
+              whatmoreNavUp.classList.remove(
+                "opacity-40",
+                "pointer-events-none",
+              );
             }
           }
           if (whatmoreNavDown) {
             if (currentReelIndex === totalReels - 1) {
-              whatmoreNavDown.classList.add("opacity-40", "pointer-events-none");
+              whatmoreNavDown.classList.add(
+                "opacity-40",
+                "pointer-events-none",
+              );
             } else {
-              whatmoreNavDown.classList.remove("opacity-40", "pointer-events-none");
+              whatmoreNavDown.classList.remove(
+                "opacity-40",
+                "pointer-events-none",
+              );
             }
           }
 
@@ -5443,7 +5461,8 @@
         });
 
         // Close handlers
-        if (whatmoreCloseCard) whatmoreCloseCard.addEventListener("click", closeWhatmoreModal);
+        if (whatmoreCloseCard)
+          whatmoreCloseCard.addEventListener("click", closeWhatmoreModal);
         if (whatmoreModal) {
           whatmoreModal.addEventListener("click", (e) => {
             if (e.target === whatmoreModal) closeWhatmoreModal();
@@ -5451,12 +5470,24 @@
         }
 
         // Navigation button handlers
-        if (whatmoreNavUp) whatmoreNavUp.addEventListener("click", () => goToReel(currentReelIndex - 1));
-        if (whatmoreNavDown) whatmoreNavDown.addEventListener("click", () => goToReel(currentReelIndex + 1));
+        if (whatmoreNavUp)
+          whatmoreNavUp.addEventListener("click", () =>
+            goToReel(currentReelIndex - 1),
+          );
+        if (whatmoreNavDown)
+          whatmoreNavDown.addEventListener("click", () =>
+            goToReel(currentReelIndex + 1),
+          );
 
         // Peek card clicks
-        if (peekPrev) peekPrev.addEventListener("click", () => goToReel(currentReelIndex - 1));
-        if (peekNext) peekNext.addEventListener("click", () => goToReel(currentReelIndex + 1));
+        if (peekPrev)
+          peekPrev.addEventListener("click", () =>
+            goToReel(currentReelIndex - 1),
+          );
+        if (peekNext)
+          peekNext.addEventListener("click", () =>
+            goToReel(currentReelIndex + 1),
+          );
 
         // Like Button Interaction
         if (likeBtn) {
@@ -5482,10 +5513,12 @@
           shareBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             if (navigator.share) {
-              navigator.share({
-                title: reelsData[currentReelIndex].hook,
-                url: window.location.href
-              }).catch(() => {});
+              navigator
+                .share({
+                  title: reelsData[currentReelIndex].hook,
+                  url: window.location.href,
+                })
+                .catch(() => {});
             } else {
               if (navigator.clipboard) {
                 navigator.clipboard.writeText(window.location.href);
@@ -5498,7 +5531,7 @@
         }
 
         // Add to Cart Buttons inside reels
-        document.querySelectorAll(".whatmore-cart-btn").forEach(btn => {
+        document.querySelectorAll(".whatmore-cart-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             const pTitle = btn.getAttribute("data-product-title") || "Course";
             showToast("Added to Cart: " + pTitle.slice(0, 24) + "... 🛍️", "🛍️");
@@ -5526,7 +5559,7 @@
         const phoneFrame = document.getElementById("whatmore-phone-frame");
         if (phoneFrame) {
           let lastWheelTime = 0;
-          
+
           function handleReelWheel(e) {
             // Ignore horizontal scroll inside product card slider
             if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
@@ -5544,45 +5577,64 @@
             }
           }
 
-          phoneFrame.addEventListener("wheel", handleReelWheel, { passive: false });
+          phoneFrame.addEventListener("wheel", handleReelWheel, {
+            passive: false,
+          });
           if (whatmoreModal) {
-            whatmoreModal.addEventListener("wheel", (e) => {
-              if (e.target === whatmoreModal || e.target === peekPrev || e.target === peekNext) {
-                handleReelWheel(e);
-              }
-            }, { passive: false });
+            whatmoreModal.addEventListener(
+              "wheel",
+              (e) => {
+                if (
+                  e.target === whatmoreModal ||
+                  e.target === peekPrev ||
+                  e.target === peekNext
+                ) {
+                  handleReelWheel(e);
+                }
+              },
+              { passive: false },
+            );
           }
 
           // TOUCH SWIPE UP / DOWN EVENT (Mobile TikTok style)
           let touchStartY = 0;
           let touchStartX = 0;
 
-          phoneFrame.addEventListener("touchstart", (e) => {
-            touchStartY = e.changedTouches[0].screenY;
-            touchStartX = e.changedTouches[0].screenX;
-          }, { passive: true });
+          phoneFrame.addEventListener(
+            "touchstart",
+            (e) => {
+              touchStartY = e.changedTouches[0].screenY;
+              touchStartX = e.changedTouches[0].screenX;
+            },
+            { passive: true },
+          );
 
-          phoneFrame.addEventListener("touchend", (e) => {
-            const touchEndY = e.changedTouches[0].screenY;
-            const touchEndX = e.changedTouches[0].screenX;
-            const diffY = touchStartY - touchEndY;
-            const diffX = touchStartX - touchEndX;
-            // Only trigger vertical reel scroll if swipe is primarily vertical
-            if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 35) {
-              if (diffY > 0) {
-                // Swiped Up -> Next Video from below
-                goToReel(currentReelIndex + 1);
-              } else {
-                // Swiped Down -> Previous Video from above
-                goToReel(currentReelIndex - 1);
+          phoneFrame.addEventListener(
+            "touchend",
+            (e) => {
+              const touchEndY = e.changedTouches[0].screenY;
+              const touchEndX = e.changedTouches[0].screenX;
+              const diffY = touchStartY - touchEndY;
+              const diffX = touchStartX - touchEndX;
+              // Only trigger vertical reel scroll if swipe is primarily vertical
+              if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 35) {
+                if (diffY > 0) {
+                  // Swiped Up -> Next Video from below
+                  goToReel(currentReelIndex + 1);
+                } else {
+                  // Swiped Down -> Previous Video from above
+                  goToReel(currentReelIndex - 1);
+                }
               }
-            }
-          }, { passive: true });
+            },
+            { passive: true },
+          );
         }
 
         // Keyboard navigation (Arrow keys + Escape)
         window.addEventListener("keydown", (e) => {
-          if (!whatmoreModal || whatmoreModal.classList.contains("hidden")) return;
+          if (!whatmoreModal || whatmoreModal.classList.contains("hidden"))
+            return;
           if (e.key === "Escape") {
             closeWhatmoreModal();
           } else if (e.key === "ArrowDown" || e.key === "PageDown") {
@@ -5593,11 +5645,9 @@
             goToReel(currentReelIndex - 1);
           }
         });
-
-});
+      });
     </script>
-  
-    
+
     <!-- ============================================= -->
     <!-- WHATMORE AI FULLSCREEN REELS POPUP PLAYER     -->
     <!-- (100% MATCH TO WHATMORE AI REEL MODAL UX)     -->
@@ -5629,13 +5679,22 @@
           alt="Previous Reel"
           class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none brightness-75"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
-        <div class="relative z-10 p-3 flex items-center gap-1.5 text-white text-[11px] font-bold">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><polygon points="15 18 9 12 15 6"/></svg>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"
+        ></div>
+        <div
+          class="relative z-10 p-3 flex items-center gap-1.5 text-white text-[11px] font-bold"
+        >
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <polygon points="15 18 9 12 15 6" />
+          </svg>
           <span>Previous</span>
         </div>
         <div class="relative z-10 p-3">
-          <p id="whatmore-peek-prev-title" class="text-white text-xs font-semibold line-clamp-2 leading-snug drop-shadow">
+          <p
+            id="whatmore-peek-prev-title"
+            class="text-white text-xs font-semibold line-clamp-2 leading-snug drop-shadow"
+          >
             To the exhausted mama reading this tonight: You are enough ♡
           </p>
         </div>
@@ -5653,28 +5712,48 @@
           alt="Next Reel"
           class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none brightness-75"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
-        <div class="relative z-10 p-3 flex items-center justify-end gap-1.5 text-white text-[11px] font-bold">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"
+        ></div>
+        <div
+          class="relative z-10 p-3 flex items-center justify-end gap-1.5 text-white text-[11px] font-bold"
+        >
           <span>Next</span>
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><polygon points="9 18 15 12 9 6"/></svg>
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <polygon points="9 18 15 12 9 6" />
+          </svg>
         </div>
         <div class="relative z-10 p-3">
-          <p id="whatmore-peek-next-title" class="text-white text-xs font-semibold line-clamp-2 leading-snug drop-shadow">
+          <p
+            id="whatmore-peek-next-title"
+            class="text-white text-xs font-semibold line-clamp-2 leading-snug drop-shadow"
+          >
             The silent loneliness at 3 AM nobody warned you about ☕
           </p>
         </div>
       </div>
 
       <!-- Desktop Vertical Navigation Chevrons & Reel Counter -->
-      <div class="hidden xl:flex flex-col items-center gap-3 absolute right-8 top-1/2 -translate-y-1/2 z-50">
+      <div
+        class="hidden xl:flex flex-col items-center gap-3 absolute right-8 top-1/2 -translate-y-1/2 z-50"
+      >
         <button
           id="whatmore-nav-up"
           class="w-12 h-12 rounded-full bg-white/15 hover:bg-[#862D42] text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-all cursor-pointer hover:scale-110 active:scale-95"
           title="Previous Video (Scroll Up)"
         >
-          <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+          <svg
+            class="w-5 h-5 stroke-current fill-none"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
         </button>
-        <div class="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono font-semibold border border-white/20" id="whatmore-counter">
+        <div
+          class="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono font-semibold border border-white/20"
+          id="whatmore-counter"
+        >
           1 / 6
         </div>
         <button
@@ -5682,7 +5761,13 @@
           class="w-12 h-12 rounded-full bg-white/15 hover:bg-[#862D42] text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-all cursor-pointer hover:scale-110 active:scale-95"
           title="Next Video (Scroll Down)"
         >
-          <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          <svg
+            class="w-5 h-5 stroke-current fill-none"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </button>
       </div>
 
@@ -5692,23 +5777,37 @@
         class="relative w-full sm:w-[410px] md:w-[420px] h-full sm:h-[88vh] sm:max-h-[820px] sm:rounded-[32px] overflow-hidden bg-black shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col border border-white/15 z-20"
       >
         <!-- Top Multi-Segment Progress Bars (Whatmore / Instagram Reels Style) -->
-        <div class="absolute top-3 left-4 right-4 z-50 flex gap-1.5 pointer-events-none">
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+        <div
+          class="absolute top-3 left-4 right-4 z-50 flex gap-1.5 pointer-events-none"
+        >
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
-          <div class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden">
+          <div
+            class="reel-prog-bar flex-1 h-[2.5px] bg-white/30 rounded-full overflow-hidden"
+          >
             <div class="reel-prog-fill w-0 h-full bg-white"></div>
           </div>
         </div>
@@ -5720,52 +5819,100 @@
           aria-label="Close Reels Player"
           title="Close (Esc)"
         >
-          <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <svg
+            class="w-5 h-5 stroke-current fill-none"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
         </button>
 
         <!-- Top Left Profile Pill -->
-        <div class="absolute top-5 left-4 z-40 flex items-center gap-2 pointer-events-none">
-          <img src="images/testimonial-left-mother.png" alt="@wethemums" class="w-8 h-8 rounded-full object-cover border-2 border-white shadow-md" />
+        <div
+          class="absolute top-5 left-4 z-40 flex items-center gap-2 pointer-events-none"
+        >
+          <img
+            src="images/testimonial-left-mother.png"
+            alt="@wethemums"
+            class="w-8 h-8 rounded-full object-cover border-2 border-white shadow-md"
+          />
           <div>
             <div class="flex items-center gap-1">
-              <span class="text-xs font-bold text-white tracking-wide">@wethemums</span>
-              <span class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold">✓</span>
+              <span class="text-xs font-bold text-white tracking-wide"
+                >@wethemums</span
+              >
+              <span
+                class="w-3.5 h-3.5 rounded-full bg-[#3897F0] flex items-center justify-center text-white text-[8px] font-bold"
+                >✓</span
+              >
             </div>
-            <span class="text-[10px] text-white/80 block -mt-0.5">WithTheMums</span>
+            <span class="text-[10px] text-white/80 block -mt-0.5"
+              >WithTheMums</span
+            >
           </div>
         </div>
 
         <!-- Right-Side Floating Actions Column (Heart + Like Count, Share + Share Count, Sound) -->
         <!-- 100% MATCH TO REFERENCE IMAGE RIGHT SIDE OVERLAY -->
-        <div class="absolute right-3.5 bottom-36 sm:bottom-40 z-40 flex flex-col items-center gap-3.5">
+        <div
+          class="absolute right-3.5 bottom-36 sm:bottom-40 z-40 flex flex-col items-center gap-3.5"
+        >
           <!-- Heart / Like Button -->
-          <div class="flex flex-col items-center gap-1 cursor-pointer group" id="whatmore-like-container" title="Like Video">
+          <div
+            class="flex flex-col items-center gap-1 cursor-pointer group"
+            id="whatmore-like-container"
+            title="Like Video"
+          >
             <button
               id="whatmore-like-btn"
               class="w-11 h-11 rounded-full bg-black/55 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all shadow-md active:scale-125"
             >
-              <svg id="whatmore-like-svg" class="w-5 h-5 stroke-current fill-none transition-colors duration-200" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              <svg
+                id="whatmore-like-svg"
+                class="w-5 h-5 stroke-current fill-none transition-colors duration-200"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
               </svg>
             </button>
-            <span id="whatmore-like-count" class="text-white text-xs font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">8</span>
+            <span
+              id="whatmore-like-count"
+              class="text-white text-xs font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
+              >8</span
+            >
           </div>
 
           <!-- Share Button with Count -->
-          <div class="flex flex-col items-center gap-1 cursor-pointer group" id="whatmore-share-container" title="Share Video">
+          <div
+            class="flex flex-col items-center gap-1 cursor-pointer group"
+            id="whatmore-share-container"
+            title="Share Video"
+          >
             <button
               id="whatmore-share-btn"
               class="w-11 h-11 rounded-full bg-black/55 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all shadow-md active:scale-110"
             >
-              <svg class="w-5 h-5 fill-none stroke-current translate-x-0.5" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="18" cy="5" r="3"/>
-                <circle cx="6" cy="12" r="3"/>
-                <circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              <svg
+                class="w-5 h-5 fill-none stroke-current translate-x-0.5"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
               </svg>
             </button>
-            <span id="whatmore-share-count" class="text-white text-xs font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">27</span>
+            <span
+              id="whatmore-share-count"
+              class="text-white text-xs font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
+              >27</span
+            >
           </div>
 
           <!-- Sound Mute/Unmute Button -->
@@ -5775,12 +5922,24 @@
             title="Toggle Sound"
           >
             <!-- Speaker On -->
-            <svg id="whatmore-icon-sound-on" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            <svg
+              id="whatmore-icon-sound-on"
+              class="w-4 h-4 fill-current"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
+              />
             </svg>
             <!-- Speaker Off -->
-            <svg id="whatmore-icon-sound-off" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24">
-              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            <svg
+              id="whatmore-icon-sound-off"
+              class="w-4 h-4 fill-current hidden"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
+              />
             </svg>
           </button>
 
@@ -5793,7 +5952,9 @@
             title="Open Instagram @wethemums"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
             </svg>
           </a>
         </div>
@@ -5802,17 +5963,21 @@
         <div
           id="whatmore-slides-track"
           class="w-full h-full flex flex-col transition-transform duration-500 ease-out"
-          style="transform: translateY(0%);"
+          style="transform: translateY(0%)"
         >
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="0">
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="0"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80"
               alt="Toddler screaming 'NO'? Try this 30-sec trick 🧘‍♀️"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -5821,23 +5986,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 Toddler screaming 'NO'? Try this 30-sec trick 🧘‍♀️
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/card-2-parenting.png"
@@ -5846,17 +6026,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          The Calm Toddler Blueprint - Complete Video Masterclass
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          The Calm Toddler Blueprint - Complete Video
+                          Masterclass
                         </h4>
-                        <a href="contact.html?course=calm-toddler" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?course=calm-toddler"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 1,999</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 4,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">60% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 1,999</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 4,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >60% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -5868,8 +6072,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/card-5-everyday.png"
@@ -5878,17 +6084,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           Tantrum Reset Scripts & Emergency Audio Guide
                         </h4>
-                        <a href="contact.html?guide=tantrum-scripts" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=tantrum-scripts"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 999</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 2,499</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">60% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 999</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 2,499</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >60% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -5900,26 +6129,37 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="1">
+
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="1"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
               alt="The silent loneliness at 3 AM nobody warned you about ☕"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -5928,23 +6168,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 The silent loneliness at 3 AM nobody warned you about ☕
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-1.png"
@@ -5953,17 +6208,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          Fourth Trimester Sanctuary - Postpartum Recovery Masterclass
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          Fourth Trimester Sanctuary - Postpartum Recovery
+                          Masterclass
                         </h4>
-                        <a href="contact.html?course=fourth-trimester" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?course=fourth-trimester"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 2,499</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 5,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">58% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 2,499</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 5,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >58% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -5975,8 +6254,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-3-maternity.jpg"
@@ -5985,17 +6266,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           Postpartum Recovery & Nourishing Meal Planner
                         </h4>
-                        <a href="contact.html?guide=postpartum-meals" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=postpartum-meals"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 799</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 1,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">60% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 799</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 1,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >60% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6007,26 +6311,37 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="2">
+
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="2"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="images/cat-photo-4-feeding.jpg"
               alt="Baby-led weaning: Day 1 vs Day 30 😂🥑"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -6035,23 +6350,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 Baby-led weaning: Day 1 vs Day 30 😂🥑
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-4-feeding.jpg"
@@ -6060,17 +6390,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           Baby-Led Weaning Starter Guide & Milestone Recipes
                         </h4>
-                        <a href="contact.html?guide=baby-led-weaning" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=baby-led-weaning"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 1,499</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 3,499</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">57% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 1,499</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 3,499</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >57% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6082,8 +6435,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-1.png"
@@ -6092,17 +6447,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           First 100 Foods Allergen Tracker & Checklist
                         </h4>
-                        <a href="contact.html?guide=first-100-foods" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=first-100-foods"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 499</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 1,299</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">61% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 499</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 1,299</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >61% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6114,26 +6492,37 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="3">
+
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="3"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="images/cat-photo-3-maternity.jpg"
               alt="4th Trimester: 3 things nobody told me before delivery 🌸"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -6142,23 +6531,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 4th Trimester: 3 things nobody told me before delivery 🌸
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-3-maternity.jpg"
@@ -6167,17 +6571,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           Hospital Bag & Birth Sanctuary Preparation Checklist
                         </h4>
-                        <a href="contact.html?guide=hospital-checklist" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=hospital-checklist"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 699</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 1,499</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">53% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 699</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 1,499</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >53% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6189,8 +6616,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/cat-photo-1.png"
@@ -6199,17 +6628,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          Fourth Trimester Sanctuary - Postpartum Recovery Masterclass
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          Fourth Trimester Sanctuary - Postpartum Recovery
+                          Masterclass
                         </h4>
-                        <a href="contact.html?course=fourth-trimester" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?course=fourth-trimester"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 2,499</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 5,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">58% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 2,499</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 5,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >58% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6221,26 +6674,37 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="4">
+
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="4"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
               alt="Stop sibling fighting with this 15-min bedtime ritual 🧸"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -6249,23 +6713,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 Stop sibling fighting with this 15-min bedtime ritual 🧸
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/card-5-everyday.png"
@@ -6274,17 +6753,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          The Connected Family Framework - Deep Bond & Peaceful Bedtimes
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          The Connected Family Framework - Deep Bond & Peaceful
+                          Bedtimes
                         </h4>
-                        <a href="contact.html?course=connected-family" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?course=connected-family"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 2,999</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 6,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">57% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 2,999</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 6,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >57% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6296,8 +6799,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/card-2-parenting.png"
@@ -6306,17 +6811,40 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
                           Bedtime Peace Audio Stories for Calm Kids
                         </h4>
-                        <a href="contact.html?guide=bedtime-stories" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=bedtime-stories"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 899</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 1,899</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">52% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 899</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 1,899</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >52% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6328,26 +6856,37 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
-          <div class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between" data-index="5">
+
+          <div
+            class="whatmore-slide w-full h-full shrink-0 relative overflow-hidden bg-neutral-900 flex flex-col justify-between"
+            data-index="5"
+          >
             <!-- Full Height Video Image Poster -->
             <img
               src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80"
               alt="To the exhausted mama reading this tonight: You are enough ♡"
               class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none scale-100"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-black/40 pointer-events-none"
+            ></div>
 
             <!-- Top spacer for header -->
             <div class="h-16"></div>
@@ -6356,23 +6895,38 @@
             <div class="relative z-30 px-6 text-center my-auto">
               <h3
                 class="font-serif text-2xl sm:text-[27px] font-semibold text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-xs mx-auto"
-                style="text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 0 2px #000;"
+                style="
+                  text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95),
+                    0 0 2px #000;
+                "
               >
                 To the exhausted mama reading this tonight: You are enough ♡
               </h3>
               <!-- Pulsing Center Play Ring -->
-              <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <div
+                class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 mx-auto mt-4 flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+              >
+                <svg
+                  class="w-6 h-6 fill-current translate-x-0.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               </div>
             </div>
 
             <!-- Bottom Floating Product Cards (Shoppable Reels Slider) -->
-            
+
             <div class="relative z-30 px-3 pb-3 pt-1">
               <!-- Horizontal Slider with 2 Shoppable Cards (1 full + 1 peeking, 100% match to Whatmore AI) -->
-              <div class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+              <div
+                class="flex gap-2.5 overflow-x-auto scrollbar-none pb-1 pt-1 px-1 -mx-1 select-none"
+                style="scrollbar-width: none; -ms-overflow-style: none"
+              >
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/testimonial-left-mother.png"
@@ -6381,17 +6935,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          WithTheMums Annual VIP Membership Pass - All Courses Included
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          WithTheMums Annual VIP Membership Pass - All Courses
+                          Included
                         </h4>
-                        <a href="contact.html?pass=vip-annual" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?pass=vip-annual"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 3,999</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 8,999</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">55% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 3,999</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 8,999</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >55% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6403,8 +6981,10 @@
                     ADD TO CART
                   </a>
                 </div>
-                
-                <div class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform">
+
+                <div
+                  class="w-[245px] sm:w-[260px] shrink-0 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_8px_25px_rgba(0,0,0,0.35)] border border-gray-100 flex flex-col justify-between gap-2 transform hover:scale-[1.01] transition-transform"
+                >
                   <div class="flex items-start gap-2.5">
                     <img
                       src="images/card-1-motherhood.png"
@@ -6413,17 +6993,41 @@
                     />
                     <div class="min-w-0 flex-1 text-left">
                       <div class="flex items-start justify-between gap-1">
-                        <h4 class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2">
-                          Motherhood Self-Compassion Daily Journal & Guided Prompts
+                        <h4
+                          class="font-bold text-[11px] sm:text-xs text-gray-900 leading-snug line-clamp-2"
+                        >
+                          Motherhood Self-Compassion Daily Journal & Guided
+                          Prompts
                         </h4>
-                        <a href="contact.html?guide=motherhood-journal" class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5" title="View Details">
-                          <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <a
+                          href="contact.html?guide=motherhood-journal"
+                          class="text-gray-400 hover:text-gray-700 shrink-0 p-0.5"
+                          title="View Details"
+                        >
+                          <svg
+                            class="w-3.5 h-3.5 stroke-current fill-none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
                         </a>
                       </div>
                       <div class="flex items-baseline gap-1.5 mt-1">
-                        <span class="font-extrabold text-xs sm:text-[13px] text-gray-900">₹ 699</span>
-                        <span class="text-[10px] text-gray-400 line-through">₹ 1,599</span>
-                        <span class="text-[10px] font-bold text-[#0da49b]">56% OFF</span>
+                        <span
+                          class="font-extrabold text-xs sm:text-[13px] text-gray-900"
+                          >₹ 699</span
+                        >
+                        <span class="text-[10px] text-gray-400 line-through"
+                          >₹ 1,599</span
+                        >
+                        <span class="text-[10px] font-bold text-[#0da49b]"
+                          >56% OFF</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -6435,21 +7039,25 @@
                     ADD TO CART
                   </a>
                 </div>
-                
               </div>
 
               <!-- Scroll indicator hint -->
-              <div class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide">
+              <div
+                class="mt-1.5 flex items-center justify-center gap-1.5 text-white/70 text-[10px] font-medium tracking-wide"
+              >
                 <span>Scroll down for next video</span>
-                <svg class="w-3 h-3 stroke-current fill-none animate-bounce" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                <svg
+                  class="w-3 h-3 stroke-current fill-none animate-bounce"
+                  stroke-width="2.2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-  
           </div>
-          
         </div>
       </div>
     </div>
-
-</body>
+  </body>
 </html>
