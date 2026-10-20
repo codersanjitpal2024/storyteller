@@ -70,7 +70,7 @@
       width: 60px; height: 60px; border-color: rgba(99, 34, 50, 0.3);
       background-color: rgba(236, 207, 212, 0.15); backdrop-filter: blur(2px);
     }
-    @media (hover: none) and (pointer: coarse) {
+    @media (max-width: 768px), (hover: none) and (pointer: coarse) {
       .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
     }
   </style>
@@ -89,11 +89,11 @@
 
   <!-- TOP BAR -->
     <div
-      class="bg-[#541E2A] text-white text-[11px] sm:text-xs py-2 px-4 sm:px-8 border-b border-white/10 relative z-30"
+      class="relative z-30 overflow-hidden border-b border-white/10 bg-gradient-to-r from-[#4b1926] via-[#702b3e] to-[#4b1926] text-white text-[11px] sm:text-xs px-4 sm:px-8 py-2.5 shadow-[0_3px_14px_rgba(84,30,42,0.12)]"
     >
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="max-w-7xl mx-auto min-h-[24px] flex items-center justify-between gap-4">
         <!-- Left: Heart icon + Tagline with small dropdown indicator -->
-        <div class="flex items-center gap-1.5 font-normal tracking-wide">
+        <div class="flex items-center gap-2 font-medium tracking-wide rounded-full border border-white/10 bg-white/[0.06] px-3 py-1">
           <svg
             class="w-3.5 h-3.5 text-[#E6B8AF] fill-current flex-shrink-0"
             viewBox="0 0 20 20"
@@ -122,7 +122,7 @@
 
         <!-- Right: Follow Us with social icons -->
         <div
-          class="hidden sm:flex items-center gap-3 text-[11px] text-white/90"
+          class="hidden sm:flex items-center gap-3 text-[11px] text-white/90 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1"
         >
           <span class="text-white/80">Follow Us</span>
           <div class="flex items-center gap-2">
@@ -131,7 +131,7 @@
               href="https://www.instagram.com/wethemums/"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              class="w-6 h-6 rounded-full border border-white/35 bg-white/[0.04] flex items-center justify-center hover:bg-[#f3d8d2] hover:text-[#541E2A] hover:border-[#f3d8d2] hover:-translate-y-0.5 transition-all duration-200"
               title="Instagram"
               aria-label="Instagram"
             >
@@ -144,7 +144,7 @@
             <!-- Facebook -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              class="w-6 h-6 rounded-full border border-white/35 bg-white/[0.04] flex items-center justify-center hover:bg-[#f3d8d2] hover:text-[#541E2A] hover:border-[#f3d8d2] hover:-translate-y-0.5 transition-all duration-200"
               title="Facebook"
               aria-label="Facebook"
             >
@@ -157,7 +157,7 @@
             <!-- YouTube -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              class="w-6 h-6 rounded-full border border-white/35 bg-white/[0.04] flex items-center justify-center hover:bg-[#f3d8d2] hover:text-[#541E2A] hover:border-[#f3d8d2] hover:-translate-y-0.5 transition-all duration-200"
               title="YouTube"
               aria-label="YouTube"
             >
@@ -170,7 +170,7 @@
             <!-- Pinterest -->
             <a
               href="#"
-              class="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-[#541E2A] transition-all"
+              class="w-6 h-6 rounded-full border border-white/35 bg-white/[0.04] flex items-center justify-center hover:bg-[#f3d8d2] hover:text-[#541E2A] hover:border-[#f3d8d2] hover:-translate-y-0.5 transition-all duration-200"
               title="Pinterest"
               aria-label="Pinterest"
             >
@@ -190,21 +190,14 @@
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
       >
-        <!-- Brand Logo: WithTheMums. with subtitle -->
-        <a href="index.html" class="flex flex-col group">
-          <span
-            class="font-serif text-2xl sm:text-3xl text-[#2D2926] font-normal tracking-tight group-hover:text-[#632232] transition-colors"
-          >
-            WithTheMums<span class="text-[#632232] font-bold">.</span>
-          </span>
-          <span class="text-[10px] text-[#635C57] -mt-0.5 tracking-wide">
-            Real Stories. Stronger Together.
-          </span>
+                <!-- Brand Logo -->
+        <a href="index.html" class="inline-flex items-center group" aria-label="WithTheMums home">
+          <img src="images/parentinglogo.png" alt="WithTheMums" class="h-14 w-14 sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px] object-contain" />
         </a>
 
         <!-- Center Nav Links -->
         <nav
-          class="hidden md:flex items-center space-x-7 text-xs sm:text-sm font-medium text-[#2D2926]/80"
+          class="hidden lg:flex items-center space-x-4 xl:space-x-7 text-xs xl:text-sm font-medium text-[#2D2926]/80"
         >
           <a
             href="index.html"
@@ -216,21 +209,13 @@
             class="text-[#632232] font-semibold border-b-2 border-[#632232] pb-1"
             >Stories</a
           >
-          <a
-            href="journal.html"
-            class="hover:text-[#632232] transition-colors"
-            >Resources</a
-          >
+          
           <a
             href="about.html"
             class="hover:text-[#632232] transition-colors"
             >About</a
           >
-          <a
-            href="brand-partnerships.html"
-            class="hover:text-[#632232] transition-colors"
-            >Events</a
-          >
+          
           <a
             href="courses.html"
             class="hover:text-[#632232] transition-colors inline-flex items-center gap-1.5 font-medium"
@@ -244,38 +229,14 @@
         </nav>
 
         <!-- Right: Search Button + Join Our Community pill -->
-        <div class="flex items-center gap-3">
-          <a
-            href="stories.html"
-            class="w-9 h-9 rounded-full hover:bg-[#FAF7F2] flex items-center justify-center text-[#2D2926]/70 hover:text-[#632232] transition-colors"
-            title="Search Stories"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </a>
+        <div class="flex items-center gap-1.5 sm:gap-3">
 
-          <a
-            href="share-your-story.html"
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm"
-          >
-            Join Our Community
-          </a>
+          <a href="tel:+919876543210" aria-label="Call us at +91 98765 43210" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#632232] text-white text-xs font-semibold hover:bg-[#501A27] transition-all shadow-sm">Call Us Now</a>
 
           <button
             id="mobile-menu-btn"
-            aria-label="Toggle navigation menu"
-            class="md:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
+            aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"
+            class="lg:hidden p-2 rounded-lg text-[#2D2926] hover:bg-[#EFE7E1]/50"
           >
             <svg
               class="w-6 h-6"
@@ -287,7 +248,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
+                id="mobile-menu-icon" d="M4 6h16M4 12h16M4 18h16"
               ></path>
             </svg>
           </button>
@@ -297,7 +258,7 @@
       <!-- Mobile Drawer -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
+        class="hidden lg:hidden bg-white border-b border-[#EFE7E1] px-4 pt-3 pb-6 space-y-3"
       >
         <nav class="flex flex-col space-y-2 text-sm font-medium">
           <a
@@ -310,21 +271,13 @@
             class="text-[#632232] font-semibold py-1.5 px-2 bg-[#632232]/5 rounded-md"
             >Stories</a
           >
-          <a
-            href="journal.html"
-            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
-            >Resources</a
-          >
+          
           <a
             href="about.html"
             class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
             >About</a
           >
-          <a
-            href="brand-partnerships.html"
-            class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2"
-            >Events & Partnerships</a
-          >
+          
           <a
             href="courses.html"
             class="text-[#2D2926] hover:text-[#632232] py-1.5 px-2 flex items-center justify-between"
@@ -337,12 +290,7 @@
           >
         </nav>
         <div class="pt-3 border-t border-[#EFE7E1]">
-          <a
-            href="share-your-story.html"
-            class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all"
-          >
-            Share Your Story
-          </a>
+          <a href="tel:+919876543210" aria-label="Call us at +91 98765 43210" class="w-full inline-flex items-center justify-center py-2.5 px-4 text-xs font-semibold rounded-full bg-[#632232] text-white hover:bg-[#501A27] transition-all">Call Us Now</a>
         </div>
       </div>
     </header>
@@ -350,75 +298,74 @@
   <main class="flex-grow">
 
     <!-- ========================================== -->
-    <!-- EDITORIAL STORY BANNER                     -->
-    <!-- ========================================== -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-[#FAF4EE] via-[#FCF8F5] to-[#F5ECE8] border-b border-[#EFE8E2] py-8 sm:py-12">
-      <!-- Decorative Botanical Leaf Accents in Background -->
-      <div class="absolute -top-12 -right-12 w-64 h-64 pointer-events-none opacity-25 select-none">
-        <img src="images/explore-decor-leaf.png" alt="" class="w-full h-full object-contain" />
-      </div>
-      <div class="absolute -bottom-10 -left-6 w-44 h-44 pointer-events-none opacity-20 select-none">
-        <img src="images/explore-left-leaf.png" alt="" class="w-full h-full object-contain" />
-      </div>
+    <!-- EDITORIAL STORY BANNER -->
+    <section class="relative isolate overflow-hidden border-b border-[#eadbd5] bg-[linear-gradient(135deg,#fbf1ed_0%,#fffdfa_48%,#f3e7e1_100%)] py-9 sm:py-14 lg:py-16">
+      <div class="pointer-events-none absolute -right-12 -top-12 h-64 w-64 opacity-20" aria-hidden="true"><img src="images/explore-decor-leaf.png" alt="" class="h-full w-full object-contain" /></div>
+      <div class="pointer-events-none absolute -bottom-10 -left-6 h-44 w-44 opacity-15" aria-hidden="true"><img src="images/explore-left-leaf.png" alt="" class="h-full w-full object-contain" /></div>
 
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <!-- BREADCRUMBS -->
-        <nav class="flex items-center gap-2 text-xs text-[#7A6E6B] mb-6">
-          <a href="index.html" class="hover:text-berry transition-colors">Home</a>
-          <span>/</span>
-          <a href="stories.html" class="hover:text-berry transition-colors">Stories</a>
-          <span>/</span>
-          <span id="breadcrumb-category" class="text-charcoal font-medium">Lived Experience</span>
+      <div class="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <nav aria-label="Breadcrumb" class="mb-7 flex items-center gap-2 text-xs text-[#7a6e6b] sm:mb-9">
+          <a href="index.html" class="transition-colors hover:text-berry">Home</a><span class="text-[#c5a9a3]">/</span>
+          <a href="stories.html" class="transition-colors hover:text-berry">Stories</a><span class="text-[#c5a9a3]">/</span>
+          <span id="breadcrumb-category" class="font-medium text-charcoal">Lived Experience</span>
         </nav>
 
-        <div class="flex flex-wrap items-center gap-2 mb-4">
-          <span id="story-category" class="bg-berry/10 text-berry px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-            Category
-          </span>
-          <span class="text-xs text-mutedText">•</span>
-          <span id="story-readtime" class="text-xs text-mutedText font-medium">6 min read</span>
-          <span class="text-xs text-mutedText">•</span>
-          <span class="inline-flex items-center gap-1 text-xs text-emerald-700 font-medium bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/50">
-            ✓ Verified Submission
-          </span>
-        </div>
+        <div class="grid items-center gap-9 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 xl:gap-20">
+          <div class="max-w-3xl">
+            <div class="mb-5 flex flex-wrap items-center gap-2.5">
+              <span id="story-category" class="rounded-full border border-[#e6c9c5] bg-white/80 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#70283a] shadow-sm">Category</span>
+              <span class="h-1 w-1 rounded-full bg-[#bc8c8c]"></span>
+              <span id="story-readtime" class="text-xs font-medium text-[#756663]">6 min read</span>
+              <span class="h-1 w-1 rounded-full bg-[#bc8c8c]"></span>
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-[#cfe4d8] bg-[#f1faf4] px-2.5 py-1 text-[10px] font-semibold text-[#387653]">&#10003; Community voice</span>
+            </div>
 
-        <h1 id="story-title" class="reveal-lines font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-normal leading-[1.2] tracking-tight mb-4">
-          Loading Story...
-        </h1>
+            <h1 id="story-title" class="reveal-lines mb-5 font-serif text-4xl font-normal leading-[1.08] tracking-[-0.025em] text-[#332322] sm:text-5xl lg:text-[58px]">Loading Story...</h1>
+            <p id="story-excerpt" class="reveal-fade max-w-xl border-l-2 border-[#b46a77] pl-5 font-serif text-base italic leading-relaxed text-[#775f5c] sm:text-lg">...</p>
 
-        <p id="story-excerpt" class="reveal-fade text-base sm:text-lg text-[#5E5553] leading-relaxed italic max-w-2xl">
-          ...
-        </p>
+            <div class="mt-7 flex flex-wrap items-center gap-3">
+              <a href="#story-body" class="group inline-flex items-center gap-2.5 rounded-full bg-[#70283a] px-5 py-3 text-xs font-semibold text-white shadow-[0_10px_24px_rgba(112,40,58,0.2)] transition hover:-translate-y-0.5 hover:bg-[#57202e]">Read the story <span class="transition-transform group-hover:translate-y-0.5" aria-hidden="true">&darr;</span></a>
+              <a href="stories.html" class="inline-flex items-center gap-2 rounded-full border border-[#dcc2bc] bg-white/70 px-5 py-3 text-xs font-semibold text-[#70283a] transition hover:border-[#a85d6c] hover:bg-white">More community stories</a>
+            </div>
 
-        <!-- ATTRIBUTION META -->
-        <div class="pt-6 mt-6 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-[#7A6E6B] border-t border-[#E8D5D0]">
-          <span id="story-author" class="font-semibold text-charcoal">Contributor</span>
-          <span>•</span>
-          <span id="story-date">Date</span>
-          <span>•</span>
-          <span class="text-berry font-medium">WithTheMums Community Voices</span>
+            <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#e8d5d0] pt-4 text-xs text-[#796b67]">
+              <span id="story-author" class="font-semibold text-[#392b29]">Contributor</span>
+              <span class="hidden h-4 w-px bg-[#e0c9c3] sm:block"></span>
+              <span id="story-date">Date</span>
+              <span class="hidden h-4 w-px bg-[#e0c9c3] sm:block"></span>
+              <span class="text-[#862d42]">WithTheMums Community Voices</span>
+            </div>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+            <div class="absolute -inset-2 rotate-1 rounded-[30px] bg-[#e9c9c4]/55 sm:-inset-3"></div>
+            <div class="group relative overflow-hidden rounded-[26px] border-[4px] border-white bg-[#f4e7e1] shadow-[0_20px_48px_rgba(68,37,39,0.16)] sm:rounded-[30px]">
+              <img id="story-cover" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80" alt="Cover" class="h-[250px] w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] sm:h-[340px] lg:h-[410px]" />
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#25191a]/65 via-transparent to-transparent"></div>
+              <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 sm:bottom-7 sm:left-7 sm:right-7">
+                <div class="rounded-2xl border border-white/25 bg-[#fffaf7]/15 px-4 py-3 text-white shadow-lg backdrop-blur-md">
+                  <span class="block text-[9px] font-bold uppercase tracking-[0.18em] text-white/75">A story from</span>
+                  <span class="mt-1 block font-serif text-lg">The WithTheMums village</span>
+                </div>
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/50 bg-white/15 text-white backdrop-blur-md" aria-hidden="true">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   
-    <article class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-
-      <!-- COVER IMAGE -->
-      <div class="rounded-2xl overflow-hidden border border-subtleBorder shadow-md mb-12">
-        <img id="story-cover" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80" alt="Cover" class="w-full h-80 sm:h-[450px] object-cover">
-        <div class="p-3 bg-white text-[11px] text-mutedText text-center italic border-t border-subtleBorder">
-          Photograph representative of lived family experiences. Contributor details preserved with care.
-        </div>
-      </div>
+    <article class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-12">
 
       <!-- MAIN EDITORIAL CONTENT (Comfortable 65ch reading column) -->
-      <div id="story-body" class="max-w-[65ch] mx-auto text-base sm:text-lg text-charcoal/90 leading-[1.85] space-y-6">
+      <div id="story-body" class="mx-auto max-w-[78ch] scroll-mt-28 rounded-[28px] border border-[#eee1dc] bg-white p-6 text-base leading-[1.85] text-charcoal/90 shadow-[0_14px_40px_rgba(74,43,38,0.055)] space-y-6 sm:p-10 sm:text-lg">
         <!-- Injected via JavaScript -->
       </div>
 
       <!-- ETHICAL / ATTRIBUTION NOTE -->
-      <div class="max-w-[65ch] mx-auto mt-12 p-5 rounded-xl bg-white border border-subtleBorder text-xs text-mutedText leading-relaxed flex items-start gap-3">
+      <div class="max-w-[78ch] mx-auto mt-12 p-5 rounded-xl bg-white border border-subtleBorder text-xs text-mutedText leading-relaxed flex items-start gap-3">
         <svg class="w-5 h-5 text-berry flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         <div>
           <strong class="text-charcoal block font-semibold mb-0.5">Editorial Consent & Contributor Integrity</strong>
@@ -427,40 +374,48 @@
       </div>
 
       <!-- SOCIAL SHARE BAR -->
-      <div class="max-w-[65ch] mx-auto mt-10 pt-8 border-t border-subtleBorder flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span class="text-xs uppercase tracking-wider text-mutedText font-semibold">Share this story:</span>
+      <div class="mx-auto mt-10 flex max-w-[78ch] flex-col items-center justify-between gap-4 border-t border-[#e8d9d3] pt-8 sm:flex-row">
+        <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-[#756663]">Pass this story along</span>
         <div class="flex items-center gap-2">
           <!-- WhatsApp -->
-          <a id="share-wa" href="#" target="_blank" class="px-3.5 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 flex items-center gap-1.5 transition-colors">
+          <a id="share-wa" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share this story on WhatsApp" class="flex items-center gap-1.5 rounded-full bg-[#3c7860] px-4 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#2e624d]">
             WhatsApp
           </a>
           <!-- Twitter / X -->
-          <a id="share-tw" href="#" target="_blank" class="px-3.5 py-1.5 rounded-full bg-charcoal text-white text-xs font-semibold hover:bg-black flex items-center gap-1.5 transition-colors">
+          <a id="share-tw" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share this story on X" class="flex items-center gap-1.5 rounded-full bg-[#332322] px-4 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#1f1717]">
             Share on X
           </a>
           <!-- Copy Link -->
-          <button id="copy-link-btn" class="px-3.5 py-1.5 rounded-full border border-subtleBorder text-charcoal text-xs font-semibold hover:border-berry hover:text-berry bg-white transition-colors">
+          <button id="copy-link-btn" class="rounded-full border border-[#e5d5cf] bg-white px-4 py-2 text-xs font-semibold text-[#70283a] transition hover:-translate-y-0.5 hover:border-[#b46a77] hover:bg-[#fcf4f1]">
             Copy Link
           </button>
         </div>
       </div>
 
       <!-- SENSITIVE SUBMISSION BANNER -->
-      <div class="mt-16 p-8 sm:p-10 rounded-2xl bg-berry text-ivory text-center space-y-4">
-        <span class="reveal-fade text-xs uppercase tracking-widest text-dustyRose font-semibold">Your Story Matters</span>
-        <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Every parent's voice holds power.</h3>
-        <p class="reveal-fade text-xs sm:text-sm text-ivory/80 max-w-lg mx-auto leading-relaxed">
-          If you have experienced something you would like to share with fellow parents, we would be honored to hold space for your story.
-        </p>
-        <div class="reveal-fade pt-2">
-          <a href="share-your-story.html" class="inline-flex px-7 py-3 rounded-full bg-dustyRose text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-dustyRose-light transition-all shadow-md">
-            Share Your Experience &rarr;
-          </a>
+      <div class="relative mx-auto mt-16 max-w-5xl overflow-hidden rounded-[30px] bg-gradient-to-br from-[#753347] via-[#632837] to-[#411a26] px-6 py-10 text-center shadow-[0_24px_56px_rgba(89,31,49,0.22)] sm:px-12 sm:py-12">
+        <div class="pointer-events-none absolute -right-12 -top-20 h-56 w-56 rounded-full border border-white/10"></div>
+        <div class="pointer-events-none absolute -right-2 -top-10 h-36 w-36 rounded-full border border-white/10"></div>
+        <div class="pointer-events-none absolute -bottom-24 -left-10 h-52 w-52 rounded-full bg-[#d99da0]/10 blur-2xl"></div>
+        <div class="relative">
+          <span class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#f1c9c5]">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+            Your story matters
+          </span>
+          <h3 class="font-serif text-2xl font-normal leading-tight text-white sm:text-3xl">Your voice could help another parent feel less alone.</h3>
+          <p class="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/80">
+            Share a moment, a lesson, or the part of parenthood you wish someone had talked about. We’ll read your story with care.
+          </p>
+          <div class="pt-6">
+            <a href="contact.html" class="group inline-flex items-center gap-2.5 rounded-full bg-[#fff8f4] px-6 py-3.5 text-xs font-bold text-[#632837] shadow-[0_8px_22px_rgba(25,8,13,0.2)] transition hover:-translate-y-0.5 hover:bg-white">
+              Share your story <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- RELATED STORIES -->
-      <div class="mt-20 pt-12 border-t border-subtleBorder">
+      <div class="mx-auto mt-20 max-w-6xl border-t border-subtleBorder pt-12">
         <div class="flex items-center justify-between mb-8">
           <h3 class="font-serif text-2xl text-charcoal font-normal">More Stories from WeTheMums</h3>
           <a href="stories.html" class="text-xs text-berry font-semibold hover:underline">View All &rarr;</a>
@@ -495,49 +450,52 @@
         loading="lazy"
       />
 
-      <!-- Right Mother & Baby Artwork with Script Text -->
-      <img
-        src="images/footer-right-artwork.png"
-        alt="Real mums. Real stories. Real support."
-        class="absolute right-0 top-4 sm:top-6 w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
-        loading="lazy"
-      />
 
       <div class="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <!-- Right Mother & Baby Artwork aligned with the white footer edge -->
+        <img
+          src="images/footer-right-artwork.png"
+          alt="Real mums. Real stories. Real support."
+          class="absolute bottom-[15px] w-24 sm:w-28 lg:w-32 pointer-events-none select-none z-0 hidden md:block"
+          style="right: calc((100vw - 100%)/-2);"
+          loading="lazy"
+        />
         <!-- 4 Columns Grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-14"
+          class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-28"
         >
           <!-- Col 1: Brand Logo, Description & Socials -->
-          <div class="lg:col-span-4 flex flex-col justify-between pr-0 lg:pr-4">
+          <div class="lg:col-span-4 flex flex-col pr-0 lg:pr-4">
             <div>
               <a href="index.html" class="inline-block mb-3.5">
                 <img
-                  src="images/footer-logo-full.png"
+                  src="images/parentinglogo.png"
                   alt="WithTheMums. Real Stories. Stronger Together."
-                  class="h-10 sm:h-11 w-auto object-contain"
+                  class="h-16 w-16 object-contain"
                 />
               </a>
               <p
                 class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed max-w-sm mt-1"
               >
                 A supportive community for every stage of motherhood. Because
-                you're not alone.
+                you're not alone. Find honest family stories, thoughtful expert
+                guidance, and a village that understands the little moments
+                and the big ones.
               </p>
             </div>
 
             <!-- Social Pill Buttons -->
-            <div class="flex items-center gap-2.5 pt-6">
+            <div class="flex items-center gap-3 pt-6">
               <!-- Instagram -->
               <a
                 href="https://www.instagram.com/wethemums/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                class="w-11 h-11 rounded-full border border-[#E8D5CE] bg-gradient-to-br from-white to-[#F8E9E6] text-[#76263A] flex items-center justify-center shadow-[0_5px_14px_rgba(112,40,58,0.12)] transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:border-[#76263A] hover:bg-[#76263A] hover:text-white hover:shadow-[0_9px_20px_rgba(112,40,58,0.22)]"
                 title="Instagram"
                 aria-label="Instagram"
               >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                   />
@@ -546,11 +504,11 @@
               <!-- Facebook -->
               <a
                 href="#"
-                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                class="w-11 h-11 rounded-full border border-[#E8D5CE] bg-gradient-to-br from-white to-[#F8E9E6] text-[#76263A] flex items-center justify-center shadow-[0_5px_14px_rgba(112,40,58,0.12)] transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:border-[#76263A] hover:bg-[#76263A] hover:text-white hover:shadow-[0_9px_20px_rgba(112,40,58,0.22)]"
                 title="Facebook"
                 aria-label="Facebook"
               >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path
                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                   />
@@ -559,11 +517,11 @@
               <!-- Pinterest -->
               <a
                 href="#"
-                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                class="w-11 h-11 rounded-full border border-[#E8D5CE] bg-gradient-to-br from-white to-[#F8E9E6] text-[#76263A] flex items-center justify-center shadow-[0_5px_14px_rgba(112,40,58,0.12)] transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:border-[#76263A] hover:bg-[#76263A] hover:text-white hover:shadow-[0_9px_20px_rgba(112,40,58,0.22)]"
                 title="Pinterest"
                 aria-label="Pinterest"
               >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path
                     d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.357-.057.235-.188.286-.433.172-1.624-.755-2.639-3.127-2.639-5.033 0-4.101 2.979-7.868 8.593-7.868 4.512 0 8.018 3.216 8.018 7.513 0 4.484-2.827 8.093-6.75 8.093-1.318 0-2.557-.686-2.981-1.494l-.811 3.093c-.293 1.121-1.087 2.527-1.618 3.393 1.199.37 2.479.57 3.807.57 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
                   />
@@ -572,11 +530,11 @@
               <!-- YouTube -->
               <a
                 href="#"
-                class="w-8 h-8 rounded-full bg-[#FAF0ED] text-[#862D42] hover:bg-[#862D42] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                class="w-11 h-11 rounded-full border border-[#E8D5CE] bg-gradient-to-br from-white to-[#F8E9E6] text-[#76263A] flex items-center justify-center shadow-[0_5px_14px_rgba(112,40,58,0.12)] transition-all duration-200 hover:-translate-y-1 hover:scale-105 hover:border-[#76263A] hover:bg-[#76263A] hover:text-white hover:shadow-[0_9px_20px_rgba(112,40,58,0.22)]"
                 title="YouTube"
                 aria-label="YouTube"
               >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
                   />
@@ -620,18 +578,7 @@
                   Stories
                 </a>
               </li>
-              <li>
-                <a
-                  href="journal.html"
-                  class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
-                >
-                  <span
-                    class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
-                    >&rsaquo;</span
-                  >
-                  Resources
-                </a>
-              </li>
+              
               <li>
                 <a
                   href="about.html"
@@ -644,16 +591,16 @@
                   About
                 </a>
               </li>
-              <li>
+                            <li>
                 <a
-                  href="brand-partnerships.html"
+                  href="courses.html"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
                     class="text-[#862D42] text-xs font-bold transition-transform group-hover/link:translate-x-0.5"
                     >&rsaquo;</span
                   >
-                  Events
+                  Parenting Courses
                 </a>
               </li>
               <li>
@@ -684,7 +631,7 @@
             <ul class="space-y-2.5 text-xs sm:text-[13px] text-[#4A423F]">
               <li>
                 <a
-                  href="stories.html?category=motherhood"
+                  href="stories.html?category=motherhood#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -696,7 +643,7 @@
               </li>
               <li>
                 <a
-                  href="stories.html?category=everyday-parenting"
+                  href="stories.html?category=everyday-parenting#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -708,7 +655,7 @@
               </li>
               <li>
                 <a
-                  href="stories.html?category=pregnancy-and-birth"
+                  href="stories.html?category=pregnancy-and-birth#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -720,7 +667,7 @@
               </li>
               <li>
                 <a
-                  href="stories.html?category=feeding-and-lifestyle"
+                  href="stories.html?category=everyday-parenting#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -732,7 +679,7 @@
               </li>
               <li>
                 <a
-                  href="stories.html?category=everyday-parenting"
+                  href="stories.html?category=everyday-parenting#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -744,7 +691,7 @@
               </li>
               <li>
                 <a
-                  href="stories.html?category=challenges-and-growth"
+                  href="stories.html?category=challenges-and-personal-growth#real-voices"
                   class="hover:text-[#862D42] transition-colors flex items-center gap-2 group/link"
                 >
                   <span
@@ -757,91 +704,39 @@
             </ul>
           </div>
 
-          <!-- Col 4: Stay Connected -->
-          <div
-            class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2"
-          >
+          <!-- Col 4: Contact Details -->
+          <div class="lg:col-span-3 lg:border-l lg:border-[#F0EAE6] lg:pl-7 pr-0 lg:pr-2">
             <div class="flex items-center gap-2 mb-3">
-              <div
-                class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0"
-              >
-                <svg
-                  class="w-3.5 h-3.5 stroke-current fill-none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  ></path>
+              <div class="w-7 h-7 rounded-full bg-[#FAF0ED] text-[#862D42] flex items-center justify-center shrink-0">
+                <svg class="w-3.5 h-3.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
               </div>
               <div>
-                <h4
-                  class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase"
-                >
-                  STAY CONNECTED
-                </h4>
+                <h4 class="text-[11px] sm:text-xs font-bold tracking-[0.14em] text-[#862D42] uppercase">GET IN TOUCH</h4>
                 <div class="w-6 h-[1.5px] bg-[#862D42] mt-0.5"></div>
               </div>
             </div>
-
-            <p
-              class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4"
-            >
-              Subscribe to our newsletter for the latest stories and updates.
-            </p>
-
-            <form
-              id="footer-newsletter"
-              class="relative flex items-center rounded-full border border-[#E5DAD4] bg-white p-1 pl-4 shadow-sm hover:border-[#862D42]/40 transition-colors"
-            >
-              <svg
-                class="w-4 h-4 text-[#9C928E] stroke-current fill-none shrink-0 mr-2"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                ></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <input
-                type="email"
-                required
-                placeholder="Your email address"
-                class="w-full text-xs text-[#221C1D] placeholder:text-[#A09590] focus:outline-none bg-transparent pr-2"
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                class="w-8 h-8 rounded-full bg-[#862D42] hover:bg-[#6D2335] text-white flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all"
-              >
-                <span class="text-xs font-bold">&rarr;</span>
-              </button>
-            </form>
-
-            <div
-              class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none"
-            >
-              <span>Join our community</span>
-              <svg
-                class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5"
-                viewBox="0 0 24 24"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                ></path>
-              </svg>
+            <p class="text-xs sm:text-[13px] text-[#6E6460] leading-relaxed mb-4">Questions, ideas, or just want to say hello? We�d love to hear from you.</p>
+            <div class="space-y-2.5">
+              <a href="mailto:editorial@wethemums.com" class="group flex items-center gap-3 rounded-2xl border border-[#E5DAD4] bg-white px-3.5 py-3 shadow-sm transition hover:border-[#C9828F] hover:shadow-md">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FAF0ED] text-[#862D42]" aria-hidden="true">
+                  <svg class="h-4 w-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </span>
+                <span class="min-w-0"><span class="block text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9C7775]">Email us</span><span class="block break-all text-xs font-medium text-[#34272A] group-hover:text-[#862D42]">editorial@wethemums.com</span></span>
+              </a>
+              <a href="tel:+919876543210" aria-label="Call us at +91 98765 43210" class="group flex items-center gap-3 rounded-2xl border border-[#E5DAD4] bg-white px-3.5 py-3 shadow-sm transition hover:border-[#C9828F] hover:shadow-md">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FAF0ED] text-[#862D42]" aria-hidden="true">
+                  <svg class="h-4 w-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.06 8.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.58 2.8.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </span>
+                <span class="min-w-0"><span class="block text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9C7775]">Call us</span><span class="block text-xs font-medium text-[#34272A] group-hover:text-[#862D42]">+91 98765 43210</span></span>
+              </a>
             </div>
-          </div>
+            <div class="mt-3.5 flex items-center gap-1.5 font-hand text-[18px] text-[#862D42] font-semibold tracking-wide select-none">
+              <span>Here for every chapter</span>
+              <svg class="w-4 h-4 text-[#862D42] stroke-current fill-none inline-block -translate-y-0.5" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>          </div>
         </div>
       </div>
 
@@ -880,26 +775,32 @@
             </svg>
             <span class="w-[1px] h-3.5 bg-white/30"></span>
             <span
-              >&copy; 2025
+              >&copy; 2026
               <strong class="font-semibold text-white">WithTheMums.</strong> All
               rights reserved.</span
             >
           </div>
 
+          <div class="text-[10px] sm:text-xs text-white/70">
+            Designed &amp; Developed by <strong class="font-semibold text-white">Goadslive</strong>
+          </div>
+
           <!-- Right: Policy Links + Scroll to Top Button -->
-          <div class="flex items-center gap-4 sm:gap-6">
+          <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-x-6">
             <a
-              href="contact.html#privacy"
+              href="privacy-policy.html"
               class="hover:text-white transition-colors"
               >Privacy Policy</a
             >
-            <span class="w-[1px] h-3 bg-white/30"></span>
+            <span class="hidden sm:block w-[1px] h-3 bg-white/30"></span>
             <a
-              href="contact.html#terms"
+              href="terms-and-conditions.html"
               class="hover:text-white transition-colors"
-              >Terms of Service</a
+              >Terms &amp; Conditions</a
             >
-            <span class="w-[1px] h-3 bg-white/30"></span>
+            <span class="hidden sm:block w-[1px] h-3 bg-white/30"></span>
+            <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookie Policy</a>
+            <span class="hidden sm:block w-[1px] h-3 bg-white/30"></span>
             <a href="contact.html" class="hover:text-white transition-colors"
               >Contact</a
             >
@@ -930,7 +831,15 @@
   <script>
     // Mobile navigation toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');      const menuIcon = mobileBtn?.querySelector("#mobile-menu-icon");
+      if (mobileBtn && mobileMenu && menuIcon) {
+        mobileBtn.addEventListener("click", () => {
+          const willOpen = mobileMenu.classList.contains("hidden");
+          menuIcon.setAttribute("d", willOpen ? "M6 6l12 12M18 6L6 18" : "M4 6h16M4 12h16M4 18h16");
+          mobileBtn.setAttribute("aria-expanded", String(willOpen));
+          mobileBtn.setAttribute("aria-label", willOpen ? "Close navigation menu" : "Open navigation menu");
+        });
+      }
     if (mobileBtn && mobileMenu) {
       mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     }
@@ -996,6 +905,7 @@
       document.getElementById('story-author').textContent = `By ${story.author}`;
       document.getElementById('story-date').textContent = story.publishedAt;
       document.getElementById('story-cover').src = story.coverImage;
+      document.getElementById('story-cover').alt = `Photo accompanying the story: ${story.title}`;
 
       // Populate Story Content
       const bodyEl = document.getElementById('story-body');
